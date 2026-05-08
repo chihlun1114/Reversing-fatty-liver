@@ -1,0 +1,305 @@
+%!Adobe-FontList 1.24
+%Locale:0x404
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:CID
+FontName:DFHeiStd-W3
+FamilyName:DFHei Std
+StyleName:W3
+FullName:DFHei Std W3
+MenuName:華康黑體 Std W3
+StyleBits:0
+FamilyNameNative:華康黑體 Std
+StyleNameNative:W3
+FullNameNative:華康黑體 Std W3
+WritingScript:TraditionalChinese
+OutlineFileName:\\10.0.3.228\康健攝影專區\2026年\00_康健正刊&專刊內文集檔專區\321\067_073預防篇_ID34669檔案夾\Document fonts\DFHEISTD-W3C.OTF
+DataFormat:sfntData
+isCFF:yes
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:4176920
+FileModTime:1701075858
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,DFHei Std W3
+NameArray:2,Mac,4,華康黑體 Std W3
+NameArray:2,Win,1,華康黑體 Std W3
+NameArray:2,Win,16,華康黑體 Std
+NameArray:0,Win,1,DFHei Std W3
+NameArray:0,Win,16,DFHei Std
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:CID
+FontName:DFHeiStd-W5
+FamilyName:DFHei Std
+StyleName:W5
+FullName:DFHei Std W5
+MenuName:華康黑體 Std W5
+StyleBits:0
+FamilyNameNative:華康黑體 Std
+StyleNameNative:W5
+FullNameNative:華康黑體 Std W5
+WritingScript:TraditionalChinese
+OutlineFileName:\\10.0.3.228\康健攝影專區\2026年\00_康健正刊&專刊內文集檔專區\321\067_073預防篇_ID34669檔案夾\Document fonts\DFHEISTD-W5C.OTF
+DataFormat:sfntData
+isCFF:yes
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:8273952
+FileModTime:1701075861
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,DFHei Std W5
+NameArray:2,Mac,4,華康黑體 Std W5
+NameArray:2,Win,1,華康黑體 Std W5
+NameArray:2,Win,16,華康黑體 Std
+NameArray:0,Win,1,DFHei Std W5
+NameArray:0,Win,16,DFHei Std
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:CID
+FontName:DFHeiStd-W7
+FamilyName:DFHei Std
+StyleName:W7
+FullName:DFHei Std W7
+MenuName:華康黑體 Std W7
+StyleBits:0
+FamilyNameNative:華康黑體 Std
+StyleNameNative:W7
+FullNameNative:華康黑體 Std W7
+WritingScript:TraditionalChinese
+OutlineFileName:\\10.0.3.228\康健攝影專區\2026年\00_康健正刊&專刊內文集檔專區\321\067_073預防篇_ID34669檔案夾\Document fonts\DFHEISTD-W7C.OTF
+DataFormat:sfntData
+isCFF:yes
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:4702208
+FileModTime:1701075860
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,DFHei Std W7
+NameArray:2,Mac,4,華康黑體 Std W7
+NameArray:2,Win,1,華康黑體 Std W7
+NameArray:2,Win,16,華康黑體 Std
+NameArray:0,Win,1,DFHei Std W7
+NameArray:0,Win,16,DFHei Std
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:CID
+FontName:DFHeiStd-W9
+FamilyName:DFHei Std
+StyleName:W9
+FullName:DFHei Std W9
+MenuName:華康黑體 Std W9
+StyleBits:0
+FamilyNameNative:華康黑體 Std
+StyleNameNative:W9
+FullNameNative:華康黑體 Std W9
+WritingScript:TraditionalChinese
+OutlineFileName:\\10.0.3.228\康健攝影專區\2026年\00_康健正刊&專刊內文集檔專區\321\067_073預防篇_ID34669檔案夾\Document fonts\DFHEISTD-W9C.OTF
+DataFormat:sfntData
+isCFF:yes
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:4100260
+FileModTime:1701075858
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,DFHei Std W9
+NameArray:2,Mac,4,華康黑體 Std W9
+NameArray:2,Win,1,華康黑體 Std W9
+NameArray:2,Win,16,華康黑體 Std
+NameArray:0,Win,1,DFHei Std W9
+NameArray:0,Win,16,DFHei Std
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Rearranged
+FontName:ATC-83ef5eb7660e9ad4*W5+Times*0020*New*0020*Roman
+FamilyName:<83EF><5EB7><660E><9AD4>W5+Times New Roman
+FullName:<83EF><5EB7><660E><9AD4>W5+Times New Roman
+MenuName:華康明體W5+Times New Roman
+StyleBits:0
+FamilyNameNative:華康明體W5+Times New Roman
+StyleNameNative:
+FullNameNative:華康明體W5+Times New Roman
+OutlineFileName:\\10.0.3.228\康健攝影專區\2026年\00_康健正刊&專刊內文集檔專區\321\067_073預防篇_ID34669檔案夾\Document fonts\華康明體W5+Times New Roman
+DataFormat:sfntData
+ComponentFont:DFMingStd-W5-UniCNS-UTF16-H
+ComponentFont:DFMingStd-W5-UniCNS-UTF16-H
+ComponentFont:DFMingStd-W5-UniCNS-UTF16-H
+ComponentFont:DFMingStd-W5-UniCNS-UTF16-H
+ComponentFont:TimesNewRomanPSMT-UniCNS-UTF16-H
+ComponentFont:TimesNewRomanPSMT-UniCNS-UTF16-H
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:6490
+FileModTime:1776685103
+WeightClass:400
+WidthClass:5
+AngleClass:0
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Rearranged
+FontName:ATC-83ef5eb79ed19ad4*w3+DIN2014
+FamilyName:<83EF><5EB7><9ED1><9AD4>w3+DIN2014
+FullName:<83EF><5EB7><9ED1><9AD4>w3+DIN2014
+MenuName:華康黑體w3+DIN2014
+StyleBits:0
+FamilyNameNative:華康黑體w3+DIN2014
+StyleNameNative:
+FullNameNative:華康黑體w3+DIN2014
+OutlineFileName:\\10.0.3.228\康健攝影專區\2026年\00_康健正刊&專刊內文集檔專區\321\067_073預防篇_ID34669檔案夾\Document fonts\華康黑體w3+DIN2014
+DataFormat:sfntData
+ComponentFont:DFHeiStd-W3-UniCNS-UTF16-H
+ComponentFont:DFHeiStd-W3-UniCNS-UTF16-H
+ComponentFont:DFHeiStd-W3-UniCNS-UTF16-H
+ComponentFont:DFHeiStd-W3-UniCNS-UTF16-H
+ComponentFont:DIN2014-Regular-UniCNS-UTF16-H
+ComponentFont:DIN2014-Regular-UniCNS-UTF16-H
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:6361
+FileModTime:1776685103
+WeightClass:400
+WidthClass:5
+AngleClass:0
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Rearranged
+FontName:ATC-83ef5eb79ed19ad4*w5+DIN2014
+FamilyName:<83EF><5EB7><9ED1><9AD4>w5+DIN2014
+FullName:<83EF><5EB7><9ED1><9AD4>w5+DIN2014
+MenuName:華康黑體w5+DIN2014
+StyleBits:0
+FamilyNameNative:華康黑體w5+DIN2014
+StyleNameNative:
+FullNameNative:華康黑體w5+DIN2014
+OutlineFileName:\\10.0.3.228\康健攝影專區\2026年\00_康健正刊&專刊內文集檔專區\321\067_073預防篇_ID34669檔案夾\Document fonts\華康黑體w5+DIN2014
+DataFormat:sfntData
+ComponentFont:DFHeiStd-W5-UniCNS-UTF16-H
+ComponentFont:DFHeiStd-W5-UniCNS-UTF16-H
+ComponentFont:DFHeiStd-W5-UniCNS-UTF16-H
+ComponentFont:DFHeiStd-W5-UniCNS-UTF16-H
+ComponentFont:DIN2014-Regular-UniCNS-UTF16-H
+ComponentFont:DIN2014-Regular-UniCNS-UTF16-H
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:6361
+FileModTime:1776685094
+WeightClass:400
+WidthClass:5
+AngleClass:0
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Rearranged
+FontName:ATC-83ef5eb79ed19ad4*w5+DIN2014-1
+FamilyName:<83EF><5EB7><9ED1><9AD4>w5+DIN2014-1
+FullName:<83EF><5EB7><9ED1><9AD4>w5+DIN2014-1
+MenuName:華康黑體w5+DIN2014-1
+StyleBits:0
+FamilyNameNative:華康黑體w5+DIN2014-1
+StyleNameNative:
+FullNameNative:華康黑體w5+DIN2014-1
+OutlineFileName:\\10.0.3.228\康健攝影專區\2026年\00_康健正刊&專刊內文集檔專區\321\067_073預防篇_ID34669檔案夾\Document fonts\華康黑體w5+DIN2014-1
+DataFormat:sfntData
+ComponentFont:DFHeiStd-W5-UniCNS-UTF16-H
+ComponentFont:DFHeiStd-W5-UniCNS-UTF16-H
+ComponentFont:DFHeiStd-W5-UniCNS-UTF16-H
+ComponentFont:DFHeiStd-W5-UniCNS-UTF16-H
+ComponentFont:DIN2014-Regular-UniCNS-UTF16-H
+ComponentFont:DIN2014-Regular-UniCNS-UTF16-H
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:6379
+FileModTime:1776685103
+WeightClass:400
+WidthClass:5
+AngleClass:0
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Rearranged
+FontName:ATC-83ef5eb79ed19ad4*w7+DIN2014
+FamilyName:<83EF><5EB7><9ED1><9AD4>w7+DIN2014
+FullName:<83EF><5EB7><9ED1><9AD4>w7+DIN2014
+MenuName:華康黑體w7+DIN2014
+StyleBits:0
+FamilyNameNative:華康黑體w7+DIN2014
+StyleNameNative:
+FullNameNative:華康黑體w7+DIN2014
+OutlineFileName:\\10.0.3.228\康健攝影專區\2026年\00_康健正刊&專刊內文集檔專區\321\067_073預防篇_ID34669檔案夾\Document fonts\華康黑體w7+DIN2014
+DataFormat:sfntData
+ComponentFont:DFHeiStd-W7-UniCNS-UTF16-H
+ComponentFont:DFHeiStd-W7-UniCNS-UTF16-H
+ComponentFont:DFHeiStd-W7-UniCNS-UTF16-H
+ComponentFont:DFHeiStd-W7-UniCNS-UTF16-H
+ComponentFont:DIN2014-Regular-UniCNS-UTF16-H
+ComponentFont:DIN2014-Regular-UniCNS-UTF16-H
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:6361
+FileModTime:1776685094
+WeightClass:400
+WidthClass:5
+AngleClass:0
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Rearranged
+FontName:ATC-83ef5eb79ed19ad4*w9+DIN2014
+FamilyName:<83EF><5EB7><9ED1><9AD4>w9+DIN2014
+FullName:<83EF><5EB7><9ED1><9AD4>w9+DIN2014
+MenuName:華康黑體w9+DIN2014
+StyleBits:0
+FamilyNameNative:華康黑體w9+DIN2014
+StyleNameNative:
+FullNameNative:華康黑體w9+DIN2014
+OutlineFileName:\\10.0.3.228\康健攝影專區\2026年\00_康健正刊&專刊內文集檔專區\321\067_073預防篇_ID34669檔案夾\Document fonts\華康黑體w9+DIN2014
+DataFormat:sfntData
+ComponentFont:DFHeiStd-W9-UniCNS-UTF16-H
+ComponentFont:DFHeiStd-W9-UniCNS-UTF16-H
+ComponentFont:DFHeiStd-W9-UniCNS-UTF16-H
+ComponentFont:DFHeiStd-W9-UniCNS-UTF16-H
+ComponentFont:DIN2014-Bold-UniCNS-UTF16-H
+ComponentFont:DIN2014-Bold-UniCNS-UTF16-H
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:6338
+FileModTime:1776685094
+WeightClass:400
+WidthClass:5
+AngleClass:0
+%EndFont
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LiverEvolution — 肝臟演進互動</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./css/liver-evolution.css">
+</head>
+<body class="m-0 bg-slate-100 text-slate-800 antialiased">
+  <!--
+    圖檔請置於：./images/liver-evolution/
+    stage-0.png … stage-5.png（主視覺肝臟）
+    micro-0.png … micro-5.png（細胞／切片示意）
+  -->
+  <section id="liver-evolution" class="liver-evolution" aria-labelledby="liver-evolution-title">
+    <div class="liver-evolution__inner">
+      <header class="liver-evolution__header">
+        <p class="liver-evolution__kicker">INTERACTIVE MODULE</p>
+        <h1 id="liver-evolution-title" class="liver-evolution__title">肝臟演進：從健康到硬化</h1>
+        <p class="liver-evolution__subtitle">
+          拖曳下方滑桿檢視六個階段。主畫面與微觀示意將同步切換；「可逆／不可逆」區間會隨階段更新。
+        </p>
+      </header>
+
+      <div class="liver-evolution__grid">
+        <div class="liver-evolution__visual">
+          <div class="liver-evolution__liver-wrap" aria-hidden="true">
+            <div class="liver-evolution__liver-stack">
+              <img data-liver-layer alt="" loading="eager" decoding="async">
+              <img data-liver-layer alt="" loading="lazy" decoding="async">
+              <img data-liver-layer alt="" loading="lazy" decoding="async">
+              <img data-liver-layer alt="" loading="lazy" decoding="async">
+              <img data-liver-layer alt="" loading="lazy" decoding="async">
+              <img data-liver-layer alt="" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="liver-evolution__micro-wrap">
+            <p class="liver-evolution__micro-label">細胞／微觀切片示意</p>
+            <img class="liver-evolution__micro-img" data-micro-img src="./images/liver-evolution/micro-0.png" alt="">
+          </div>
+        </div>
+
+        <div class="liver-evolution__copy">
+          <div class="liver-evolution__stage-meta">
+            <div class="liver-evolution__stage-pill" aria-live="polite">
+              <span data-stage-index>1</span><span>/</span><span data-stage-total>6</span>
+            </div>
+          </div>
+          <h2 class="liver-evolution__stage-title" data-stage-title>健康肝臟</h2>
+          <p class="liver-evolution__stage-desc" data-stage-desc>
+            肝細胞排列緊密，脂肪含量極低；代謝、解毒與合成蛋白功能正常。此階段維持均衡飲食與規律運動，有助長期保肝。
+          </p>
+        </div>
+
+        <div class="liver-evolution__slider-block">
+          <div class="liver-evolution__track-labels" aria-hidden="true">
+            <span class="liver-evolution__label-reversible" data-badge-reversible>可逆<br><span style="font-weight:500;opacity:.85">健康 → 中度脂肪肝</span></span>
+            <span class="liver-evolution__label-irreversible" data-badge-irreversible>不可逆<br><span style="font-weight:500;opacity:.85">重度脂肪肝起</span></span>
+          </div>
+
+          <div class="relative w-full max-w-2xl mx-auto rounded-2xl border border-white/60 bg-white/35 px-5 py-4 shadow-lg shadow-slate-900/5 backdrop-blur-md">
+            <label class="sr-only" for="liver-stage-slider">肝臟階段（0 健康 至 5 硬化）</label>
+            <input
+              id="liver-stage-slider"
+              class="liver-evolution__range w-full"
+              type="range"
+              min="0"
+              max="5"
+              step="1"
+              value="0"
+              data-liver-slider
+            >
+            <div class="liver-evolution__ticks" aria-hidden="true">
+              <span>健康</span>
+              <span>輕度</span>
+              <span>中度</span>
+              <span>重度</span>
+              <span>纖維化</span>
+              <span>硬化</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="./js/liver-evolution.js"></script>
+</body>
+</html>

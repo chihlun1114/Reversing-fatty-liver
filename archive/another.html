@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* content start */
+      /* 內容樣式放裡面 */
+
+      /* content end */
+
+      /* 全域設定 -- 勿更動 */
+      body {
+        margin: 0;
+        padding-top: 68px;
+      }
+      @media (max-width: 768px) {
+        body {
+          padding-top: 56px;
+        }
+      }
+
+      /* 全域設定 -- 勿更動 */
+
+      /* header start */
+      #ch-header,
+      #ch-header div,
+      #ch-header span,
+      #ch-header h1,
+      #ch-header p,
+      #ch-header a,
+      #ch-header ol,
+      #ch-header ul,
+      #ch-header li {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+        box-sizing: border-box;
+      }
+
+      #ch-header a {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+        display: flex;
+      }
+
+      #ch-header #ch-container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      @media (min-width: 768px) {
+        #ch-header #ch-container {
+          max-width: 720px;
+        }
+      }
+
+      @media (min-width: 992px) {
+        #ch-header #ch-container {
+          max-width: 960px;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        #ch-header #ch-container {
+          max-width: 1140px;
+        }
+      }
+
+      #ch-header h1 img {
+        height: 48px;
+      }
+
+      @media (max-width: 768px) {
+        #ch-header h1 img {
+          height: 32px;
+        }
+      }
+
+      #ch-header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        -webkit-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
+        box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
+        z-index: 5;
+      }
+
+      @media (max-width: 768px) {
+        #ch-header {
+          padding: 8px 0;
+        }
+      }
+
+      #ch-header #ch-container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      #ch-header ul {
+        display: flex !important;
+        list-style: none;
+      }
+
+      #ch-header ul li a {
+        padding: 23px 12px;
+        display: inline-table;
+        text-decoration: none;
+        color: #222;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+      }
+
+      #ch-header ul li a:hover {
+        color: #094;
+      }
+
+      @media (max-width: 768px) {
+        #ch-header ul li a {
+          font-size: 20px;
+          padding: 15px 20px;
+        }
+      }
+
+      @media (max-width: 568px) {
+        #ch-header ul li a {
+          font-size: 18px;
+        }
+      }
+
+      #ch-header #ch-social-group {
+        display: flex !important;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      @media (max-width: 768px) {
+        #ch-header #ch-social-group {
+          margin-top: 15px;
+        }
+      }
+
+      #ch-header .ch-social {
+        font-size: 40px;
+      }
+
+      #ch-header .ch-social a {
+        padding: 0 12px;
+        line-height: 36px;
+        color: #979696;
+      }
+
+      #ch-header .ch-social a:hover {
+        border-bottom: 0;
+        padding: 0 12px;
+      }
+
+      @media (max-width: 568px) {
+        #ch-header .ch-social a {
+          font-size: 40px;
+          color: #fff;
+        }
+      }
+
+      #ch-header .ch-social i {
+        vertical-align: bottom;
+      }
+
+      #ch-header #ch-button-toggle {
+        display: none;
+        position: relative;
+        width: 40px;
+        height: 40px;
+        z-index: 10000;
+        cursor: pointer;
+      }
+
+      @media (max-width: 768px) {
+        #ch-header #ch-button-toggle {
+          display: block;
+        }
+      }
+
+      #ch-header #ch-button-toggle span {
+        display: block;
+        position: absolute;
+        width: 30px;
+        height: 2px;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        background-color: #000;
+      }
+
+      #ch-header #ch-button-toggle span::after,
+      #ch-header #ch-button-toggle span::before {
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+        position: absolute;
+        content: '';
+        display: block;
+        width: 100%;
+        top: 50%;
+        height: 2px;
+        background-color: #000;
+      }
+
+      #ch-header #ch-button-toggle span::before {
+        top: -8px;
+      }
+
+      #ch-header #ch-button-toggle span::after {
+        bottom: -8px;
+        top: auto;
+      }
+
+      #ch-header #ch-button-toggle.active span {
+        background-color: transparent;
+      }
+
+      #ch-header #ch-button-toggle.active span::after,
+      #ch-header #ch-button-toggle.active span::before {
+        top: 0;
+      }
+
+      #ch-header #ch-button-toggle.active span::before {
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+
+      @media (max-width: 768px) {
+        #ch-header #ch-button-toggle.active span::before {
+          background-color: #000;
+        }
+      }
+
+      #ch-header #ch-button-toggle.active span::after {
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }
+
+      @media (max-width: 768px) {
+        #ch-header #ch-button-toggle.active span::after {
+          background-color: #000;
+        }
+      }
+
+      @media (max-width: 768px) {
+        #ch-header ul {
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 0px;
+          background-color: #fff;
+          -webkit-transition: all 0.5s;
+          transition: all 0.5s;
+          overflow: hidden;
+          z-index: 120;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          opacity: 0;
+        }
+
+        #ch-header ul.opening {
+          height: 100vh;
+          width: 100%;
+          opacity: 1;
+          visibility: visible;
+          background-color: #fff;
+        }
+
+        #ch-header ul li {
+          width: 100vw;
+          text-align: center;
+        }
+      }
+      /* header end */
+
+      /* footer start */
+      footer {
+        width: 100%;
+        padding: 30px 0;
+        color: #373737;
+        background: #fff;
+      }
+      footer a {
+        transition: 0.3s;
+        text-decoration: none;
+      }
+
+      footer ul {
+        list-style-type: none;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+      }
+
+      footer ul li {
+        font-size: 15px;
+        line-height: 15px;
+        border-right: 1px solid #373737;
+        padding: 0 10px 0 0;
+        margin: 0 10px 10px 0;
+      }
+
+      footer ul li:last-child {
+        border: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      footer ul li a {
+        color: #373737;
+        line-height: 15px;
+      }
+
+      footer ul:last-child {
+        margin: 0;
+      }
+
+      footer p {
+        color: #373737;
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 300;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+
+      @media (max-width: 768px) {
+        footer ul {
+          -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+        }
+        footer ul li {
+          padding: 0 5px 0 0;
+          margin: 0 5px 10px 0;
+        }
+      }
+
+      /* footer end */
+    </style>
+  </head>
+  <body>
+    <!-- header start -->
+    <header id="ch-header">
+      <div id="ch-container">
+        <h1>
+          <a href="/"><img class="logo" src="https://web.commonhealth.com.tw/assets/global/image/CH-logo-w.svg" alt="康健 logo" /></a>
+        </h1>
+        <div id="ch-button-toggle"><span></span></div>
+        <ul id="ch-nav-wrap">
+          <li><a href="#header" target="_self">連結_原頁開啟_self</a></li>
+          <li><a href="#about" target="_self">連結_原頁開啟_self</a></li>
+          <li><a href="https://www.commonhealth.com.tw/" target="_blank">連結_另開新頁_blank</a></li>
+          <li><a href="https://www.commonhealth.com.tw/" target="_blank">連結_另開新頁_blank</a></li>
+          <!-- 新增 <li></li> -->
+          <li id="ch-social-group">
+            <div class="ch-social">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=網址" target="_blank">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                  <path
+                    d="M22.67 2.667h-3.49c-3.922 0-6.454 2.574-6.454 6.562v3.028H9.215a.546.546 0 0 0-.548.541v4.385c0 .302.245.54.548.54h3.511v11.07c0 .302.246.54.548.54h4.58a.546.546 0 0 0 .548-.54v-11.07h4.103a.546.546 0 0 0 .548-.54v-4.385a.54.54 0 0 0-.548-.54h-4.103V9.69c0-1.233.295-1.86 1.918-1.86h2.35a.548.548 0 0 0 .549-.548V3.207a.542.542 0 0 0-.548-.54Z"
+                    fill="#1877F2"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+            <div class="ch-social">
+              <a class="gtm-event" href="https://social-plugins.line.me/lineit/share?url=網址&amp;text=網站說明" target="_blank">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M25.342 12.248a.272.272 0 0 1-.267.274H22.44v1.03h2.636c.152 0 .267.123.267.274v.98a.272.272 0 0 1-.267.274H22.44v1.03h2.636c.152 0 .267.122.267.274v.98a.272.272 0 0 1-.267.273H21.2a.262.262 0 0 1-.188-.079h-.007a.324.324 0 0 1-.072-.195V11.27c0-.072.029-.137.072-.188h.007a.243.243 0 0 1 .188-.086h3.875c.152 0 .267.122.267.274v.98Zm-5.36 5.115a.272.272 0 0 1-.267.274h-.972s-.05 0-.072-.007H18.642s-.007 0-.014-.007h-.022l-.014-.022s-.05-.043-.065-.072l-2.767-3.775v3.617a.272.272 0 0 1-.266.273h-.973a.268.268 0 0 1-.267-.273v-6.095c0-.152.123-.274.267-.274h1.045l.014.014h.022v.015h.021v.014h.022v.015l.022.014s.007.014.014.022c0 0 .014.021.022.028l2.766 3.776v-3.624c0-.152.123-.274.267-.274h.972c.152 0 .267.122.267.274v6.095l.007-.008Zm-6.686 0a.272.272 0 0 1-.266.274h-.973a.267.267 0 0 1-.266-.274V11.27c0-.152.122-.274.266-.274h.973c.151 0 .266.122.266.274v6.094Zm-2.341 0a.272.272 0 0 1-.267.274H6.812a.262.262 0 0 1-.187-.079h-.007a.323.323 0 0 1-.072-.195V11.27c0-.152.122-.274.266-.274h.973c.151 0 .267.122.267.274v4.84h2.636c.152 0 .267.123.267.275v.98Zm18.724-3.342c0-6.26-6.21-11.354-13.84-11.354C8.21 2.667 2 7.76 2 14.02c0 5.612 4.92 10.309 11.577 11.202.454.101 1.067.303 1.218.692.137.353.094.908.043 1.268 0 0-.166.987-.194 1.196-.058.353-.281 1.383 1.195.756 1.477-.626 7.969-4.74 10.872-8.119 2.003-2.226 2.968-4.481 2.968-6.98v-.015Z"
+                    fill="#06C755"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+    <script>
+      // 點擊選單開關按鈕
+      $('#ch-button-toggle').click(function (e) {
+        e.preventDefault()
+        $(this).toggleClass('active')
+        $('#ch-nav-wrap').toggleClass('opening')
+      })
+
+      // 點擊導覽區塊收合選單
+      $('#ch-nav-wrap').click(function () {
+        $(this).toggleClass('opening')
+        $('#ch-button-toggle').toggleClass('active')
+      })
+
+      // 點擊導覽內部連結，平滑滾動
+      $('#ch-nav-wrap a[href^="#"]').on('click', function (e) {
+        const target = $(this.getAttribute('href'))
+        if (target.length) {
+          e.preventDefault()
+          $('html, body').stop().animate(
+            {
+              scrollTop: target.offset().top,
+            },
+            1000
+          )
+        }
+      })
+    </script>
+    <!-- header end -->
+
+    <!-- content start -->
+    <!-- 請於 section 內 iframe 模組變更網址 -->
+    <iframe src="https://web.commonhealth.com.tw/_test-by-junewu/ge_kv/kv.html" frameborder="0" style="width: 100%; height: 80vh; border: none"></iframe>
+    <iframe src="https://web.commonhealth.com.tw/quiz/2022futurelife/qa.html" style="width: 100%; height: 80vh; border: none"></iframe>
+    <iframe src="https://web.commonhealth.com.tw/magzine/sp111/preread/index.html" style="width: 100%; height: 80vh; border: none"></iframe>
+    <!-- 新增 <iframe src="..." style="width: 100%; height: 80vh; border: none"></iframe> -->
+    <!-- content end -->
+
+    <!-- footer start -->
+    <footer>
+      <ul>
+        <li><a href="https://www.commonhealth.com.tw/" target="_blank">康健官網</a></li>
+        <li><a href="https://www.commonhealth.com.tw/" target="_blank">康健雜誌</a></li>
+        <li><a href="https://www.commonhealth.com.tw/book/index.action" target="_blank">康健出版</a></li>
+        <li><a href="https://www.youtube.com/user/CommonHealthTV" target="_blank">康健影音</a></li>
+        <li><a href="https://kb.commonhealth.com.tw/" target="_blank">康健知識庫</a></li>
+        <li><a href="https://club.commonhealth.com.tw/" target="_blank">大人社團</a></li>
+        <li><a href="https://cancer.commonhealth.com.tw/" target="_blank">癌症問康健</a></li>
+      </ul>
+      <p>Copyright © <span id="footer-year"></span>2025</div>康健雜誌（天下生活出版股份有限公司）All rights reserved.</p>
+      <ul>
+        <li><a href="https://member.cwg.tw/privacy-policy" target="_blank">隱私權政策</a></li>
+        <li><a href="https://member.cwg.tw/register-rule" target="_blank">會員服務條款</a></li>
+      </ul>
+    </footer>
+    <!-- footer end -->
+
+    <!-- script start -->
+    <script>
+      // iframe RWD
+      window.addEventListener('message', function (event) {
+        // 安全限制：檢查來源
+        if (event.origin !== 'https://web.commonhealth.com.tw') return
+
+        // 找出傳送訊息的 iframe
+        const iframes = document.querySelectorAll('iframe')
+        for (const iframe of iframes) {
+          if (iframe.contentWindow === event.source) {
+            iframe.style.height = event.data.height + 'px'
+            break
+          }
+        }
+      })
+    </script>
+    <script>document.getElementById("footer-year").textContent=new Date().getFullYear();</script>
+    <!-- script end -->
+  </body>
+</html>
