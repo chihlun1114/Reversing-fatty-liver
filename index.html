@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="./css/recipe.css">
     <link rel="stylesheet" href="./css/exercise.css">
     <link rel="stylesheet" href="./css/checkup.css">
+    <link rel="stylesheet" href="./css/quiz.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Tag Manager -->
     <script>(function(w, d, s, l, i) {
@@ -142,14 +143,16 @@
             </div>
         </section>
 
+        <!-- Block 1: 空白章節區塊 Start -->
         <section id="section-1" class="section-placeholder">
-            <!-- 2. 空白章節區塊 -->
             <div class="container section-grid">
                 <div class="section-copy">
                     <span class="eyebrow">章節 01</span>
-                    <h2>章節區塊 1</h2>
-                    <p class="lead">此區可放章節前言與核心觀點。</p>
-                    <p>此區塊為內容佔位，後續可替換為正式文案與圖表。</p>
+                    <h2 class="global-section-title">章節區塊 1</h2>
+                    <div class="global-section-intro">
+                        <p class="lead">此區可放章節前言與核心觀點。</p>
+                        <p>此區塊為內容佔位，後續可替換為正式文案與圖表。</p>
+                    </div>
                 </div>
                 <div class="section-media">
                     <figure>
@@ -159,24 +162,60 @@
                 </div>
             </div>
         </section>
+        <!-- Block 1: 空白章節區塊 End -->
 
-        <section id="section-2" class="section-placeholder">
-            <!-- 3. 空白章節區塊 -->
-            <div class="container section-grid">
-                <div class="section-copy">
-                    <span class="eyebrow">章節 02</span>
-                    <h2>章節區塊 2</h2>
-                    <p class="lead">此區可放章節前言與核心觀點。</p>
-                    <p>此區塊為內容佔位，後續可替換為正式文案與圖表。</p>
+        <!-- Block 2: 空白章節區塊 Start -->
+        <section id="section-2" class="quiz-section">
+            <div class="container quiz-app" data-quiz-app>
+                <div id="quiz-start" class="quiz-panel quiz-view active" data-quiz-start>
+                    <div class="quiz-content bg-coral text-white">
+                        <h2 class="global-section-title quiz-main-title">肝苦誰人知？5題測出你的脂肪肝風險</h2>
+                        <p class="quiz-subtitle">(每題皆為單選)</p>
+                        <button type="button" class="quiz-btn quiz-btn--start" data-quiz-start-btn>開始測驗</button>
+                        <p class="quiz-expert-note">本測驗諮詢專家：肝膽腸胃專科醫師吳柏叡</p>
+                    </div>
+                    <div class="quiz-image">
+                        <img src="./images/quiz-start.webp" alt="測驗首圖">
+                    </div>
                 </div>
-                <div class="section-media">
-                    <figure>
-                        <img src="./images/section-02.jpg" alt="章節區塊 2 圖片">
-                        <figcaption>章節 2 圖片或圖表說明文字。</figcaption>
-                    </figure>
+
+                <div id="quiz-questions" class="quiz-panel quiz-view d-none" data-quiz-questions>
+                    <div class="quiz-content bg-beige">
+                        <div class="quiz-question-wrap">
+                            <p class="quiz-progress"><span id="quiz-progress-current">1</span>/5</p>
+                            <h3 id="quiz-q-title" class="quiz-question-title"></h3>
+                            <div id="quiz-options" class="quiz-options"></div>
+                            <button type="button" class="quiz-btn quiz-btn--back" data-quiz-prev>返回上一題</button>
+                        </div>
+                    </div>
+                    <div class="quiz-image">
+                        <img id="quiz-q-img" src="" alt="題目配圖">
+                    </div>
+                </div>
+
+                <div id="quiz-result" class="quiz-panel quiz-view d-none" data-quiz-result>
+                    <div class="quiz-content bg-beige">
+                        <div class="quiz-result-wrap">
+                            <p id="quiz-r-range" class="quiz-result-range"></p>
+                            <h3 id="quiz-r-title" class="quiz-result-title"></h3>
+                            <p id="quiz-r-desc" class="quiz-result-desc"></p>
+                            <div class="quiz-result-actions">
+                                <a id="quiz-r-link" class="quiz-btn quiz-btn--improve" href="#">改善方法</a>
+                                <button type="button" class="quiz-btn quiz-btn--back" data-quiz-restart>再測一次</button>
+                                <div class="quiz-share">
+                                    <a class="quiz-share__btn" href="#" target="_blank" rel="noopener noreferrer" aria-label="分享 Facebook" data-share="fb">FB</a>
+                                    <a class="quiz-share__btn" href="#" target="_blank" rel="noopener noreferrer" aria-label="分享 LINE" data-share="line">LINE</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quiz-image">
+                        <img id="quiz-r-img" src="" alt="測驗結果配圖">
+                    </div>
                 </div>
             </div>
         </section>
+        <!-- Block 2: 空白章節區塊 End -->
         <!-- Block 3: LiverEvolution（六階段互動） -->
         <section id="section-3" class="section-placeholder section-placeholder--liver">
             <div class="container container--liver-evolution">
@@ -184,10 +223,12 @@
                     <div class="liver-evolution__inner">
                         <header class="liver-evolution__header">
                          
-                            <h2 id="liver-evolution-heading" class="liver-evolution__title">肝臟怎麼變粉肝？一次看懂脂肪肝變化</h2>
-                            <p class="liver-evolution__subtitle">
-                                脂肪肝並不如想像般「肝臟表面被脂肪包住」，而是肝細胞中有過多脂肪，因此俗稱「肝包油」，台灣小吃中常見的「粉肝」就是有脂肪肝的豬肝。肝臟裡本來就有少量脂肪，一旦超過5%，就是脂肪肝。為什麼健康肝會變粉肝，甚至纖維化、硬化，進而有肝癌風險？在滑桿上移動游標，一次看懂。
-                            </p>
+                            <h2 id="liver-evolution-heading" class="liver-evolution__title global-section-title">肝臟怎麼變粉肝？一次看懂脂肪肝變化</h2>
+                            <div class="global-section-intro">
+                                <p class="liver-evolution__subtitle">
+                                    脂肪肝並不如想像般「肝臟表面被脂肪包住」，而是肝細胞中有過多脂肪，因此俗稱「肝包油」，台灣小吃中常見的「粉肝」就是有脂肪肝的豬肝。肝臟裡本來就有少量脂肪，一旦超過5%，就是脂肪肝。為什麼健康肝會變粉肝，甚至纖維化、硬化，進而有肝癌風險？在滑桿上移動游標，一次看懂。
+                                </p>
+                            </div>
                         </header>
 
                         <div class="liver-evolution__grid">
@@ -253,8 +294,10 @@
 <section id="section-4" class="section-qa" aria-labelledby="section-qa-title">
     <div class="container">
         <header class="section-qa__header">
-            <p class="section-qa__eyebrow">MYTH BUSTERS</p>
-            <h2 id="section-qa-title" class="section-qa__title">8大迷思，醫師一次破解</h2>
+            <h2 id="section-qa-title" class="section-qa__title global-section-title">8大迷思，醫師一次破解</h2>
+            <div class="global-section-intro">
+                <p>不喝酒、不覺得累、看起來不胖，脂肪肝也可能找上門？若長期忽視肝臟的沉默警訊，仍可能進展為不可逆的肝臟損傷。肝膽腸胃專科醫師賴佳業，為你破解8個最常見的脂肪肝迷思。</p>
+            </div>
         </header>
         <div class="qa-accordion" data-qa-accordion>
             <article class="qa-item" data-qa-item>
@@ -400,8 +443,8 @@
 
 <!-- Block 5: 健康食譜 Start -->
 <section id="section-5" class="recipe-block" aria-labelledby="recipe-block-title">
-    <div class="recipe-block__intro">
-        <h2 id="recipe-block-title" class="recipe-block__heading">吃得好，肝臟不卡油</h2>
+    <div class="recipe-block__intro global-section-intro">
+        <h2 id="recipe-block-title" class="recipe-block__heading global-section-title">吃得好，肝臟不卡油</h2>
         <p class="recipe-block__lead">想對抗脂肪肝，飲食是重中之重。透過<strong>優質蛋白</strong>、<strong>膳食纖維</strong>、<strong>植化素</strong>、<strong>好油脂</strong>，可以幫助穩定血糖與腸道健康，並改善脂肪肝。功能醫學營養師呂美寶親自設計一日三餐菜單，即使外食族也不用擔心。按照呂美寶的三餐建議，就算聚餐、加班，只要掌握關鍵原則，也能減少肝臟脂肪堆積。</p>
     </div>
 
@@ -474,7 +517,7 @@
 <!-- Block 6: 外食族建議 (資料夾切換) Start -->
 <section id="section-6" class="section-outside-eating">
     <div class="container meal-advice">
-        <h2 class="meal-advice__title">外食族三餐建議</h2>
+        <h2 class="meal-advice__title global-section-title">外食族三餐建議</h2>
 
         <div class="meal-advice__tabs" role="tablist" aria-label="三餐建議頁籤">
             <button class="meal-tab meal-tab--breakfast active" type="button" role="tab" aria-selected="true" aria-controls="meal-panel-breakfast" id="meal-tab-breakfast" data-meal-tab="breakfast">早餐</button>
@@ -518,8 +561,8 @@
 <section id="section-7" class="section-exercise">
     <div class="container section-exercise__inner">
         <header class="section-exercise__header">
-            <h2 class="section-exercise__title">動得對，肝臟不發炎</h2>
-            <div class="section-nutrition__intro">
+            <h2 class="section-exercise__title global-section-title">動得對，肝臟不發炎</h2>
+            <div class="section-nutrition__intro global-section-intro">
                 <p>適度運動可幫助對抗脂肪肝、避免肝臟發炎。肝膽腸胃專科醫師吳柏叡表示，在眾多運動中，首推「中強度有氧運動」，例如快走、慢跑、騎腳踏車、游泳。建議每週至少運動150分鐘，且均分到多天，比一次做完來得好，例如每週運動5天，每次30分鐘，而不是一次運動150分鐘。</p>
                 <p>除了有氧運動，肝膽腸胃專科醫師賴佳業建議加入阻力運動，例如重訓，以增加肌肉量，進而提升基礎代謝率，更有益於控制體重。</p>
             </div>
@@ -563,8 +606,8 @@
     <div class="container">
         <header class="section-nutrition__header">
             <p class="section-nutrition__eyebrow">LIVER CARE</p>
-            <h2 id="section-nutrition-title" class="section-nutrition__title">護肝營養素，你都需要嗎？</h2>
-            <div class="section-nutrition__intro">
+            <h2 id="section-nutrition-title" class="section-nutrition__title global-section-title">護肝營養素，你都需要嗎？</h2>
+            <div class="section-nutrition__intro global-section-intro">
                 <p>功能醫學營養師呂美寶表示，減重、均衡飲食、適度運動、充足睡眠等，仍是預防或減緩脂肪肝的第一線主力，額外補充的營養素或保健食品，僅可視為第二線的「輔助」，就是為你的努力加分，但不能取代生活習慣的調整。</p>
                 <p>需要注意的是，市面標榜「保肝」的保健食品眾多，但機轉大多以「抗發炎」、「抗氧化」或協助代謝調節為主，也就是加強肝臟的自我修復能力，而不是直接剷除或減少脂肪肝。所以不要過度期待多了這些營養素，脂肪肝就會消失無蹤，但可視需求與醫師、營養師討論，從中選擇最適合自己，能幫助你更有效率地提升肝臟整體健康。</p>
             </div>
@@ -679,8 +722,8 @@
 <!-- Block 9: 肝臟檢查檢測比較 Start -->
 <section id="section-9" class="checkup section-checkup" aria-labelledby="checkup-section-title">
     <div class="checkup__inner">
-        <h2 id="checkup-section-title" class="checkup__heading">早發現早治療！你可以做哪些檢查？</h2>
-        <div class="section-nutrition__intro">
+        <h2 id="checkup-section-title" class="checkup__heading global-section-title">早發現早治療！你可以做哪些檢查？</h2>
+        <div class="section-nutrition__intro global-section-intro">
             <p>有了脂肪肝，自己可能渾然不覺而放任惡化，因此定期檢查是保護肝臟的關鍵。腹部超音波可以觀察肝臟的脂肪堆積狀況，抽血則可得知肝功能指數（GOT、GPT）是否正常，以了解肝臟是否在發炎中，2種檢查可按照以下原則與頻率安排：</p>
             <p>●40歲以上、肥胖，有代謝症候群、飲酒習慣→每年1次超音波
                 ●單純脂肪肝、無肝指數異常者→半年～1年追蹤1次
@@ -911,6 +954,7 @@
     <script src="./components/MealAdvice.js"></script>
     <script src="./js/nutrition.js"></script>
     <script src="./js/recipe.js"></script>
+    <script src="./js/quiz.js"></script>
     <script src="./components/CheckupComparison.js"></script>
 </body>
 
