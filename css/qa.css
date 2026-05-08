@@ -1,0 +1,268 @@
+/**
+ * Block 4 — 迷思 QA 風琴夾
+ * Q：Bebas Neue（高窄英字）；僅 Q 區綠底，題目黑字 + 線框
+ */
+
+.section-qa {
+  padding-top: clamp(28px, 4vw, 56px);
+  padding-bottom: clamp(28px, 4vw, 56px);
+  background: #fff;
+}
+
+.section-qa .container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 3vw, 24px);
+}
+
+.section-qa__header {
+  text-align: center;
+  margin-bottom: clamp(20px, 3vw, 32px);
+}
+
+.section-qa__eyebrow {
+  display: inline-block;
+  margin: 0 0 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #0d9488;
+}
+
+.section-qa__title {
+  margin: 0;
+  font-family: "Noto Serif TC", "Noto Sans TC", "Microsoft JhengHei", serif;
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.35;
+}
+
+.qa-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 2vw, 18px);
+}
+
+.qa-item {
+  border: 2px solid #0d9488;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(13, 148, 136, 0.08);
+  overflow: hidden;
+}
+
+.qa-header {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  min-height: 3.5rem;
+}
+
+.qa-header:focus {
+  outline: 2px solid #0d9488;
+  outline-offset: 2px;
+}
+
+.qa-header:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* 僅 Q 區：綠底白字，高窄字體（附圖風格） */
+.qa-q-tag {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(3.5rem, 8vw, 4.25rem);
+  min-width: 3.5rem;
+  padding: 10px 6px;
+  background: #0d9488;
+  color: #fff;
+  font-family: "Bebas Neue", Impact, "Arial Narrow", "Franklin Gothic Medium", sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.125rem, 5vw, 2.875rem);
+  line-height: 0.85;
+  letter-spacing: 0.02em;
+}
+
+.qa-q-letter {
+  display: inline-block;
+  transform: translateY(0.02em);
+}
+
+.qa-q-letter::after {
+  content: ".";
+}
+
+/* 題目：白底、黑字（無綠色滿版底） */
+.qa-q-text {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 14px 12px 14px 16px;
+  background: #fff;
+  color: #0f172a;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(0.9375rem, 1.6vw, 1.0625rem);
+  line-height: 1.45;
+}
+
+.qa-chevron-wrap {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  min-width: 2.75rem;
+  background: #fff;
+  color: #0d9488;
+  transform-origin: 50% 50%;
+  border-left: 1px solid rgba(13, 148, 136, 0.25);
+}
+
+.qa-chevron {
+  display: block;
+  transform-origin: 50% 50%;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 9px solid currentColor;
+}
+
+.qa-panel {
+  overflow: hidden;
+  height: 0;
+  background: #fff;
+}
+
+/* 綠色分隔線 + 中央向下三角（銜接 Q / A） */
+.qa-panel-inner {
+  position: relative;
+  padding: 0 18px 20px;
+  border-top: none;
+}
+
+.qa-panel-inner::before {
+  content: "";
+  display: block;
+  height: 2px;
+  margin-left: -18px;
+  margin-right: -18px;
+  background: #0d9488;
+}
+
+.qa-panel-inner::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 9px solid #0d9488;
+}
+
+.qa-answer-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+  padding-top: 18px;
+}
+
+/* 完整顯示圖檔、不裁切為圓形 */
+.qa-avatar {
+  flex-shrink: 0;
+  width: auto;
+  height: auto;
+  max-width: min(calc(160px / 3 * 1.5), calc(32vw / 3 * 1.5));
+  max-height: min(calc(200px / 3 * 1.5), calc(38vw / 3 * 1.5));
+  object-fit: contain;
+  object-position: center bottom;
+  display: block;
+  border-radius: 0;
+  border: none;
+  background: transparent;
+  transform-origin: 50% 85%;
+  will-change: transform;
+}
+
+/* 答案僅文字，無對話框外框 */
+.qa-bubble {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 4px 0 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.qa-bubble p {
+  margin: 0;
+  font-size: clamp(0.875rem, 1.45vw, 1rem);
+  line-height: 1.75;
+  color: #334155;
+}
+
+@media (max-width: 640px) {
+  .qa-header {
+    min-height: 0;
+  }
+
+  .qa-q-tag {
+    width: 3.25rem;
+    min-width: 3.25rem;
+    font-size: 2rem;
+    padding: 8px 4px;
+  }
+
+  .qa-q-text {
+    padding: 12px 10px 12px 12px;
+    font-size: 0.9375rem;
+  }
+
+  .qa-chevron-wrap {
+    width: 2.5rem;
+    min-width: 2.5rem;
+  }
+
+  .qa-panel-inner {
+    padding: 0 14px 18px;
+  }
+
+  .qa-panel-inner::before {
+    margin-left: -14px;
+    margin-right: -14px;
+  }
+
+  .qa-answer-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding-top: 16px;
+  }
+
+  .qa-avatar {
+    max-width: min(calc(140px / 3 * 1.5), calc(55vw / 3 * 1.5));
+    max-height: min(calc(180px / 3 * 1.5), calc(45vw / 3 * 1.5));
+  }
+
+  .qa-bubble {
+    width: 100%;
+    max-width: 100%;
+    padding-top: 2px;
+  }
+}

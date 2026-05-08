@@ -1,0 +1,151 @@
+/* ==========================================
+   Block 7 — Exercise Cards (Image Title Layer)
+   ========================================== */
+#section-7.section-exercise {
+  background-color: #ffffff;
+  padding: clamp(42px, 6vw, 72px) 0;
+}
+
+#section-7 .section-exercise__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+#section-7 .section-exercise__header {
+  margin-bottom: clamp(18px, 3vw, 28px);
+  text-align: center;
+}
+
+#section-7 .section-exercise__title {
+  margin: 0;
+  font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+  font-weight: 900;
+  color: #101010;
+}
+
+#section-7 .exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  justify-content: center;
+  align-items: start;
+}
+
+#section-7 .exercise-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+}
+
+#section-7 .exercise-card:nth-child(1) {
+  background-image: url("../images/bg-jogging.webp");
+}
+
+#section-7 .exercise-card:nth-child(2) {
+  background-image: url("../images/bg-cycling.webp");
+}
+
+#section-7 .exercise-card:nth-child(3) {
+  background-image: url("../images/bg-swimming.webp");
+}
+
+#section-7 .exercise-card:nth-child(4) {
+  background-image: url("../images/bg-weight.webp");
+}
+
+#section-7 .exercise-card__poses {
+  position: relative;
+}
+
+#section-7 .exercise-card__pose {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+#section-7 .exercise-card .pose-1 {
+  position: relative;
+  z-index: 1;
+}
+
+#section-7 .exercise-card .pose-2 {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  z-index: 2;
+}
+
+#section-7 .exercise-card__title-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 10;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  #section-7 .exercise-card:hover {
+    transform: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+  }
+
+  #section-7 .exercise-card:hover .pose-1 {
+    opacity: 0;
+    transition: none;
+  }
+
+  #section-7 .exercise-card:hover .pose-2 {
+    opacity: 1;
+    transition: none;
+  }
+}
+
+@media (hover: none) {
+  #section-7 .exercise-card .pose-1 {
+    animation: exercisePoseOne 1.6s steps(1) infinite;
+  }
+
+  #section-7 .exercise-card .pose-2 {
+    animation: exercisePoseTwo 1.6s steps(1) infinite;
+  }
+}
+
+@keyframes exercisePoseOne {
+  0%,
+  49.9% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes exercisePoseTwo {
+  0%,
+  49.9% {
+    opacity: 0;
+  }
+  50%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1023px) {
+  #section-7 .exercise-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

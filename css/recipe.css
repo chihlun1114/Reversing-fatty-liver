@@ -1,0 +1,579 @@
+/**
+ * Block 5 — 滿版 slide + 上半置中文字疊加 + Swiper + Modal
+ */
+
+#section-5.recipe-block {
+  overflow-x: clip;
+}
+
+.recipe-block {
+  width: 100%;
+  margin: 0;
+  padding: clamp(32px, 5vw, 56px) 0 clamp(36px, 6vw, 64px);
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.recipe-block__intro {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 28px);
+  text-align: center;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.recipe-block__heading {
+  margin: 0;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  font-size: clamp(1.65rem, 4vw, 2.35rem);
+  font-weight: 800;
+  color: #111;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.recipe-block__lead {
+  margin: 16px auto 0;
+  max-width: 40rem;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  font-size: clamp(0.9375rem, 1.55vw, 1.0625rem);
+  line-height: 1.85;
+  color: #222;
+}
+
+.recipe-block__lead strong {
+  font-weight: 800;
+  color: #000;
+}
+
+.recipe-block__stage {
+  position: relative;
+  width: 100vw;
+  max-width: none;
+  margin-top: clamp(28px, 4vw, 40px);
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 0;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.recipe-swiper {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  height: 600px !important;
+  background: transparent;
+}
+
+.recipe-swiper .swiper-wrapper {
+  box-sizing: border-box;
+  height: 100% !important;
+}
+
+.recipe-swiper .swiper-slide {
+  width: 100vw !important;
+  max-width: none !important;
+  height: 600px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.recipe-swiper .recipe-slide__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: top;
+}
+
+.recipe-text-overlay {
+  position: absolute;
+  z-index: 2;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 800px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  pointer-events: none;
+  background: transparent;
+}
+
+.recipe-slide__copy {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(12px, 2vw, 16px);
+  pointer-events: auto;
+}
+
+.recipe-slide__title {
+  margin: 0;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  font-size: clamp(1.2rem, 2.6vw, 1.75rem);
+  font-weight: 800;
+  color: #111;
+  line-height: 1.35;
+  text-shadow: 0 0 14px rgba(255, 255, 255, 0.88), 0 1px 2px rgba(255, 255, 255, 0.95);
+}
+
+.recipe-slide__pill {
+  display: inline-flex;
+  margin: 0;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 2px solid #14532d;
+  background: transparent;
+}
+
+.recipe-slide__pill-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  font-size: clamp(0.8125rem, 1.2vw, 0.9375rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #fff;
+  background: #166534;
+}
+
+.recipe-slide__pill-val {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  font-size: clamp(0.8125rem, 1.2vw, 0.9375rem);
+  font-weight: 800;
+  color: #14532d;
+  background: #fff;
+}
+
+.recipe-slide__desc {
+  margin: 0;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  font-size: clamp(0.875rem, 1.45vw, 1rem);
+  line-height: 1.75;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.85), 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.recipe-slide__cta {
+  display: inline-block;
+  vertical-align: baseline;
+  margin: 0 0 0 10px;
+  padding: 8px 18px;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #fff;
+  background: #111;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background 0.2s ease, transform 0.15s ease;
+  min-height: 40px;
+  box-sizing: border-box;
+}
+
+.recipe-slide__cta:hover {
+  background: #333;
+}
+
+.recipe-slide__cta:active {
+  transform: scale(0.98);
+}
+
+.recipe-slide__cta:focus-visible {
+  outline: 3px solid #14532d;
+  outline-offset: 2px;
+}
+
+.recipe-slide__cta-inner {
+  display: inline;
+}
+
+/* 分頁：高於文字與箭頭可點區 */
+.recipe-swiper .recipe-swiper__pagination.swiper-pagination {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 14px !important;
+  top: auto !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-wrap: wrap;
+  z-index: 4;
+  pointer-events: none;
+  background: transparent;
+}
+
+.recipe-swiper .recipe-swiper__pagination .swiper-pagination-bullet {
+  pointer-events: auto;
+  width: 9px;
+  height: 9px;
+  margin: 0 5px !important;
+  background: transparent;
+  border: 1px solid #111;
+  opacity: 1;
+}
+
+.recipe-swiper .recipe-swiper__pagination .swiper-pagination-bullet-active {
+  background: #111;
+  border-color: #111;
+}
+
+/* 箭頭：無背景、無外框、無 ::after 內容；置於視覺 1000px 置中帶兩側；z-index: 3 */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  content: none !important;
+  display: none !important;
+  border: none !important;
+  outline: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  border: none !important;
+  outline: none !important;
+  background: none !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+.recipe-swiper .swiper-button-prev,
+.recipe-swiper .swiper-button-next {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  transform: translateY(-50%);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  cursor: pointer;
+  opacity: 0.65;
+  transition: opacity 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+}
+
+.recipe-swiper .swiper-button-prev:hover,
+.recipe-swiper .swiper-button-next:hover {
+  opacity: 1;
+}
+
+.recipe-swiper .swiper-button-prev:focus,
+.recipe-swiper .swiper-button-next:focus,
+.recipe-swiper .swiper-button-prev:focus-visible,
+.recipe-swiper .swiper-button-next:focus-visible,
+.recipe-swiper .swiper-button-prev:active,
+.recipe-swiper .swiper-button-next:active {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+  transform: translateY(-50%);
+}
+
+.recipe-swiper .swiper-button-prev::after,
+.recipe-swiper .swiper-button-next::after {
+  content: none !important;
+  display: none !important;
+}
+
+.recipe-swiper__arrow {
+  display: block;
+  width: 10px;
+  height: 10px;
+  box-sizing: border-box;
+  border-style: solid;
+  border-color: currentColor;
+  border-width: 0 2px 2px 0;
+  margin: 0;
+  padding: 0;
+}
+
+.recipe-swiper__arrow--prev {
+  transform: rotate(135deg);
+  margin-left: 4px;
+}
+
+.recipe-swiper__arrow--next {
+  transform: rotate(-45deg);
+  margin-right: 4px;
+}
+
+.recipe-swiper .swiper-button-prev {
+  left: max(8px, calc(50% - 500px));
+}
+
+.recipe-swiper .swiper-button-next {
+  right: max(8px, calc(50% - 500px));
+}
+
+/* 桌機：加高輪播、圖片底部對齊避免裁切盤緣、文字略上移保留綠意間距 */
+@media screen and (min-width: 1024px) {
+  .recipe-swiper {
+    min-height: 750px;
+    height: 80vh !important;
+  }
+
+  .recipe-swiper .swiper-slide {
+    min-height: 750px;
+    height: 80vh !important;
+  }
+
+  .recipe-swiper .recipe-slide__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+  }
+
+  .recipe-text-overlay {
+    top: 5%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .recipe-swiper {
+    height: min(88vh, 600px) !important;
+  }
+
+  .recipe-swiper .swiper-slide {
+    height: min(88vh, 600px) !important;
+  }
+
+  .recipe-text-overlay {
+    top: 8%;
+    width: 92%;
+  }
+
+  .recipe-slide__title {
+    font-size: clamp(1.1rem, 4.2vw, 1.45rem);
+  }
+
+  .recipe-slide__pill-key,
+  .recipe-slide__pill-val {
+    padding: 7px 12px;
+    font-size: 0.8125rem;
+  }
+
+  .recipe-slide__desc {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+  }
+
+  .recipe-slide__cta {
+    display: inline-block;
+    margin: 10px 0 0;
+    min-height: 44px;
+    padding: 10px 20px;
+  }
+
+  .recipe-swiper .swiper-button-prev,
+  .recipe-swiper .swiper-button-next {
+    width: 40px;
+    height: 40px;
+  }
+
+  .recipe-swiper .swiper-button-prev {
+    left: max(4px, calc(50% - min(50vw, 500px)));
+  }
+
+  .recipe-swiper .swiper-button-next {
+    right: max(4px, calc(50% - min(50vw, 500px)));
+  }
+}
+
+/* —— Modal —— */
+.recipe-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding: clamp(24px, 6vh, 48px) 16px clamp(32px, 8vh, 64px);
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.recipe-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.recipe-modal__panel {
+  position: relative;
+  width: min(100%, 520px);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #111;
+  border-radius: 4px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+  transform: translateY(8px);
+  transition: transform 0.25s ease;
+}
+
+.recipe-modal.is-open .recipe-modal__panel {
+  transform: translateY(0);
+}
+
+.recipe-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #111;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.recipe-modal__close:hover {
+  background: #f5f5f5;
+}
+
+.recipe-modal__close:focus-visible {
+  outline: 2px solid #166534;
+  outline-offset: 2px;
+}
+
+.recipe-modal__body {
+  flex: 0 0 auto;
+  overflow: visible;
+  max-height: none;
+  padding: 28px 25px 28px;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+}
+
+.recipe-modal__title {
+  margin: 0 0 16px;
+  padding-right: 44px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #111;
+  line-height: 1.35;
+}
+
+.recipe-modal__body h3 {
+  margin: 1.35rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #111;
+}
+
+.recipe-modal__body h3:first-child {
+  margin-top: 0;
+}
+
+.recipe-modal__body .recipe-modal__ingredients {
+  margin: 10px 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: #222;
+  white-space: pre-wrap;
+}
+
+.recipe-modal__method-label {
+  margin: 14px 0 0;
+  font-size: 0.9375rem;
+  color: #111;
+}
+
+.recipe-modal__steps--numbered {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  counter-reset: recipeStep;
+}
+
+.recipe-modal__steps--numbered > li {
+  counter-increment: recipeStep;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 12px;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: #222;
+}
+
+.recipe-modal__steps--numbered > li:first-child {
+  margin-top: 6px;
+}
+
+.recipe-modal__steps--numbered > li::before {
+  content: counter(recipeStep);
+  flex: 0 0 auto;
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 50%;
+  background: #111;
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.12em;
+}

@@ -1,0 +1,1079 @@
+@import "//fonts.googleapis.com/earlyaccess/notosanstc.css";
+@import "https://fonts.googleapis.com/css?family=Noto+Serif+TC:300,400,600,700,800";
+
+/* 全域設定 -- 勿更動 */
+body {
+  margin: 0;
+  padding-top: 68px;
+}
+
+/* 共用版心容器：所有區塊統一 1024 寬度 */
+.container {
+  max-width: 1024px !important;
+  margin: 0 auto !important;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+#ch-header,
+#ch-header div,
+#ch-header span,
+#ch-header h1,
+#ch-header p,
+#ch-header a,
+#ch-header ol,
+#ch-header ul,
+#ch-header li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+#ch-header a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  display: flex;
+}
+
+#ch-header #ch-container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 768px) {
+  #ch-header #ch-container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  #ch-header #ch-container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #ch-header #ch-container {
+    max-width: 1140px;
+  }
+}
+
+#ch-header h1 img {
+  height: 48px;
+}
+
+@media (max-width: 768px) {
+  #ch-header h1 img {
+    height: 32px;
+  }
+}
+
+#ch-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  -webkit-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+}
+
+@media (max-width: 768px) {
+  #ch-header {
+    padding: 8px 0;
+  }
+}
+
+#ch-header #ch-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+#ch-header ul {
+  display: flex !important;
+  list-style: none;
+}
+
+#ch-header ul li a {
+  padding: 23px 12px;
+  display: inline-table;
+  text-decoration: none;
+  color: #222;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#ch-header ul li a:hover {
+  color: #094;
+}
+
+@media (max-width: 768px) {
+  #ch-header ul li a {
+    font-size: 20px;
+    padding: 15px 20px;
+  }
+}
+
+@media (max-width: 568px) {
+  #ch-header ul li a {
+    font-size: 18px;
+  }
+}
+
+#ch-header #ch-social-group {
+  display: flex !important;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  #ch-header #ch-social-group {
+    margin-top: 15px;
+  }
+}
+
+#ch-header .ch-social {
+  font-size: 40px;
+}
+
+#ch-header .ch-social a {
+  padding: 0 12px;
+  line-height: 36px;
+  color: #979696;
+}
+
+#ch-header .ch-social a:hover {
+  border-bottom: 0;
+  padding: 0 12px;
+}
+
+@media (max-width: 568px) {
+  #ch-header .ch-social a {
+    font-size: 40px;
+    color: #fff;
+  }
+}
+
+#ch-header .ch-social i {
+  vertical-align: bottom;
+}
+
+#ch-header #ch-button-toggle {
+  display: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  z-index: 10000;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  #ch-header #ch-button-toggle {
+    display: block;
+  }
+}
+
+#ch-header #ch-button-toggle span {
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background-color: #000;
+}
+
+#ch-header #ch-button-toggle span::after,
+#ch-header #ch-button-toggle span::before {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  top: 50%;
+  height: 2px;
+  background-color: #000;
+}
+
+#ch-header #ch-button-toggle span::before {
+  top: -8px;
+}
+
+#ch-header #ch-button-toggle span::after {
+  bottom: -8px;
+  top: auto;
+}
+
+#ch-header #ch-button-toggle.active span {
+  background-color: transparent;
+}
+
+#ch-header #ch-button-toggle.active span::after,
+#ch-header #ch-button-toggle.active span::before {
+  top: 0;
+}
+
+#ch-header #ch-button-toggle.active span::before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+@media (max-width: 768px) {
+  #ch-header #ch-button-toggle.active span::before {
+    background-color: #000;
+  }
+}
+
+#ch-header #ch-button-toggle.active span::after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  #ch-header #ch-button-toggle.active span::after {
+    background-color: #000;
+  }
+}
+
+@media (max-width: 768px) {
+  #ch-header ul {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0px;
+    background-color: #fff;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: 120;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    opacity: 0;
+  }
+
+  #ch-header ul.opening {
+    height: 100vh;
+    width: 100%;
+    opacity: 1;
+    visibility: visible;
+    background-color: #fff;
+  }
+
+  #ch-header ul li {
+    width: 100vw;
+    text-align: center;
+  }
+}
+
+main.main-content {
+  display: block;
+  margin-top: 32px;
+}
+
+.section-placeholder {
+  width: 100%;
+  padding: 64px 0;
+}
+
+.section-placeholder .container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.section-placeholder h1 {
+  margin: 0 0 16px;
+  text-align: center;
+  font-family: "Noto Serif TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.3;
+}
+
+.section-placeholder img {
+  display: block;
+  width: 100%;
+  max-width: 794px;
+  margin: 0 auto 20px;
+  height: auto;
+}
+
+.section-placeholder h2 {
+  margin: 0 0 12px;
+  text-align: center;
+  font-family: "Noto Serif TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.25rem);
+  line-height: 1.4;
+}
+
+.section-placeholder p {
+  margin: 0 auto;
+  max-width: 794px;
+  text-align: justify;
+  text-justify: inter-ideograph;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+/* ------------------------------------------------------------
+   Reusable section sub-components
+------------------------------------------------------------- */
+
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0 20px;
+  align-items: start;
+}
+
+.section-copy {
+  grid-column: 3 / span 5;
+  width: 100%;
+}
+
+.section-copy h2,
+.section-copy h3,
+.section-copy p {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none;
+}
+
+.section-copy .eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: #616161;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+}
+
+.section-copy .lead {
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+  line-height: 1.85;
+}
+
+.section-copy .meta {
+  margin-top: 16px;
+  color: #616161;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.section-media {
+  grid-column: 8 / span 5;
+  width: 100%;
+}
+
+.section-media img,
+.section-media video,
+.section-media iframe {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0;
+}
+
+.section-media figure {
+  margin: 0;
+}
+
+.section-media figcaption {
+  margin-top: 10px;
+  color: #616161;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.section-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-card {
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  padding: 16px;
+}
+
+.section-card h3 {
+  margin: 0 0 8px;
+  text-align: left;
+  font-family: "Noto Serif TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.section-card p {
+  margin: 0;
+  max-width: none;
+}
+
+.section-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.section-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 8px 18px;
+  border: 1px solid #f7741c;
+  color: #f7741c;
+  background: #fff;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.section-button:hover {
+  color: #fff;
+  background: #f7741c;
+}
+
+/* ------------------------------------------------------------
+   RWD framework for 10 content sections
+   Breakpoints follow legacy project conventions:
+   1200 / 992 / 768 / 576 / 320
+------------------------------------------------------------- */
+
+/* Desktop wide */
+@media (max-width: 1200px) {
+  main.main-content {
+    margin-top: 24px;
+  }
+
+  .section-placeholder {
+    padding: 56px 0;
+  }
+
+  .section-placeholder .container {
+    max-width: 992px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Desktop / tablet horizontal */
+@media (max-width: 992px) {
+  main.main-content {
+    margin-top: 20px;
+  }
+
+  .section-placeholder {
+    padding: 48px 0;
+  }
+
+  .section-placeholder .container {
+    max-width: 794px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .section-placeholder h1 {
+    font-size: 2.25rem;
+    line-height: 1.35;
+  }
+
+  .section-placeholder h2 {
+    font-size: 1.9rem;
+    line-height: 1.45;
+  }
+
+  .section-placeholder p {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+  }
+
+  .section-copy {
+    grid-column: 2 / span 6;
+  }
+
+  .section-media {
+    grid-column: 8 / span 5;
+  }
+
+  .section-copy .lead {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile main breakpoint (legacy primary mobile rule) */
+@media (max-width: 768px) {
+  main.main-content {
+    margin-top: 16px;
+  }
+
+  .section-placeholder {
+    padding: 40px 0;
+  }
+
+  .section-placeholder .container {
+    max-width: none;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .section-placeholder h1 {
+    margin-bottom: 12px;
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  .section-placeholder h2 {
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+    line-height: 1.4;
+  }
+
+  .section-placeholder p {
+    max-width: none;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .section-placeholder img {
+    margin-bottom: 16px;
+  }
+
+  .section-grid {
+    grid-template-columns: 1fr;
+    gap: 20px 0;
+  }
+
+  .section-copy,
+  .section-media {
+    grid-column: auto;
+  }
+
+  .section-copy .lead {
+    margin-bottom: 12px;
+    font-size: 1.02rem;
+    line-height: 1.75;
+  }
+
+  .section-copy .meta {
+    margin-top: 12px;
+    font-size: 0.9rem;
+  }
+
+  .section-stack {
+    gap: 14px;
+  }
+
+  .section-card {
+    padding: 14px;
+  }
+
+  .section-card h3 {
+    font-size: 1.08rem;
+  }
+
+  .section-actions {
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .section-button {
+    min-height: 40px;
+    padding: 8px 14px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 576px) {
+  .section-placeholder {
+    padding: 32px 0;
+  }
+
+  .section-placeholder .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .section-placeholder h1 {
+    font-size: 1.75rem;
+  }
+
+  .section-placeholder h2 {
+    font-size: 1.4rem;
+  }
+
+  .section-placeholder p {
+    font-size: 0.95rem;
+    line-height: 1.68;
+  }
+
+  .section-media figcaption {
+    margin-top: 8px;
+    font-size: 0.85rem;
+  }
+
+  .section-card {
+    padding: 12px;
+  }
+
+  .section-button {
+    min-height: 38px;
+    font-size: 0.92rem;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 320px) {
+  .section-placeholder {
+    padding: 28px 0;
+  }
+
+  .section-placeholder .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .section-placeholder h1 {
+    font-size: 1.5rem;
+  }
+
+  .section-placeholder h2 {
+    font-size: 1.25rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   Footer（專題頁獨立樣式）
+   說明：本機預覽時 /scss/main.css 常無法載入，舊版 #commonhealth_footer
+   依賴該檔；此區塊改由 fatty-liver.css 自給自足，版面對齊設計稿。
+------------------------------------------------------------- */
+
+.fatty-footer {
+  margin-top: 48px;
+  padding: 48px 16px 56px;
+  background: #fff;
+  color: #373737;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+}
+
+.fatty-footer__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.fatty-footer__credits {
+  margin-bottom: 28px;
+}
+
+.fatty-footer__credit-line {
+  margin: 0 0 6px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #616161;
+  font-weight: 400;
+  text-align: center;
+}
+
+.fatty-footer__social-title {
+  margin: 0 0 24px;
+  font-family: "Noto Serif TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #2d2c28;
+  text-align: center;
+}
+
+.fatty-footer__social-list {
+  list-style: none;
+  margin: 0 0 36px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px 28px;
+}
+
+.fatty-footer__social-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 104px;
+  text-decoration: none;
+  color: #2d2c28;
+  transition: opacity 0.2s ease;
+}
+
+.fatty-footer__social-link:hover {
+  opacity: 0.85;
+}
+
+.fatty-footer__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.fatty-footer__icon svg {
+  display: block;
+}
+
+.fatty-footer__icon--line {
+  background: #06c755;
+}
+
+.fatty-footer__icon--fb {
+  background: #1877f2;
+}
+
+.fatty-footer__icon--ig {
+  background: linear-gradient(
+    135deg,
+    #f58529 0%,
+    #dd2a7b 45%,
+    #8134af 70%,
+    #515bd4 100%
+  );
+}
+
+.fatty-footer__icon--yt {
+  background: #ff0000;
+}
+
+.fatty-footer__icon--podcast {
+  background: #0d9488;
+}
+
+.fatty-footer__icon--newsletter {
+  background: #009944;
+}
+
+.fatty-footer__label {
+  font-size: 13px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.fatty-footer__links,
+.fatty-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px 4px;
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.fatty-footer__links a,
+.fatty-footer__legal a {
+  color: #616161;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.fatty-footer__links a:hover,
+.fatty-footer__legal a:hover {
+  color: #f7741c;
+}
+
+.fatty-footer__sep {
+  color: #bdbdbd;
+  user-select: none;
+}
+
+.fatty-footer__copyright {
+  margin: 8px 0 12px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: #616161;
+  font-weight: 300;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .fatty-footer {
+    padding: 40px 14px 48px;
+  }
+
+  .fatty-footer__social-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .fatty-footer__social-list {
+    gap: 16px 20px;
+    margin-bottom: 28px;
+  }
+
+  .fatty-footer__social-link {
+    width: 92px;
+  }
+
+  .fatty-footer__icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .fatty-footer__icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .fatty-footer__label {
+    font-size: 12px;
+  }
+
+  .fatty-footer__links,
+  .fatty-footer__legal {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 576px) {
+  .fatty-footer__links,
+  .fatty-footer__legal {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+}
+
+/* ==========================================
+   Block 7 — Exercise Pop Art Cards
+   ========================================== */
+.section-exercise {
+  background: #ffffff;
+  padding: clamp(42px, 6vw, 72px) 0;
+}
+
+.section-exercise__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.section-exercise__header {
+  margin-bottom: clamp(18px, 3vw, 28px);
+  text-align: center;
+}
+
+.section-exercise__title {
+  margin: 0;
+  font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+  font-weight: 900;
+  color: #101010;
+}
+
+.exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  justify-content: center;
+  align-items: start;
+}
+
+.exercise-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.exercise-card:nth-child(1) {
+  background-image: url("../images/bg-jogging.webp");
+}
+
+.exercise-card:nth-child(2) {
+  background-image: url("../images/bg-cycling.webp");
+}
+
+.exercise-card:nth-child(3) {
+  background-image: url("../images/bg-swimming.webp");
+}
+
+.exercise-card:nth-child(4) {
+  background-image: url("../images/bg-weight.webp");
+}
+
+.exercise-card__poses {
+  position: relative;
+  z-index: 1;
+}
+
+.exercise-card__pose {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+  pointer-events: none;
+}
+
+.exercise-card .pose-1 {
+  position: relative;
+  z-index: 1;
+}
+
+.exercise-card .pose-2 {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  z-index: 2;
+}
+
+.exercise-card__title {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 8px 24px;
+  border-radius: 99px;
+  border: 2px solid #111;
+  background: #fff;
+  color: #111;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.exercise-card__title::before,
+.exercise-card__title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #111;
+  border-radius: 50%;
+  background: #fff;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+.exercise-card__title::before {
+  left: -10px;
+}
+
+.exercise-card__title::after {
+  right: -10px;
+}
+
+@media (hover: hover) {
+  .exercise-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 6px 8px 0 #111;
+  }
+
+  .exercise-card:hover .pose-1 {
+    opacity: 0;
+    transition: none;
+  }
+
+  .exercise-card:hover .pose-2 {
+    opacity: 1;
+    transition: none;
+  }
+}
+
+@media (hover: none) {
+  .exercise-card {
+    transform: none !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+  }
+
+  .exercise-card .pose-1 {
+    animation: poseOne 1.6s steps(1) infinite;
+  }
+
+  .exercise-card .pose-2 {
+    animation: poseTwo 1.6s steps(1) infinite;
+  }
+}
+
+@keyframes poseOne {
+  0%,
+  49.9% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes poseTwo {
+  0%,
+  49.9% {
+    opacity: 0;
+  }
+  50%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1023px) {
+  .exercise-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

@@ -1,0 +1,306 @@
+/* ==========================================
+   Block 9 — 肝臟檢查檢測比較 (完整最終版 CSS)
+   ========================================== */
+
+   #section-9.checkup {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: clamp(48px, 7vw, 80px) 0 clamp(52px, 7vw, 84px);
+    background: #fede00;
+    overflow: visible;
+  }
+  
+  #section-9 .checkup__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 clamp(8px, 2vw, 20px);
+  }
+  
+  #section-9 .checkup__heading {
+    margin: 0 0 clamp(20px, 3vw, 36px);
+    text-align: center;
+    font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+    font-weight: 900;
+    color: #101010;
+  }
+  
+  #section-9 .checkup-swiper.swiper,
+  #section-9 .checkup-swiper.swiper-container {
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px 0 56px;
+    overflow: hidden;
+  }
+  
+  #section-9 .checkup-swiper .swiper-wrapper {
+    align-items: stretch;
+  }
+  
+  /* --- 1. Swiper Slide: 強制精準分為 3 欄與微笑弧線 --- */
+  #section-9 .checkup-swiper .swiper-slide {
+    width: 33.3333%;
+    height: auto;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  
+  /* 中間被選中的卡片 */
+  #section-9 .checkup-swiper .swiper-slide-active {
+    z-index: 10;
+  }
+
+  /* 只有 Swiper 初始化成功後才套聚焦效果 */
+  #section-9 .checkup-swiper.swiper-initialized .swiper-slide .checkup-card {
+    opacity: 0.45;
+    transform: scale(0.9);
+  }
+
+  #section-9 .checkup-swiper.swiper-initialized .swiper-slide-active .checkup-card {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Swiper 初始化失敗時，保底仍可直接看到內容 */
+  #section-9 .checkup-swiper:not(.swiper-initialized) .swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  #section-9 .checkup-swiper:not(.swiper-initialized) .swiper-slide {
+    width: auto !important;
+    opacity: 1;
+    transform: none;
+  }
+  
+  /* --- 2. 卡片主體：方形區塊 --- */
+  #section-9 .checkup-card {
+    position: relative;
+    z-index: 1;
+    width: 95%;
+    max-width: 420px;
+    padding: 36px 0 34px;
+    text-align: center;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    transform: none;
+    transform-origin: center center;
+  }
+  
+  /* 停用額外背景層 */
+  #section-9 .checkup-card::before {
+    content: none;
+  }
+
+  /* 內容層固定在梯形底層之上 */
+  #section-9 .checkup-card > * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* --- 4. 卡片內容細節 --- */
+  #section-9 .checkup-card__visual {
+    position: relative;
+    z-index: 1;
+    min-height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    padding: 0 15%;
+  }
+
+  /* 內層梯形關閉，改由 card::before 一次處理 */
+  #section-9 .checkup-card__visual::before {
+    content: none;
+  }
+  
+  #section-9 .checkup-card__img {
+    position: relative;
+    z-index: 2;
+    width: min(100%, 220px);
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  #section-9 .checkup-card__title {
+    position: relative;
+    z-index: 1;
+    margin: 10px 15% 16px;
+    font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+    line-height: 1.15;
+    white-space: nowrap;
+    font-weight: 900;
+    color: #111;
+  }
+  
+  #section-9 .checkup-card__rows {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 0 15%;
+  }
+  
+  #section-9 .checkup-card__row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 13px 0;
+    border-bottom: 1px dashed #ddd;
+  }
+  
+  #section-9 .checkup-card__row:last-child {
+    border-bottom: 0;
+  }
+  
+  #section-9 .checkup-card__pill {
+    min-width: 50px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    color: #fff;
+    font-size: 0.76rem;
+    font-weight: 800;
+    line-height: 1.2;
+    flex: 0 0 auto;
+  }
+  
+  #section-9 .checkup-card__pill--pro {
+    background: #0d9de5;
+  }
+  
+  #section-9 .checkup-card__pill--con {
+    background: #ef5252;
+  }
+  
+  #section-9 .checkup-card__pill--who {
+    background: #151515;
+  }
+  
+  #section-9 .checkup-card__text {
+    margin: 0;
+    flex: 1;
+    text-align: left;
+    font-size: clamp(0.93rem, 1.08vw, 1.02rem);
+    line-height: 1.6;
+    color: #222;
+  }
+  
+  /* --- 5. Swiper 導覽按鈕 --- */
+  #section-9 .checkup-swiper .swiper-button-prev,
+  #section-9 .checkup-swiper .swiper-button-next {
+    width: 44px;
+    height: 44px;
+    margin-top: 0;
+    top: 48%;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    color: #111;
+  }
+  
+  #section-9 .checkup-swiper .swiper-button-prev::after,
+  #section-9 .checkup-swiper .swiper-button-next::after {
+    content: "" !important;
+  }
+  
+  #section-9 .checkup-swiper__chev {
+    width: 12px;
+    height: 12px;
+    border-style: solid;
+    border-color: currentColor;
+    border-width: 0 2.5px 2.5px 0;
+    display: block;
+  }
+  
+  #section-9 .checkup-swiper__chev--prev {
+    transform: rotate(135deg);
+  }
+  
+  #section-9 .checkup-swiper__chev--next {
+    transform: rotate(-45deg);
+  }
+  
+  #section-9 .checkup-swiper .swiper-button-prev {
+    left: max(6px, calc(50% - 540px));
+  }
+  
+  #section-9 .checkup-swiper .swiper-button-next {
+    right: max(6px, calc(50% - 540px));
+  }
+  
+  #section-9 .checkup-swiper__pagination.swiper-pagination {
+    bottom: 8px !important;
+  }
+  
+  #section-9 .checkup-swiper__pagination .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    margin: 0 4px !important;
+    background: #c7c7c7;
+    opacity: 1;
+  }
+  
+  #section-9 .checkup-swiper__pagination .swiper-pagination-bullet-active {
+    background: #111;
+  }
+  
+  /* --- 6. RWD 手機版設定 --- */
+  @media (max-width: 768px) {
+    #section-9 .checkup-swiper:not(.swiper-initialized) .swiper-wrapper {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    #section-9 .checkup-swiper .swiper-slide {
+      width: 85% !important; /* 手機版讓卡片佔 85% 寬度 */
+    }
+  
+    #section-9 .checkup-card {
+      padding: 30px 0 24px;
+      border-radius: 14px;
+      transform: none;
+    }
+  
+    #section-9 .checkup-card::before {
+      content: none;
+    }
+  
+    #section-9 .checkup-card__visual {
+      min-height: 165px;
+      padding: 0 12%;
+    }
+
+    #section-9 .checkup-card__visual::before {
+      content: none;
+    }
+  
+    #section-9 .checkup-card__title {
+      font-size: clamp(1.2rem, 4.8vw, 1.6rem);
+      margin: 8px 12% 12px;
+      white-space: nowrap;
+    }
+  
+    #section-9 .checkup-card__rows {
+      padding: 0 12%;
+    }
+  
+    #section-9 .checkup-card__text {
+      font-size: clamp(0.92rem, 3.8vw, 1rem);
+    }
+  
+    #section-9 .checkup-swiper .swiper-button-prev,
+    #section-9 .checkup-swiper .swiper-button-next {
+      display: none !important;
+    }
+  }
