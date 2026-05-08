@@ -36,8 +36,21 @@
     new window.Swiper(swiperEl, {
       slidesPerView: 3,
       centeredSlides: true,
+      spaceBetween: 0,
       loop: true,
       speed: 600,
+      breakpoints: {
+        320: {
+          slidesPerView: 1.2,
+          centeredSlides: true,
+          spaceBetween: 16,
+        },
+        1024: {
+          slidesPerView: 3,
+          centeredSlides: true,
+          spaceBetween: 0,
+        },
+      },
       navigation: {
         prevEl: prev,
         nextEl: next,
