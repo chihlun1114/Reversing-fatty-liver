@@ -149,7 +149,7 @@
                 <div class="section-copy">
                     <span class="eyebrow">章節 01</span>
                     <h2 class="global-section-title">章節區塊 1</h2>
-                    <div class="global-section-intro">
+                    <div class="global-section-intro section-intro">
                         <p class="lead">此區可放章節前言與核心觀點。</p>
                         <p>此區塊為內容佔位，後續可替換為正式文案與圖表。</p>
                     </div>
@@ -225,7 +225,7 @@
                          
                             <h2 id="liver-evolution-heading" class="liver-evolution__title global-section-title">肝臟怎麼變粉肝？一次看懂脂肪肝變化</h2>
                             <div class="global-section-intro">
-                                <p class="liver-evolution__subtitle">
+                                <p class="liver-evolution__subtitle section-intro">
                                     脂肪肝並不如想像般「肝臟表面被脂肪包住」，而是肝細胞中有過多脂肪，因此俗稱「肝包油」，台灣小吃中常見的「粉肝」就是有脂肪肝的豬肝。肝臟裡本來就有少量脂肪，一旦超過5%，就是脂肪肝。為什麼健康肝會變粉肝，甚至纖維化、硬化，進而有肝癌風險？在滑桿上移動游標，一次看懂。
                                 </p>
                             </div>
@@ -261,7 +261,7 @@
                             </div>
 
                             <div class="liver-evolution__slider-block">
-                                <div class="relative mx-auto w-full max-w-2xl rounded-2xl border border-white/60 bg-white/35 px-5 py-4 shadow-lg shadow-slate-900/5 backdrop-blur-md">
+                                <div class="liver-evolution__slider-wrap">
                                     <label class="sr-only" for="liver-stage-slider">肝臟演進階段（0 健康 至 5 硬化）</label>
                                     <input
                                         id="liver-stage-slider"
@@ -273,13 +273,13 @@
                                         value="0"
                                         data-liver-slider
                                     >
-                                    <div class="liver-evolution__ticks" aria-hidden="true">
-                                        <span>健康</span>
-                                        <span>輕度</span>
-                                        <span>中度</span>
-                                        <span>重度</span>
-                                        <span>纖維化</span>
-                                        <span>硬化</span>
+                                    <div class="liver-evolution__ticks" data-liver-ticks role="group" aria-label="階段刻度，點選可切換">
+                                        <button type="button" class="liver-evolution__tick" data-liver-tick="0">健康</button>
+                                        <button type="button" class="liver-evolution__tick" data-liver-tick="1">輕度</button>
+                                        <button type="button" class="liver-evolution__tick" data-liver-tick="2">中度</button>
+                                        <button type="button" class="liver-evolution__tick" data-liver-tick="3">重度</button>
+                                        <button type="button" class="liver-evolution__tick" data-liver-tick="4">纖維化</button>
+                                        <button type="button" class="liver-evolution__tick" data-liver-tick="5">硬化</button>
                                     </div>
                                 </div>
                             </div>
@@ -295,7 +295,7 @@
     <div class="container">
         <header class="section-qa__header">
             <h2 id="section-qa-title" class="section-qa__title global-section-title">8大迷思，醫師一次破解</h2>
-            <div class="global-section-intro">
+            <div class="global-section-intro section-intro">
                 <p>不喝酒、不覺得累、看起來不胖，脂肪肝也可能找上門？若長期忽視肝臟的沉默警訊，仍可能進展為不可逆的肝臟損傷。肝膽腸胃專科醫師賴佳業，為你破解8個最常見的脂肪肝迷思。</p>
             </div>
         </header>
@@ -445,7 +445,7 @@
 <section id="section-5" class="recipe-block" aria-labelledby="recipe-block-title">
     <div class="recipe-block__intro global-section-intro">
         <h2 id="recipe-block-title" class="recipe-block__heading global-section-title">吃得好，肝臟不卡油</h2>
-        <p class="recipe-block__lead">想對抗脂肪肝，飲食是重中之重。透過<strong>優質蛋白</strong>、<strong>膳食纖維</strong>、<strong>植化素</strong>、<strong>好油脂</strong>，可以幫助穩定血糖與腸道健康，並改善脂肪肝。功能醫學營養師呂美寶親自設計一日三餐菜單，即使外食族也不用擔心。按照呂美寶的三餐建議，就算聚餐、加班，只要掌握關鍵原則，也能減少肝臟脂肪堆積。</p>
+        <p class="recipe-block__lead section-intro">想對抗脂肪肝，飲食是重中之重。透過<strong>優質蛋白</strong>、<strong>膳食纖維</strong>、<strong>植化素</strong>、<strong>好油脂</strong>，可以幫助穩定血糖與腸道健康，並改善脂肪肝。功能醫學營養師呂美寶親自設計一日三餐菜單，即使外食族也不用擔心。按照呂美寶的三餐建議，就算聚餐、加班，只要掌握關鍵原則，也能減少肝臟脂肪堆積。</p>
     </div>
 
     <div class="recipe-block__stage" data-recipe-showcase>
@@ -562,7 +562,7 @@
     <div class="container section-exercise__inner">
         <header class="section-exercise__header">
             <h2 class="section-exercise__title global-section-title">動得對，肝臟不發炎</h2>
-            <div class="section-nutrition__intro global-section-intro">
+            <div class="section-nutrition__intro global-section-intro section-intro">
                 <p>適度運動可幫助對抗脂肪肝、避免肝臟發炎。肝膽腸胃專科醫師吳柏叡表示，在眾多運動中，首推「中強度有氧運動」，例如快走、慢跑、騎腳踏車、游泳。建議每週至少運動150分鐘，且均分到多天，比一次做完來得好，例如每週運動5天，每次30分鐘，而不是一次運動150分鐘。</p>
                 <p>除了有氧運動，肝膽腸胃專科醫師賴佳業建議加入阻力運動，例如重訓，以增加肌肉量，進而提升基礎代謝率，更有益於控制體重。</p>
             </div>
@@ -605,9 +605,8 @@
 <section id="section-8" class="section-nutrition" data-nutrition-flip aria-labelledby="section-nutrition-title">
     <div class="container">
         <header class="section-nutrition__header">
-            <p class="section-nutrition__eyebrow">LIVER CARE</p>
             <h2 id="section-nutrition-title" class="section-nutrition__title global-section-title">護肝營養素，你都需要嗎？</h2>
-            <div class="section-nutrition__intro global-section-intro">
+            <div class="section-nutrition__intro global-section-intro section-intro">
                 <p>功能醫學營養師呂美寶表示，減重、均衡飲食、適度運動、充足睡眠等，仍是預防或減緩脂肪肝的第一線主力，額外補充的營養素或保健食品，僅可視為第二線的「輔助」，就是為你的努力加分，但不能取代生活習慣的調整。</p>
                 <p>需要注意的是，市面標榜「保肝」的保健食品眾多，但機轉大多以「抗發炎」、「抗氧化」或協助代謝調節為主，也就是加強肝臟的自我修復能力，而不是直接剷除或減少脂肪肝。所以不要過度期待多了這些營養素，脂肪肝就會消失無蹤，但可視需求與醫師、營養師討論，從中選擇最適合自己，能幫助你更有效率地提升肝臟整體健康。</p>
             </div>
@@ -723,7 +722,7 @@
 <section id="section-9" class="checkup section-checkup" aria-labelledby="checkup-section-title">
     <div class="checkup__inner">
         <h2 id="checkup-section-title" class="checkup__heading global-section-title">早發現早治療！你可以做哪些檢查？</h2>
-        <div class="section-nutrition__intro global-section-intro">
+        <div class="section-nutrition__intro global-section-intro section-intro">
             <p>有了脂肪肝，自己可能渾然不覺而放任惡化，因此定期檢查是保護肝臟的關鍵。腹部超音波可以觀察肝臟的脂肪堆積狀況，抽血則可得知肝功能指數（GOT、GPT）是否正常，以了解肝臟是否在發炎中，2種檢查可按照以下原則與頻率安排：</p>
             <p>●40歲以上、肥胖，有代謝症候群、飲酒習慣→每年1次超音波
                 ●單純脂肪肝、無肝指數異常者→半年～1年追蹤1次

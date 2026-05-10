@@ -18,7 +18,7 @@
       <header class="liver-evolution__header">
         <p class="liver-evolution__kicker">INTERACTIVE MODULE</p>
         <h1 id="liver-evolution-title" class="liver-evolution__title">肝臟演進：從健康到硬化</h1>
-        <p class="liver-evolution__subtitle">
+        <p class="liver-evolution__subtitle section-intro">
           拖曳下方滑桿檢視六個階段。主畫面與微觀示意將同步切換。
         </p>
       </header>
@@ -54,7 +54,7 @@
         </div>
 
         <div class="liver-evolution__slider-block">
-          <div class="relative w-full max-w-2xl mx-auto rounded-2xl border border-white/60 bg-white/35 px-5 py-4 shadow-lg shadow-slate-900/5 backdrop-blur-md">
+          <div class="liver-evolution__slider-wrap">
             <label class="sr-only" for="liver-stage-slider">肝臟階段（0 健康 至 5 硬化）</label>
             <input
               id="liver-stage-slider"
@@ -66,13 +66,13 @@
               value="0"
               data-liver-slider
             >
-            <div class="liver-evolution__ticks" aria-hidden="true">
-              <span>健康</span>
-              <span>輕度</span>
-              <span>中度</span>
-              <span>重度</span>
-              <span>纖維化</span>
-              <span>硬化</span>
+            <div class="liver-evolution__ticks" data-liver-ticks role="group" aria-label="階段刻度，點選可切換">
+              <button type="button" class="liver-evolution__tick" data-liver-tick="0">健康</button>
+              <button type="button" class="liver-evolution__tick" data-liver-tick="1">輕度</button>
+              <button type="button" class="liver-evolution__tick" data-liver-tick="2">中度</button>
+              <button type="button" class="liver-evolution__tick" data-liver-tick="3">重度</button>
+              <button type="button" class="liver-evolution__tick" data-liver-tick="4">纖維化</button>
+              <button type="button" class="liver-evolution__tick" data-liver-tick="5">硬化</button>
             </div>
           </div>
         </div>

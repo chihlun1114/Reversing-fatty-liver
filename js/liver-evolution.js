@@ -80,6 +80,7 @@
     var titleEl = qs(section, "[data-stage-title]");
     var descEl = qs(section, "[data-stage-desc]");
     var slider = qs(section, "[data-liver-slider]");
+    var ticksRoot = qs(section, "[data-liver-ticks]");
     var stageIndexEl = qs(section, "[data-stage-index]");
     var stageTotalEl = qs(section, "[data-stage-total]");
 
@@ -181,6 +182,18 @@
       current = v;
       crossfadeTo(v);
     });
+
+    if (ticksRoot) {
+      ticksRoot.addEventListener("click", function (e) {
+        var btn = e.target && e.target.closest("[data-liver-tick]");
+        if (!btn || !ticksRoot.contains(btn)) return;
+        var v = parseInt(btn.getAttribute("data-liver-tick"), 10);
+        if (isNaN(v)) return;
+        v = Math.max(0, Math.min(STAGES.length - 1, v));
+        slider.value = String(v);
+        slider.dispatchEvent(new Event("input", { bubbles: true }));
+      });
+    }
 
     crossfadeTo(current, { skipCopyAnim: true });
   }

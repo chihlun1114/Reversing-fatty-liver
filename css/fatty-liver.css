@@ -24,21 +24,111 @@ body {
   color: #111;
 }
 
-/* 全域統一區塊前言：粗細正常黑體、齊左對齊 */
+/* 全域區塊導言外殼：置中寬度、齊左、基礎字型 */
 .global-section-intro {
   font-family: "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif !important;
   font-weight: 400 !important;
   text-align: left !important;
-  line-height: 1.8 !important;
   max-width: 800px;
-  margin: 0 auto !important;
-  color: #333;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
-/* 確保前言內的 p 標籤也嚴格齊左 */
-.global-section-intro p {
+/*
+ * 區塊標題（h2 等）下方導言：統一字級、色、行高。
+ * 與標題間距 0.5rem、與後續內容 1.5rem 由下方組合規則與 :has() 控制。
+ */
+.section-intro {
+  font-size: 1.125rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.section-intro > p {
+  margin: 0 0 1em;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  color: inherit !important;
   text-align: left !important;
-  margin-bottom: 1em;
+}
+
+.section-intro > p:last-child {
+  margin-bottom: 0;
+}
+
+/* 主標題緊接導言時，不再額外留底，避免與導言 margin-top 疊成雙倍 */
+.global-section-title:has(+ .section-intro),
+.global-section-title:has(+ .global-section-intro) {
+  margin-bottom: 0 !important;
+}
+
+.recipe-block__heading.global-section-title:has(+ .recipe-block__lead.section-intro) {
+  margin-bottom: 0 !important;
+}
+
+.section-nutrition__title.global-section-title:has(+ .section-nutrition__intro.section-intro) {
+  margin-bottom: 0 !important;
+}
+
+/* 標題 → 導言 0.5rem；導言區塊 → 後續內容 1.5rem */
+.global-section-title + .section-intro {
+  margin-top: 0.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.global-section-title + .global-section-intro:not(.section-intro) {
+  margin-top: 0.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.global-section-title + .global-section-intro:not(.section-intro) > .section-intro {
+  margin: 0 !important;
+}
+
+.recipe-block__lead.section-intro {
+  margin-top: 0.5rem !important;
+  margin-bottom: 1.5rem !important;
+  max-width: 40rem;
+  text-align: left;
+}
+
+/* 營養／檢查區塊稿：覆寫元件 CSS 的 margin 與字級，與全站導言一致 */
+.section-nutrition__intro.global-section-intro.section-intro {
+  margin-top: 0.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.section-nutrition__intro.section-intro p {
+  font-size: inherit !important;
+  line-height: inherit !important;
+  color: inherit !important;
+}
+
+/* 含導言的區塊 header：避免 header margin-bottom 與導言 margin-bottom 重複 */
+.section-exercise__header:has(.section-intro),
+.section-nutrition__header:has(.section-intro),
+.section-qa__header:has(.section-intro),
+.liver-evolution__header:has(.global-section-intro),
+.liver-evolution__header:has(.liver-evolution__subtitle.section-intro) {
+  margin-bottom: 0;
+}
+
+/* 肝臟演進副標：保留 BEM，字樣改由 .section-intro 統一 */
+.liver-evolution__subtitle.section-intro {
+  font-size: 1.125rem !important;
+  line-height: 1.6 !important;
+  color: #555 !important;
+}
+
+/* index：副標在 global-section-intro 內，區塊上下距由外層控制 */
+.global-section-title + .global-section-intro:not(.section-intro) > .liver-evolution__subtitle.section-intro {
+  margin: 0 !important;
+}
+
+/* liver-evolution.html：副標緊接 h1 時自行保留與標題／網格間距 */
+.liver-evolution__title + .liver-evolution__subtitle.section-intro {
+  margin-top: 0.5rem !important;
+  margin-bottom: 1.5rem !important;
 }
 
 /* Block 1~9: 統一移除區塊背景色 */
