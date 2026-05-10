@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="/scss/main.css">
     <link rel="stylesheet" href="./css/fatty-liver.css">
+    <link rel="stylesheet" href="./css/hero-parallax.css">
     <link rel="stylesheet" href="./css/liver-evolution.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -121,26 +122,11 @@
     <!-- header end -->
 
     <main class="main-content">
-        <section id="hero-banner" class="section-placeholder">
-            <!-- 1. Hero Banner 區塊 -->
-            <div class="container section-grid">
-                <div class="section-copy">
-                    <span class="eyebrow">Hero Banner</span>
-                    <h1>脂肪肝數位專題</h1>
-                    <p class="lead">這裡放置專題主標與摘要文案。</p>
-                    <p>此區塊為 Hero Banner 佔位內容，後續可補上導言、關鍵數據與 CTA。</p>
-                    <div class="section-actions">
-                        <a class="section-button" href="#">主要按鈕</a>
-                        <a class="section-button" href="#">次要按鈕</a>
-                    </div>
-                </div>
-                <div class="section-media">
-                    <figure>
-                        <img src="./images/hero-banner.jpg" alt="脂肪肝數位專題主視覺">
-                        <figcaption>Hero 主視覺佔位圖說文字。</figcaption>
-                    </figure>
-                </div>
-            </div>
+        <!-- Hero：縮放視差 + 模糊變清晰（GSAP ScrollTrigger） -->
+        <section id="hero" aria-label="逆轉肝包油主視覺">
+            <img class="layer-liver" src="./images/layer-healthy-liver.webp" alt="健康肝臟" width="1920" height="1080" decoding="async">
+            <img class="layer-title" src="./images/layer-title.svg" alt="逆轉肝包油標題" width="1920" height="540" decoding="async">
+            <img class="layer-oil" src="./images/layer-oil-mesh.webp" alt="油脂層" width="1920" height="1080" decoding="async">
         </section>
 
         <!-- Block 1: 空白章節區塊 Start -->
@@ -724,10 +710,11 @@
         <h2 id="checkup-section-title" class="checkup__heading global-section-title">早發現早治療！你可以做哪些檢查？</h2>
         <div class="section-nutrition__intro global-section-intro section-intro">
             <p>有了脂肪肝，自己可能渾然不覺而放任惡化，因此定期檢查是保護肝臟的關鍵。腹部超音波可以觀察肝臟的脂肪堆積狀況，抽血則可得知肝功能指數（GOT、GPT）是否正常，以了解肝臟是否在發炎中，2種檢查可按照以下原則與頻率安排：</p>
-            <p>●40歲以上、肥胖，有代謝症候群、飲酒習慣→每年1次超音波
-                ●單純脂肪肝、無肝指數異常者→半年～1年追蹤1次
-                ●脂肪肝且肝功能指數異常，合併B/C肝或肝硬化→每3個月抽血1次，半年1次超音波追蹤
-                </p>
+            <p>
+                <span class="text-coral">●</span> <strong>40歲以上、肥胖、有代謝症候群、飲酒習慣</strong> → 每年1次超音波<br><br>
+                <span class="text-coral">●</span> <strong>單純脂肪肝、無肝指數異常者</strong> → 半年～1年追蹤1次<br><br>
+                <span class="text-coral">●</span> <strong>脂肪肝且肝功能指數異常，合併B/C肝或肝硬化</strong> → 每3個月抽血1次，半年1次超音波追蹤
+              </p>
                 <p>腹部超音波是安全、簡易、快速，人人可做的影像檢查，另有其他精密儀器可以更進一步掌握肝臟健康狀態。</p>
         </div>
         <div class="swiper checkup-swiper" data-checkup-swiper>
@@ -947,7 +934,9 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="./js/hero-parallax.js"></script>
     <script src="./js/liver-evolution.js"></script>
     <script src="./js/qa.js"></script>
     <script src="./components/MealAdvice.js"></script>

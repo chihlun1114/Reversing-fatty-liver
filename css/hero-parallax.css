@@ -1,0 +1,46 @@
+/* 強制解除外層限制，拯救 Pin 釘選功能 */
+html,
+body {
+  overflow-x: hidden;
+}
+
+.main-content {
+  overflow: visible !important;
+  transform: none !important;
+}
+
+/* Hero 區塊滿版設定 */
+#hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh !important; /* 強制滿版高度 */
+  overflow: hidden;
+  background: #ff572c;
+}
+
+/* 圖片共用置中設定 */
+#hero img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+}
+
+/* 個別圖片微調：解決標題被裁切的問題 */
+.layer-liver {
+  z-index: 1;
+  object-fit: cover;
+}
+
+.layer-title {
+  z-index: 2;
+  object-fit: contain !important; /* 因為標題是 1920x540，必須用 contain 才不會被裁切出螢幕 */
+}
+
+.layer-oil {
+  z-index: 3;
+  object-fit: cover;
+}
