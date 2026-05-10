@@ -15,7 +15,7 @@ body {
   width: 100vw;
   height: 100vh !important; /* 強制滿版高度 */
   overflow: hidden;
-  background: #ff572c;
+  background: radial-gradient(circle at center, #e0f7fa 0%, #b2ebf2 100%);
 }
 
 /* 圖片共用置中設定 */
@@ -43,4 +43,17 @@ body {
 .layer-oil {
   z-index: 3;
   object-fit: cover;
+}
+
+/* 手機版：標題放大、上移，避免與肝臟主視覺完全重疊（GSAP 會同步 top/width/height） */
+@media (max-width: 767px) {
+  #hero .layer-title {
+    width: 90%;
+    height: auto;
+    max-height: 48vh;
+    object-fit: contain !important;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
