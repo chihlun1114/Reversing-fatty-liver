@@ -1,5 +1,5 @@
 /**
- * Hero — 200 顆巨大脂肪牆（高 scale 遮蔽底板）+ 360° 錯落噴散 + 飛出時縮小遠去
+ * Hero — 300 顆脂肪牆（緻密堆疊）+ 360° 錯落噴散、實體飛出（無淡出）
  * RWD：resize 時清空重建 timeline。
  */
 (function () {
@@ -16,6 +16,9 @@
   if (!bubbleContainer) return;
 
   gsap.registerPlugin(ScrollTrigger);
+  if (typeof ScrollTrigger.normalizeScroll === "function") {
+    ScrollTrigger.normalizeScroll(true);
+  }
 
   var bubbleSources = [
     "./images/bubble-1.webp",
@@ -96,7 +99,7 @@
     bubbleContainer.innerHTML = "";
 
     var i;
-    for (i = 0; i < 200; i++) {
+    for (i = 0; i < 300; i++) {
       var img = document.createElement("img");
       img.src = bubbleSources[i % bubbleSources.length];
       img.className = "bubble";
@@ -120,13 +123,13 @@
         transformOrigin: "50% 50%",
         x: gsap.utils.random(-200, w + 200),
         y: gsap.utils.random(-200, h + 200),
-        scale: gsap.utils.random(1.5, 4.5),
+        scale: gsap.utils.random(0.8, 1.8),
         rotation: gsap.utils.random(0, 360),
         opacity: 1,
       });
     });
 
-    let tl = gsap.timeline({
+    var tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#hero",
         start: "top top",
@@ -135,18 +138,20 @@
         scrub: 0.5,
         pinSpacing: true,
         invalidateOnRefresh: true,
+        anticipatePin: 1,
       },
     });
 
-    bubbles.forEach(function (bubble) {
-      var angle = gsap.utils.random(0, Math.PI * 2);
-      var distance = gsap.utils.random(1500, 3500);
+    bubbles.forEach(function (bubble, index) {
+      var baseAngle = (index / bubbles.length) * Math.PI * 2;
+      var angle = baseAngle + gsap.utils.random(-0.2, 0.2);
+      var distance = gsap.utils.random(2000, 3500);
 
       var endX = "+=" + Math.cos(angle) * distance;
       var endY = "+=" + Math.sin(angle) * distance;
 
-      var randomStartTime = gsap.utils.random(0, 0.4);
-      var randomDuration = gsap.utils.random(0.8, 1.5);
+      var randomStartTime = gsap.utils.random(0, 0.3);
+      var randomDuration = gsap.utils.random(0.8, 1.2);
 
       tl.to(
         bubble,
@@ -154,8 +159,8 @@
           x: endX,
           y: endY,
           rotation: "+=" + gsap.utils.random(-720, 720),
-          scale: gsap.utils.random(0.5, 1.5),
-          opacity: 0,
+          scale: gsap.utils.random(0.5, 1.0),
+          opacity: 1,
           ease: "power2.inOut",
           duration: randomDuration,
         },
