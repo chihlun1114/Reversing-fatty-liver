@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="./css/exercise.css">
     <link rel="stylesheet" href="./css/checkup.css">
     <link rel="stylesheet" href="./css/quiz.css">
+    <link rel="stylesheet" href="./css/chart.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Tag Manager -->
     <script>(function(w, d, s, l, i) {
@@ -129,26 +130,62 @@
             <div class="bubbles-container" aria-hidden="true"></div>
         </section>
 
-        <!-- Block 1: 空白章節區塊 Start -->
-        <section id="section-1" class="section-placeholder">
-            <div class="container section-grid">
-                <div class="section-copy">
-                    <span class="eyebrow">章節 01</span>
-                    <h2 class="global-section-title">章節區塊 1</h2>
-                    <div class="global-section-intro section-intro">
-                        <p class="lead">此區可放章節前言與核心觀點。</p>
-                        <p>此區塊為內容佔位，後續可替換為正式文案與圖表。</p>
+        <!-- Block 1: 市調圖表輪播（Swiper + 甜甜圈圖） -->
+        <section id="section-chart" class="chart-section" aria-label="肝臟健康數據調查">
+            <div class="container relative-container">
+                <div class="swiper chart-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="chart-card">
+                                <h3 class="chart-card__title">您會定期追蹤脂肪肝或其他肝臟健康數據嗎？</h3>
+                                <div class="chart-doughnut-wrap">
+                                    <canvas id="liverChart" aria-label="調查結果甜甜圈圖"></canvas>
+                                    <div class="chart-center-text" aria-hidden="true">
+                                        <div class="pct" style="color: #00A650;">39.6<span>%</span></div>
+                                        <div class="label" style="color: #00A650;">有定期做健檢</div>
+                                    </div>
+                                    <img src="./images/chart-illustration.webp" alt="肝臟健檢插圖" class="chart-floating-img" width="240" height="240" loading="lazy" decoding="async">
+                                </div>
+                                <div class="chart-legend-row" role="list" aria-label="圖例">
+                                    <div class="legend-item" role="listitem"><span class="dot" style="background:#00A650;" aria-hidden="true"></span>有健檢</div>
+                                    <div class="legend-item" role="listitem"><span class="dot" style="background:#4A5568;" aria-hidden="true"></span>完全不會</div>
+                                    <div class="legend-item" role="listitem"><span class="dot" style="background:#FEDE00;" aria-hidden="true"></span>額外進階檢查</div>
+                                    <div class="legend-item" role="listitem"><span class="dot" style="background:#FF5A5F;" aria-hidden="true"></span>有脂肪肝沒追蹤</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="chart-card">
+                                <h3 class="chart-card__title">長條圖標題佔位</h3>
+                                <div class="bar-chart-placeholder">
+                                    <p class="bar-chart-placeholder__lead">後續可替換為正式調查長條圖。</p>
+                                    <div class="chart-bar-list">
+                                        <div class="chart-bar-row">
+                                            <span class="chart-bar-label">項目 A</span>
+                                            <span class="chart-bar-value">45%</span>
+                                            <div class="bar-track"><div class="bar-fill" style="width:45%"></div></div>
+                                        </div>
+                                        <div class="chart-bar-row">
+                                            <span class="chart-bar-label">項目 B</span>
+                                            <span class="chart-bar-value">30%</span>
+                                            <div class="bar-track"><div class="bar-fill" style="width:30%"></div></div>
+                                        </div>
+                                        <div class="chart-bar-row">
+                                            <span class="chart-bar-label">項目 C</span>
+                                            <span class="chart-bar-value">25%</span>
+                                            <div class="bar-track"><div class="bar-fill" style="width:25%"></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="section-media">
-                    <figure>
-                        <img src="./images/hero_D.webp" alt="章節區塊 1 主視覺" loading="lazy" decoding="async">
-                        <figcaption>章節 1 圖片或圖表說明文字。</figcaption>
-                    </figure>
-                </div>
+                <div class="swiper-button-prev chart-nav-prev" aria-label="上一張"></div>
+                <div class="swiper-button-next chart-nav-next" aria-label="下一張"></div>
             </div>
         </section>
-        <!-- Block 1: 空白章節區塊 End -->
+        <!-- /Block 1 -->
 
         <!-- Block 2: 空白章節區塊 Start -->
         <section id="section-2" class="quiz-section">
@@ -956,9 +993,11 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="./js/chart-liver.js"></script>
     <script src="./js/hero-parallax.js"></script>
     <script src="./js/liver-evolution.js"></script>
     <script src="./js/qa.js"></script>

@@ -159,8 +159,7 @@ body {
   margin-bottom: 0 !important;
 }
 
-/* 主內容區塊底色：全部統一 #fbf5e8 */
-#section-1,
+/* 主內容區塊底色：全部統一 #fbf5e8（圖表區由 chart.css 自訂底色） */
 #section-3,
 #section-5.recipe-block,
 #section-7.section-exercise,
