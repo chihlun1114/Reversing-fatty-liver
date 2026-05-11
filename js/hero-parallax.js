@@ -1,6 +1,6 @@
 /**
- * Hero — GSAP ScrollTrigger（油層 expo 爆發 + 肝／標題 back.out 回彈）
- * 手機版同步標題版面（top / width / height），避免 transform 與 RWD 衝突。
+ * Hero — 200 顆巨大脂肪牆（高 scale 遮蔽底板）+ 360° 錯落噴散 + 飛出時縮小遠去
+ * RWD：resize 時清空重建 timeline。
  */
 (function () {
   "use strict";
@@ -12,13 +12,24 @@
   var hero = document.getElementById("hero");
   if (!hero) return;
 
+  var bubbleContainer = hero.querySelector(".bubbles-container");
+  if (!bubbleContainer) return;
+
   gsap.registerPlugin(ScrollTrigger);
+
+  var bubbleSources = [
+    "./images/bubble-1.webp",
+    "./images/bubble-2.webp",
+    "./images/bubble-3.webp",
+  ];
+
+  var activeTimeline = null;
+  var resizeTimer;
 
   function isTitleMobileLayout() {
     return window.matchMedia("(max-width: 767px)").matches;
   }
 
-  /** 僅更新標題盒模型與置中，不重置 scale／opacity（方便 resize 時不打斷捲動動畫） */
   function syncTitleBoxLayout() {
     var title = hero.querySelector(".layer-title");
     if (!title) return;
@@ -53,64 +64,143 @@
     });
   }
 
-  // 初始狀態設定
-  gsap.set(".layer-oil", { scale: 1, opacity: 1 });
-  gsap.set(".layer-liver", { scale: 0.8, filter: "blur(20px)" });
-  initTitleState();
+  function initLiverState() {
+    var liver = hero.querySelector(".layer-liver");
+    if (!liver) return;
+    gsap.set(liver, {
+      position: "absolute",
+      left: "50%",
+      top: "50%",
+      xPercent: -50,
+      yPercent: -50,
+      width: "100%",
+      height: "100%",
+      scale: 0.8,
+      filter: "blur(20px)",
+    });
+  }
 
-  // 手機版結尾略放大，易讀（僅依首次載入斷點；橫豎轉後請重新整理或觸發 resize refresh）
-  var titleEndScale = isTitleMobileLayout() ? 1.08 : 1;
+  function killHeroTimeline() {
+    if (activeTimeline) {
+      if (activeTimeline.scrollTrigger) {
+        activeTimeline.scrollTrigger.kill();
+      }
+      activeTimeline.kill();
+      activeTimeline = null;
+    }
+  }
 
-  let tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#hero",
-      start: "top top",
-      end: "+=150%", // 滾動行程長度
-      pin: true, // 完美釘選
-      scrub: 1, // 平滑滾動（可改 0.5 更黏捲動）
-      pinSpacing: true,
-    },
-  });
+  function setupHeroAnimation() {
+    killHeroTimeline();
 
-  // --- 爆發式動畫邏輯開始 ---
-  tl.to(
-    ".layer-oil",
-    {
-      scale: 20,
-      opacity: 0,
-      ease: "expo.in",
-      duration: 1.5,
-    },
-    0
-  )
-    .to(
-      ".layer-liver",
-      {
-        scale: 1,
-        filter: "blur(0px)",
-        ease: "back.out(1.2)",
-        duration: 1,
-      },
-      0.5
-    )
-    .to(
-      ".layer-title",
-      {
-        scale: titleEndScale,
+    bubbleContainer.innerHTML = "";
+
+    var i;
+    for (i = 0; i < 200; i++) {
+      var img = document.createElement("img");
+      img.src = bubbleSources[i % bubbleSources.length];
+      img.className = "bubble";
+      img.alt = "";
+      img.decoding = "async";
+      img.width = 128;
+      img.height = 128;
+      bubbleContainer.appendChild(img);
+    }
+
+    initLiverState();
+    initTitleState();
+
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+
+    var bubbles = gsap.utils.toArray(bubbleContainer.querySelectorAll(".bubble"));
+
+    bubbles.forEach(function (bubble) {
+      gsap.set(bubble, {
+        transformOrigin: "50% 50%",
+        x: gsap.utils.random(-200, w + 200),
+        y: gsap.utils.random(-200, h + 200),
+        scale: gsap.utils.random(1.5, 4.5),
+        rotation: gsap.utils.random(0, 360),
         opacity: 1,
-        ease: "back.out(1.5)",
-        duration: 0.8,
-      },
-      0.7
-    );
-  // --- 爆發式動畫邏輯結束 ---
+      });
+    });
 
-  var resizeTimer;
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#hero",
+        start: "top top",
+        end: "+=100%",
+        pin: true,
+        scrub: 0.5,
+        pinSpacing: true,
+        invalidateOnRefresh: true,
+      },
+    });
+
+    bubbles.forEach(function (bubble) {
+      var angle = gsap.utils.random(0, Math.PI * 2);
+      var distance = gsap.utils.random(1500, 3500);
+
+      var endX = "+=" + Math.cos(angle) * distance;
+      var endY = "+=" + Math.sin(angle) * distance;
+
+      var randomStartTime = gsap.utils.random(0, 0.4);
+      var randomDuration = gsap.utils.random(0.8, 1.5);
+
+      tl.to(
+        bubble,
+        {
+          x: endX,
+          y: endY,
+          rotation: "+=" + gsap.utils.random(-720, 720),
+          scale: gsap.utils.random(0.5, 1.5),
+          opacity: 0,
+          ease: "power2.inOut",
+          duration: randomDuration,
+        },
+        randomStartTime
+      );
+    });
+
+    var liverEl = hero.querySelector(".layer-liver");
+    var titleEl = hero.querySelector(".layer-title");
+    if (liverEl) {
+      tl.to(
+        liverEl,
+        {
+          scale: 1,
+          filter: "blur(0px)",
+          ease: "back.out(1.2)",
+          duration: 1,
+        },
+        0.4
+      );
+    }
+    if (titleEl) {
+      tl.to(
+        titleEl,
+        {
+          scale: 1,
+          opacity: 1,
+          ease: "back.out(1.5)",
+          duration: 0.8,
+        },
+        0.5
+      );
+    }
+
+    activeTimeline = tl;
+  }
+
+  setupHeroAnimation();
+
   window.addEventListener("resize", function () {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function () {
       syncTitleBoxLayout();
+      setupHeroAnimation();
       ScrollTrigger.refresh();
-    }, 150);
+    }, 200);
   });
 })();

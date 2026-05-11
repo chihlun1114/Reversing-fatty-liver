@@ -13,23 +13,22 @@ body {
 #hero {
   position: relative;
   width: 100vw;
-  height: 100vh !important; /* 強制滿版高度 */
+  height: 100vh !important;
   overflow: hidden;
   background: radial-gradient(circle at center, #e0f7fa 0%, #b2ebf2 100%);
 }
 
-/* 圖片共用置中設定 */
-#hero img {
+/* 底層／標題：滿版；置中以 GSAP xPercent/yPercent */
+#hero .layer-liver,
+#hero .layer-title {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
   transform-origin: center center;
 }
 
-/* 個別圖片微調：解決標題被裁切的問題 */
 .layer-liver {
   z-index: 1;
   object-fit: cover;
@@ -37,15 +36,38 @@ body {
 
 .layer-title {
   z-index: 2;
-  object-fit: contain !important; /* 因為標題是 1920x540，必須用 contain 才不會被裁切出螢幕 */
+  object-fit: contain !important;
 }
 
-.layer-oil {
+/* 滿版脂肪牆容器（由 JS 動態塞入 .bubble） */
+#hero .bubbles-container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
   z-index: 3;
-  object-fit: cover;
+  pointer-events: none;
+  overflow: visible;
 }
 
-/* 手機版：標題放大、上移，避免與肝臟主視覺完全重疊（GSAP 會同步 top/width/height） */
+/* 動態生成的脂肪球 */
+#hero .bubbles-container .bubble {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+  transform-origin: center center;
+  -webkit-transform-origin: center center;
+  will-change: transform, opacity;
+  opacity: 1;
+}
+
 @media (max-width: 767px) {
   #hero .layer-title {
     width: 90%;
