@@ -78,7 +78,7 @@
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   grid-template-rows: auto auto;
   gap: clamp(16px, 2.5vw, 28px);
-  align-items: start;
+  align-items: center;
 }
 
 .liver-evolution__visual {
@@ -90,6 +90,10 @@
 .liver-evolution__copy {
   grid-column: 2;
   grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
   padding: 4px 0 0;
 }
 
@@ -109,10 +113,8 @@
 
 .liver-evolution__liver-wrap {
   position: relative;
-  aspect-ratio: 4 / 3;
-  max-height: min(52vh, 440px);
-  margin: 0 auto;
   width: 100%;
+  display: block;
   background: transparent;
   border: none;
   box-shadow: none;
@@ -121,40 +123,55 @@
 }
 
 .liver-evolution__liver-stack {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  width: 100%;
+  display: block;
   z-index: 1;
   border-radius: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .liver-evolution__liver-stack img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: 44% 50%;
   opacity: 0;
   will-change: opacity;
   pointer-events: none;
 }
 
-/* 右下角圓形微觀「鏡片」，疊在肝臟主視覺之上 */
+.liver-evolution__liver-stack img:first-child {
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  object-fit: contain;
+  object-position: 44% 50%;
+}
+
+.liver-evolution__liver-stack img:not(:first-child) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: 44% 50%;
+}
+
 .liver-evolution__micro-wrap {
   position: absolute;
-  bottom: 10%;
-  right: 8%;
-  width: min(34%, 210px);
-  max-width: 42vw;
-  aspect-ratio: 1;
-  padding: 0;
-  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
   background: transparent;
   border: none;
-  border-radius: 50%;
+  border-radius: 0;
   box-shadow: none;
-  z-index: 2;
+  overflow: visible;
+  z-index: 3;
   pointer-events: none;
 }
 
@@ -167,17 +184,18 @@
 }
 
 .liver-evolution__micro-img {
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
-  border-radius: 50%;
+  display: block;
+  border-radius: 0;
   background: transparent;
-  border: 2px solid rgba(226, 232, 240, 0.95);
-  box-shadow:
-    0 0 0 1px rgba(148, 163, 184, 0.35),
-    0 10px 28px rgba(15, 23, 42, 0.14);
+  border: none;
+  box-shadow: none;
   max-height: none;
 }
 
@@ -378,13 +396,12 @@
     padding-bottom: env(safe-area-inset-bottom, 0);
   }
 
-  .liver-evolution__liver-wrap {
-    max-height: 46vh;
-  }
-
   .liver-evolution__micro-wrap {
-    width: min(38%, 160px);
-    bottom: 8%;
-    right: 5%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 }

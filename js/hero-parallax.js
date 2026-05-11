@@ -1,5 +1,5 @@
 /**
- * Hero — 300 顆脂肪牆（緻密堆疊）+ 360° 錯落噴散、實體飛出（無淡出）
+ * Hero — 400 顆脂肪牆（均勻 scale、緻密堆疊）+ 360° 噴散、飛出無淡出
  * RWD：resize 時清空重建 timeline。
  */
 (function () {
@@ -30,7 +30,7 @@
   var resizeTimer;
 
   function isTitleMobileLayout() {
-    return window.matchMedia("(max-width: 767px)").matches;
+    return window.matchMedia("(max-width: 768px)").matches;
   }
 
   function syncTitleBoxLayout() {
@@ -40,12 +40,12 @@
     gsap.set(title, {
       position: "absolute",
       left: "50%",
-      top: mobile ? "32%" : "50%",
+      top: mobile ? "25%" : "50%",
       xPercent: -50,
       yPercent: -50,
-      width: mobile ? "90%" : "100%",
+      width: mobile ? "95%" : "100%",
       height: mobile ? "auto" : "100%",
-      maxHeight: mobile ? "48vh" : "none",
+      maxHeight: "none",
     });
   }
 
@@ -56,12 +56,12 @@
     gsap.set(title, {
       position: "absolute",
       left: "50%",
-      top: mobile ? "32%" : "50%",
+      top: mobile ? "25%" : "50%",
       xPercent: -50,
       yPercent: -50,
-      width: mobile ? "90%" : "100%",
+      width: mobile ? "95%" : "100%",
       height: mobile ? "auto" : "100%",
-      maxHeight: mobile ? "48vh" : "none",
+      maxHeight: "none",
       scale: 0.5,
       opacity: 0,
     });
@@ -70,14 +70,15 @@
   function initLiverState() {
     var liver = hero.querySelector(".layer-liver");
     if (!liver) return;
+    var mobile = isTitleMobileLayout();
     gsap.set(liver, {
       position: "absolute",
       left: "50%",
-      top: "50%",
+      top: mobile ? "65%" : "50%",
       xPercent: -50,
       yPercent: -50,
       width: "100%",
-      height: "100%",
+      height: mobile ? "60%" : "100%",
       scale: 0.8,
       filter: "blur(20px)",
     });
@@ -99,7 +100,7 @@
     bubbleContainer.innerHTML = "";
 
     var i;
-    for (i = 0; i < 300; i++) {
+    for (i = 0; i < 400; i++) {
       var img = document.createElement("img");
       img.src = bubbleSources[i % bubbleSources.length];
       img.className = "bubble";
@@ -121,9 +122,9 @@
     bubbles.forEach(function (bubble) {
       gsap.set(bubble, {
         transformOrigin: "50% 50%",
-        x: gsap.utils.random(-200, w + 200),
-        y: gsap.utils.random(-200, h + 200),
-        scale: gsap.utils.random(0.8, 1.8),
+        x: gsap.utils.random(-100, w + 100),
+        y: gsap.utils.random(-100, h + 100),
+        scale: gsap.utils.random(0.6, 1.1),
         rotation: gsap.utils.random(0, 360),
         opacity: 1,
       });

@@ -1,6 +1,6 @@
 /**
  * Block 3 — LiverEvolution（六階段）
- * 資料：STAGES（title、desc、liverImg、microImg）
+ * 資料：STAGES（title、desc）+ 以 slider index 動態拼接 webp 路徑
  * 預加載：頁面初始化時預載所有肝臟層與微觀圖
  * 動畫：GSAP 圖層 opacity；標題／說明位移 + 淡入
  * 依賴：全域 gsap（由 Reversing-fatty-liver/index.html 底部載入）
@@ -8,61 +8,57 @@
 (function () {
   "use strict";
 
-  var BASE = "./images/liver-evolution/";
+  var BASE = "./images/liver-evolution";
 
-  /** @type {{ title: string, desc: string, liverImg: string, microImg: string }[]} */
+  /** @type {{ title: string, desc: string }[]} */
   var STAGES = [
     {
       title: "健康肝臟",
       desc:
         "外觀呈現紅褐色，平滑有彈性，有良好的代謝功能。",
-      liverImg: BASE + "liver-0.png",
-      microImg: BASE + "micro-0.png",
     },
     {
       title: "輕度脂肪肝",
       desc:
         "肝臟內含脂肪量為5％～33％，外觀漸漸變為油黃色。要注意脂肪量不等於發炎程度，此時少數人可能已處於肝臟發炎狀態。",
-      liverImg: BASE + "liver-1.png",
-      microImg: BASE + "micro-1.png",
     },
     {
       title: "中度脂肪肝",
       desc:
         "肝臟內含脂肪量為33％～66％，肝臟仍有彈性，但發炎機率更高。",
-      liverImg: BASE + "liver-2.png",
-      microImg: BASE + "micro-2.png",
     },
     {
       title: "重度脂肪肝",
       desc:
         "肝臟內含脂肪量大於66％，因脂肪堆積而顯得質地「粉粉的」，體積更大、更容易發炎。",
-      liverImg: BASE + "liver-3.png",
-      microImg: BASE + "micro-3.png",
     },
     {
       title: "肝纖維化",
       desc:
         "因反覆發炎、修復、結痂（早期纖維化），質地變硬、變粗。此時肝臟雖已受損，但仍可逆轉，恢復健康。",
-      liverImg: BASE + "liver-4.png",
-      microImg: BASE + "micro-4.png",
     },
     {
       title: "肝硬化",
       desc:
         "硬得像石頭，肝功能已難以逆轉，肝硬化患者每年更約有5％的機率轉變為肝癌。",
-      liverImg: BASE + "liver-5.png",
-      microImg: BASE + "micro-5.png",
     },
   ];
 
-  function preloadStageAssets(stages) {
-    stages.forEach(function (s) {
+  function getLiverSrc(index) {
+    return `${BASE}/liver-${index}.webp`;
+  }
+
+  function getMicroSrc(index) {
+    return `${BASE}/micro-${index}.webp`;
+  }
+
+  function preloadStageAssets(total) {
+    for (var i = 0; i < total; i++) {
       var liver = new Image();
-      liver.src = s.liverImg;
+      liver.src = getLiverSrc(i);
       var micro = new Image();
-      micro.src = s.microImg;
-    });
+      micro.src = getMicroSrc(i);
+    }
   }
 
   function qs(root, sel) {
@@ -73,7 +69,7 @@
     var section = root || qs(document, "#liver-evolution");
     if (!section) return;
 
-    preloadStageAssets(STAGES);
+    preloadStageAssets(STAGES.length);
 
     var liverLayers = section.querySelectorAll("[data-liver-layer]");
     var microImg = qs(section, "[data-micro-img]");
@@ -95,7 +91,7 @@
       if (titleEl) titleEl.textContent = d.title;
       if (descEl) descEl.textContent = d.desc;
       if (microImg) {
-        microImg.src = d.microImg;
+        microImg.src = getMicroSrc(index);
         microImg.alt = d.title + " — 細胞微觀示意";
       }
       if (stageIndexEl) stageIndexEl.textContent = String(index + 1);
@@ -164,13 +160,13 @@
     liverLayers.forEach(function (img, i) {
       img.style.opacity = i === current ? "1" : "0";
       if (STAGES[i]) {
-        img.src = STAGES[i].liverImg;
+        img.src = getLiverSrc(i);
         img.alt = STAGES[i].title + " — 示意";
       }
     });
 
     if (microImg && STAGES[current]) {
-      microImg.src = STAGES[current].microImg;
+      microImg.src = getMicroSrc(current);
       microImg.alt = STAGES[current].title + " — 細胞微觀示意";
     }
 

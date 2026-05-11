@@ -25,7 +25,7 @@ body {
   width: 100vw;
   height: 100vh !important;
   overflow: hidden !important;
-  background: #42a3e8;
+  background: #42a3e8 !important;
 }
 
 /* 底層／標題：滿版；置中以 GSAP xPercent/yPercent */
@@ -78,14 +78,21 @@ body {
   opacity: 1;
 }
 
-@media (max-width: 767px) {
+/* 手機版：標題與肝臟上下錯開，避免橫式標題過小與重疊（不影響 >768px） */
+@media (max-width: 768px) {
   #hero .layer-title {
-    width: 90%;
-    height: auto;
-    max-height: 48vh;
-    object-fit: contain !important;
-    top: 32%;
+    top: 25% !important;
+    width: 95% !important;
+    height: auto !important;
+    max-height: none !important;
     left: 50%;
-    transform: translate(-50%, -50%);
+    object-fit: contain !important;
+  }
+
+  #hero .layer-liver {
+    top: 65% !important;
+    width: 100% !important;
+    height: 60% !important;
+    object-position: bottom center;
   }
 }

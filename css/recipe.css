@@ -51,7 +51,8 @@
   position: relative;
   width: 100vw;
   max-width: none;
-  margin-top: clamp(28px, 4vw, 40px);
+  /* 略往上收，讓照片頂部羽化區與上方文字區底色重疊、銜接更自然 */
+  margin-top: calc(clamp(28px, 4vw, 40px) - 20px);
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   padding: 0;
@@ -102,6 +103,15 @@
   padding: 0;
   border: 0;
   vertical-align: top;
+  /* 頂緣羽化，與上方 intro 暖色底融合（透出同區塊 #fffaf0） */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 100%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center top;
+  mask-position: center top;
 }
 
 .recipe-text-overlay {
