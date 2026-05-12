@@ -1,10 +1,15 @@
 @import "//fonts.googleapis.com/earlyaccess/notosanstc.css";
 @import "https://fonts.googleapis.com/css?family=Noto+Serif+TC:300,400,600,700,800";
 
+html {
+  background-color: #fafaf7;
+}
+
 /* 全域設定 -- 勿更動 */
 body {
   margin: 0;
   padding-top: 68px;
+  background-color: #fafaf7;
 }
 
 /* 共用版心容器：所有區塊統一 1024 寬度 */
@@ -159,13 +164,13 @@ body {
   margin-bottom: 0 !important;
 }
 
-/* 主內容區塊底色：全部統一 #fbf5e8（圖表區由 chart.css 自訂底色） */
+/* 主內容區塊底色：全部統一 #fafaf7（圖表區 chart.css 另行覆寫為同色） */
 #section-3,
 #section-5.recipe-block,
 #section-7.section-exercise,
 #section-9.checkup {
-  background: #fbf5e8 !important;
-  background-color: #fbf5e8 !important;
+  background: #fafaf7 !important;
+  background-color: #fafaf7 !important;
 }
 
 /* 肝臟演進模組內層改透明，透出 section-3 的白底 */
@@ -178,8 +183,8 @@ body {
 #section-4,
 #section-6,
 #section-8 {
-  background: #fbf5e8 !important;
-  background-color: #fbf5e8 !important;
+  background: #fafaf7 !important;
+  background-color: #fafaf7 !important;
 }
 
 @media (max-width: 768px) {

@@ -1,12 +1,12 @@
 /**
  * Block 4 — 迷思 QA 風琴夾
- * Q：Bebas Neue（高窄英字）；僅 Q 區綠底，題目黑字 + 線框
+ * Q：Bebas Neue（高窄英字）；僅 Q 區藍底，題目黑字 + 線框
  */
 
 .section-qa {
   padding-top: clamp(28px, 4vw, 56px);
   padding-bottom: clamp(28px, 4vw, 56px);
-  background: #fff;
+  background: #fafaf7;
 }
 
 .section-qa .container {
@@ -26,7 +26,7 @@
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: #0d9488;
+  color: #42a3e8;
 }
 
 .section-qa__title {
@@ -45,10 +45,10 @@
 }
 
 .qa-item {
-  border: 2px solid #0d9488;
+  border: 2px solid #42a3e8;
   border-radius: 7px;
   background: #fff;
-  box-shadow: 0 2px 12px rgba(13, 148, 136, 0.08);
+  box-shadow: 0 2px 12px rgba(66, 163, 232, 0.08);
   overflow: hidden;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .qa-header:focus {
-  outline: 2px solid #0d9488;
+  outline: 2px solid #42a3e8;
   outline-offset: 2px;
 }
 
@@ -76,7 +76,7 @@
   outline: none;
 }
 
-/* 僅 Q 區：綠底白字，高窄字體（附圖風格） */
+/* 僅 Q 區：藍底白字，高窄字體（附圖風格） */
 .qa-q-tag {
   flex: 0 0 auto;
   display: flex;
@@ -85,7 +85,7 @@
   width: clamp(3.5rem, 8vw, 4.25rem);
   min-width: 3.5rem;
   padding: 10px 6px;
-  background: #0d9488;
+  background: #42a3e8;
   color: #fff;
   font-family: "Bebas Neue", Impact, "Arial Narrow", "Franklin Gothic Medium", sans-serif;
   font-weight: 400;
@@ -103,7 +103,7 @@
   content: ".";
 }
 
-/* 題目：白底、黑字（無綠色滿版底） */
+/* 題目：白底、黑字（無藍色滿版底） */
 .qa-q-text {
   flex: 1;
   display: flex;
@@ -125,9 +125,9 @@
   width: 2.75rem;
   min-width: 2.75rem;
   background: #fff;
-  color: #0d9488;
+  color: #42a3e8;
   transform-origin: 50% 50%;
-  border-left: 1px solid rgba(13, 148, 136, 0.25);
+  border-left: 1px solid rgba(66, 163, 232, 0.25);
 }
 
 .qa-chevron {
@@ -146,7 +146,7 @@
   background: #fff;
 }
 
-/* 綠色分隔線（銜接 Q / A） */
+/* 藍色分隔線（銜接 Q / A） */
 .qa-panel-inner {
   position: relative;
   padding: 0 18px 20px;
@@ -159,7 +159,7 @@
   height: 2px;
   margin-left: -18px;
   margin-right: -18px;
-  background: #0d9488;
+  background: #42a3e8;
 }
 
 .qa-answer-row {

@@ -103,7 +103,7 @@
   padding: 0;
   border: 0;
   vertical-align: top;
-  /* 頂緣羽化，與上方 intro 暖色底融合（透出同區塊 #fffaf0） */
+  /* 頂緣羽化，與上方 intro 底色融合（透出同區塊 #fafaf7） */
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 100%);
   mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 100%);
   -webkit-mask-size: 100% 100%;
@@ -137,7 +137,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   gap: clamp(12px, 2vw, 16px);
   pointer-events: auto;
 }
@@ -149,45 +149,31 @@
   font-weight: 800;
   color: #111;
   line-height: 1.35;
+  text-align: center;
   text-shadow: 0 0 14px rgba(255, 255, 255, 0.88), 0 1px 2px rgba(255, 255, 255, 0.95);
 }
 
-.recipe-slide__pill {
-  display: inline-flex;
+/* 「營養訴求：」強調字（無底框） */
+.recipe-slide__nutrient-label {
+  display: inline;
   margin: 0;
-  border-radius: 999px;
-  overflow: hidden;
-  border: 2px solid #14532d;
-  background: transparent;
-}
-
-.recipe-slide__pill-key {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 16px;
+  padding: 0;
   font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-  font-size: clamp(0.8125rem, 1.2vw, 0.9375rem);
+  font-size: inherit;
   font-weight: 800;
-  letter-spacing: 0.06em;
-  color: #fff;
-  background: #166534;
-}
-
-.recipe-slide__pill-val {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 16px;
-  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-  font-size: clamp(0.8125rem, 1.2vw, 0.9375rem);
-  font-weight: 800;
-  color: #14532d;
-  background: #fff;
+  letter-spacing: 0.02em;
+  line-height: inherit;
+  color: #ff5a60;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  vertical-align: baseline;
 }
 
 .recipe-slide__desc {
   margin: 0;
+  width: 100%;
+  text-align: left;
   font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
   font-size: clamp(0.875rem, 1.45vw, 1rem);
   line-height: 1.75;
@@ -197,12 +183,13 @@
 }
 
 .recipe-slide__cta {
-  display: inline-block;
-  vertical-align: baseline;
-  margin: 0 0 0 10px;
-  padding: 8px 18px;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: clamp(10px, 2vw, 14px) auto 0;
+  padding: 4px 12px;
   font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: #fff;
   background: #111;
@@ -211,7 +198,8 @@
   cursor: pointer;
   box-shadow: none;
   transition: background 0.2s ease, transform 0.15s ease;
-  min-height: 40px;
+  min-height: 0;
+  line-height: 1.35;
   box-sizing: border-box;
 }
 
@@ -403,22 +391,18 @@
     font-size: clamp(1.1rem, 4.2vw, 1.45rem);
   }
 
-  .recipe-slide__pill-key,
-  .recipe-slide__pill-val {
-    padding: 7px 12px;
-    font-size: 0.8125rem;
-  }
-
   .recipe-slide__desc {
     font-size: 0.9375rem;
     line-height: 1.7;
   }
 
   .recipe-slide__cta {
-    display: inline-block;
-    margin: 10px 0 0;
-    min-height: 44px;
-    padding: 10px 20px;
+    display: block;
+    width: fit-content;
+    margin: 10px auto 0;
+    min-height: 0;
+    padding: 5px 12px;
+    font-size: 0.75rem;
   }
 
   .recipe-swiper .swiper-button-prev,
@@ -535,6 +519,10 @@
   margin-top: 0;
 }
 
+.recipe-modal__body .recipe-modal__ingredients:first-child {
+  margin-top: 0;
+}
+
 .recipe-modal__body .recipe-modal__ingredients {
   margin: 10px 0 0;
   font-size: 0.9375rem;
@@ -560,11 +548,16 @@
   counter-increment: recipeStep;
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 6px;
   margin-top: 12px;
   font-size: 0.9375rem;
   line-height: 1.65;
   color: #222;
+}
+
+.recipe-modal__steps--numbered .recipe-modal__step-text {
+  flex: 1;
+  min-width: 0;
 }
 
 .recipe-modal__steps--numbered > li:first-child {
@@ -574,16 +567,17 @@
 .recipe-modal__steps--numbered > li::before {
   content: counter(recipeStep);
   flex: 0 0 auto;
-  width: 1.65rem;
-  height: 1.65rem;
+  width: calc(1.65rem / 2);
+  height: calc(1.65rem / 2);
   border-radius: 50%;
   background: #111;
   color: #fff;
-  font-size: 0.8125rem;
+  font-size: calc(0.8125rem / 2);
   font-weight: 800;
   line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 0.12em;
+  /* 與第一行文字垂直置中；勿用 1lh 於 ::before（部分瀏覽器會誤算成負 margin 導致圓點飄到文字上方） */
+  margin-top: calc((0.9375rem * 1.65 - (1.65rem / 2)) / 2);
 }
