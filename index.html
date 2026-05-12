@@ -130,61 +130,177 @@
             <div class="bubbles-container" aria-hidden="true"></div>
         </section>
 
-        <!-- Block 1: 市調圖表輪播（Swiper + 甜甜圈圖） -->
-        <section id="section-chart" class="chart-section" aria-label="肝臟健康數據調查">
-            <div class="container relative-container">
-                <div class="swiper chart-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="chart-card">
-                                <h3 class="chart-card__title">您會定期追蹤脂肪肝或其他肝臟健康數據嗎？</h3>
-                                <div class="chart-doughnut-wrap">
-                                    <canvas id="liverChart" aria-label="調查結果甜甜圈圖"></canvas>
-                                    <div class="chart-center-text" aria-hidden="true">
-                                        <div class="pct" style="color: #00A650;">39.6<span>%</span></div>
-                                        <div class="label" style="color: #00A650;">有定期做健檢</div>
-                                    </div>
-                                    <img src="./images/chart-illustration.webp" alt="肝臟健檢插圖" class="chart-floating-img" width="240" height="240" loading="lazy" decoding="async">
-                                </div>
-                                <div class="chart-legend-row" role="list" aria-label="圖例">
-                                    <div class="legend-item" role="listitem"><span class="dot" style="background:#00A650;" aria-hidden="true"></span>有健檢</div>
-                                    <div class="legend-item" role="listitem"><span class="dot" style="background:#4A5568;" aria-hidden="true"></span>完全不會</div>
-                                    <div class="legend-item" role="listitem"><span class="dot" style="background:#FEDE00;" aria-hidden="true"></span>額外進階檢查</div>
-                                    <div class="legend-item" role="listitem"><span class="dot" style="background:#FF5A5F;" aria-hidden="true"></span>有脂肪肝沒追蹤</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="chart-card">
-                                <h3 class="chart-card__title">長條圖標題佔位</h3>
-                                <div class="bar-chart-placeholder">
-                                    <p class="bar-chart-placeholder__lead">後續可替換為正式調查長條圖。</p>
-                                    <div class="chart-bar-list">
-                                        <div class="chart-bar-row">
-                                            <span class="chart-bar-label">項目 A</span>
-                                            <span class="chart-bar-value">45%</span>
-                                            <div class="bar-track"><div class="bar-fill" style="width:45%"></div></div>
-                                        </div>
-                                        <div class="chart-bar-row">
-                                            <span class="chart-bar-label">項目 B</span>
-                                            <span class="chart-bar-value">30%</span>
-                                            <div class="bar-track"><div class="bar-fill" style="width:30%"></div></div>
-                                        </div>
-                                        <div class="chart-bar-row">
-                                            <span class="chart-bar-label">項目 C</span>
-                                            <span class="chart-bar-value">25%</span>
-                                            <div class="bar-track"><div class="bar-fill" style="width:25%"></div></div>
+        <!-- Block 1: 數據調查（5 卡 Swiper，單卡／等高／圖例置底） -->
+        <div class="chart-block" id="chart-block">
+            <div id="custom-tooltip" class="chart-tooltip" role="tooltip" aria-hidden="true"></div>
+            <section id="section-chart" class="chart-section" aria-label="肝臟健康數據調查">
+                <div class="chart-section__inner relative-container">
+                    <div class="chart-swiper-shell">
+                        <div class="swiper chart-swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="chart-card">
+                                        <h3 class="chart-card__title">您會定期追蹤脂肪肝或其他肝臟健康數據嗎？</h3>
+                                        <div class="chart-card__stretch">
+                                            <div class="chart-doughnut-block">
+                                                <div class="chart-doughnut-wrap">
+                                                    <canvas id="liverChart" aria-label="調查結果甜甜圈圖"></canvas>
+                                                    <div class="chart-center-text is-visible" aria-hidden="true">
+                                                        <div class="pct" style="color: #ff5d5f;">39.6<span>%</span></div>
+                                                        <div class="label" style="color: #ff5d5f;">有定期健檢</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="chart-legend-row" role="list" aria-label="圖例">
+                                                <div class="legend-item legend-item--max" role="listitem"><span class="dot" style="background:#ff5d5f;" aria-hidden="true"></span>有定期健檢 39.6%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#555555;" aria-hidden="true"></span>完全不會 24.1%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#888888;" aria-hidden="true"></span>進階檢查 19.5%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#bbbbbb;" aria-hidden="true"></span>有脂肪肝沒追蹤 16.8%</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="swiper-slide" data-chart-bar-slide>
+                                    <div class="chart-card chart-card--bars">
+                                        <h3 class="chart-card__title">您認為脂肪肝有哪些症狀？ (複選)</h3>
+                                        <div class="chart-card__stretch">
+                                            <div class="chart-bar-list chart-bar-list--baronly">
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#ff5d5f;" data-label="容易疲倦" data-pct="65.5" data-width="65.5"><span class="bar-fill__pct bar-fill__pct--on-dark bar-fill__pct--max">65.5%</span></div></div>
+                                                </div>
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#555555;" data-label="沒有顯著症狀" data-pct="50.0" data-width="50.0"><span class="bar-fill__pct bar-fill__pct--on-dark">50.0%</span></div></div>
+                                                </div>
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#888888;" data-label="皮膚暗沉" data-pct="43.2" data-width="43.2"><span class="bar-fill__pct bar-fill__pct--on-dark">43.2%</span></div></div>
+                                                </div>
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#bbbbbb;" data-label="腹部不適" data-pct="36.1" data-width="36.1"><span class="bar-fill__pct bar-fill__pct--on-light">36.1%</span></div></div>
+                                                </div>
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#dddddd;" data-label="食慾不振" data-pct="32.5" data-width="32.5"><span class="bar-fill__pct bar-fill__pct--on-light">32.5%</span></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="chart-legend-row" role="list" aria-label="圖例">
+                                                <div class="legend-item legend-item--max" role="listitem"><span class="dot" style="background:#ff5d5f;" aria-hidden="true"></span>容易疲倦 65.5%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#555555;" aria-hidden="true"></span>沒有顯著症狀 50.0%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#888888;" aria-hidden="true"></span>皮膚暗沉 43.2%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#bbbbbb;" aria-hidden="true"></span>腹部不適 36.1%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#dddddd;" aria-hidden="true"></span>食慾不振 32.5%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide" data-chart-bar-slide>
+                                    <div class="chart-card chart-card--bars">
+                                        <h3 class="chart-card__title">您認為哪些人是脂肪肝的高風險群？ (複選)</h3>
+                                        <div class="chart-card__stretch">
+                                            <div class="chart-bar-list chart-bar-list--baronly">
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#ff5d5f;" data-label="體重過重" data-pct="86.1" data-width="86.1"><span class="bar-fill__pct bar-fill__pct--on-dark bar-fill__pct--max">86.1%</span></div></div>
+                                                </div>
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#555555;" data-label="代謝症候群" data-pct="84.1" data-width="84.1"><span class="bar-fill__pct bar-fill__pct--on-dark">84.1%</span></div></div>
+                                                </div>
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#888888;" data-label="缺乏運動" data-pct="80.7" data-width="80.7"><span class="bar-fill__pct bar-fill__pct--on-dark">80.7%</span></div></div>
+                                                </div>
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#bbbbbb;" data-label="常喝酒" data-pct="72.9" data-width="72.9"><span class="bar-fill__pct bar-fill__pct--on-light">72.9%</span></div></div>
+                                                </div>
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#dddddd;" data-label="營養不均" data-pct="45.6" data-width="45.6"><span class="bar-fill__pct bar-fill__pct--on-light">45.6%</span></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="chart-legend-row" role="list" aria-label="圖例">
+                                                <div class="legend-item legend-item--max" role="listitem"><span class="dot" style="background:#ff5d5f;" aria-hidden="true"></span>體重過重 86.1%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#555555;" aria-hidden="true"></span>代謝症候群 84.1%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#888888;" aria-hidden="true"></span>缺乏運動 80.7%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#bbbbbb;" aria-hidden="true"></span>常喝酒 72.9%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#dddddd;" aria-hidden="true"></span>營養不均 45.6%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide" data-chart-bar-slide>
+                                    <div class="chart-card chart-card--bars">
+                                        <h3 class="chart-card__title">如果有脂肪肝，您會怎麼調整？ (複選)</h3>
+                                        <div class="chart-card__stretch">
+                                            <div class="chart-bar-list chart-bar-list--baronly">
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#ff5d5f;" data-label="調整飲食" data-pct="89.6" data-width="89.6"><span class="bar-fill__pct bar-fill__pct--on-dark bar-fill__pct--max">89.6%</span></div></div>
+                                                </div>
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#555555;" data-label="規律運動" data-pct="88.8" data-width="88.8"><span class="bar-fill__pct bar-fill__pct--on-dark">88.8%</span></div></div>
+                                                </div>
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#888888;" data-label="調整生活作息" data-pct="81.1" data-width="81.1"><span class="bar-fill__pct bar-fill__pct--on-dark">81.1%</span></div></div>
+                                                </div>
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#bbbbbb;" data-label="減少飲酒" data-pct="62.4" data-width="62.4"><span class="bar-fill__pct bar-fill__pct--on-light">62.4%</span></div></div>
+                                                </div>
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#dddddd;" data-label="使用保健品" data-pct="37.6" data-width="37.6"><span class="bar-fill__pct bar-fill__pct--on-light">37.6%</span></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="chart-legend-row" role="list" aria-label="圖例">
+                                                <div class="legend-item legend-item--max" role="listitem"><span class="dot" style="background:#ff5d5f;" aria-hidden="true"></span>調整飲食 89.6%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#555555;" aria-hidden="true"></span>規律運動 88.8%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#888888;" aria-hidden="true"></span>調整生活作息 81.1%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#bbbbbb;" aria-hidden="true"></span>減少飲酒 62.4%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#dddddd;" aria-hidden="true"></span>使用保健品 37.6%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide" data-chart-bar-slide>
+                                    <div class="chart-card chart-card--bars">
+                                        <h3 class="chart-card__title">您目前有補充哪一類護肝或代謝相關保健品？ (複選)</h3>
+                                        <div class="chart-card__stretch">
+                                            <div class="chart-bar-list chart-bar-list--baronly">
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#ff5d5f;" data-label="沒有補充" data-pct="42.0" data-width="42.0"><span class="bar-fill__pct bar-fill__pct--on-dark bar-fill__pct--max">42.0%</span></div></div>
+                                                </div>
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#555555;" data-label="維生素B群" data-pct="40.6" data-width="40.6"><span class="bar-fill__pct bar-fill__pct--on-dark">40.6%</span></div></div>
+                                                </div>
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#888888;" data-label="魚油" data-pct="34.3" data-width="34.3"><span class="bar-fill__pct bar-fill__pct--on-dark">34.3%</span></div></div>
+                                                </div>
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#bbbbbb;" data-label="薑黃" data-pct="22.1" data-width="22.1"><span class="bar-fill__pct bar-fill__pct--on-light">22.1%</span></div></div>
+                                                </div>
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#dddddd;" data-label="維生素E" data-pct="7.8" data-width="7.8"><span class="bar-fill__pct bar-fill__pct--on-light">7.8%</span></div></div>
+                                                </div>
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#c8c8c8;" data-label="水飛薊" data-pct="6.6" data-width="6.6"><span class="bar-fill__pct bar-fill__pct--on-light">6.6%</span></div></div>
+                                                </div>
+                                                <div class="chart-bar-row chart-bar-row--baronly">
+                                                    <div class="bar-track"><div class="bar-fill" style="background:#e8e8e8;" data-label="其他" data-pct="5.2" data-width="5.2"><span class="bar-fill__pct bar-fill__pct--on-light">5.2%</span></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="chart-legend-row" role="list" aria-label="圖例">
+                                                <div class="legend-item legend-item--max" role="listitem"><span class="dot" style="background:#ff5d5f;" aria-hidden="true"></span>沒有補充 42.0%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#555555;" aria-hidden="true"></span>維生素B群 40.6%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#888888;" aria-hidden="true"></span>魚油 34.3%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#bbbbbb;" aria-hidden="true"></span>薑黃 22.1%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#dddddd;" aria-hidden="true"></span>維生素E 7.8%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#c8c8c8;" aria-hidden="true"></span>水飛薊 6.6%</div>
+                                                <div class="legend-item" role="listitem"><span class="dot" style="background:#e8e8e8;" aria-hidden="true"></span>其他 5.2%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <div class="swiper-pagination chart-swiper__pagination" aria-label="圖卡分頁"></div>
+                        <div class="swiper-button-prev chart-nav-prev" aria-label="上一張"></div>
+                        <div class="swiper-button-next chart-nav-next" aria-label="下一張"></div>
                     </div>
                 </div>
-                <div class="swiper-button-prev chart-nav-prev" aria-label="上一張"></div>
-                <div class="swiper-button-next chart-nav-next" aria-label="下一張"></div>
-            </div>
-        </section>
+            </section>
+        </div>
         <!-- /Block 1 -->
 
         <!-- Block 2: 空白章節區塊 Start -->

@@ -254,9 +254,9 @@
   border-color: #111;
 }
 
-/* 箭頭：無背景、無外框、無 ::after 內容；置於視覺 1000px 置中帶兩側；z-index: 3 */
-.swiper-button-next::after,
-.swiper-button-prev::after {
+/* 箭頭：僅食譜 Swiper 隱藏預設 ::after（避免影響其他區塊如數據調查） */
+.recipe-swiper .swiper-button-next::after,
+.recipe-swiper .swiper-button-prev::after {
   content: none !important;
   display: none !important;
   border: none !important;
@@ -265,8 +265,8 @@
   height: 0 !important;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
+.recipe-swiper .swiper-button-next,
+.recipe-swiper .swiper-button-prev {
   border: none !important;
   outline: none !important;
   background: none !important;
