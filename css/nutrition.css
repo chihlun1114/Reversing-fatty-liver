@@ -132,6 +132,9 @@
   overflow: hidden;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  /* 與子層一同參與 3D 合成，避免 WebKit 上絕對定位子元素穿透背面 */
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
   border: none;
 }
@@ -141,6 +144,9 @@
   background: #e0f2fe;
   aspect-ratio: 3 / 4;
   min-height: 320px;
+  /* 與背面微幅 Z 軸分開，修正 iOS Safari 翻面後正面圖層仍疊在背面的問題 */
+  transform: rotateY(0deg) translateZ(1px);
+  -webkit-transform: rotateY(0deg) translateZ(1px);
 }
 
 .nutrition-flip__face--front img {
@@ -151,6 +157,10 @@
   object-fit: cover;
   object-position: center;
   display: block;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .nutrition-flip__title-wrap {
@@ -161,6 +171,10 @@
   padding: 16px 12px 18px;
   background: linear-gradient(transparent, rgba(15, 23, 42, 0.78));
   z-index: 1;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .nutrition-flip__title {
@@ -172,16 +186,19 @@
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
   letter-spacing: 0.02em;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* 背面：欄向 flex；功效區置中；小提醒貼底；25px 內距；禁止捲軸 */
 .nutrition-flip__face--back {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translateZ(1px);
+  -webkit-transform: rotateY(180deg) translateZ(1px);
   background: #fff;
   display: flex;
   flex-direction: column;
   padding: 25px;
-  overflow: visible;
+  overflow: hidden;
   text-align: center;
 }
 
