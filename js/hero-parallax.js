@@ -40,10 +40,10 @@
     gsap.set(title, {
       position: "absolute",
       left: "50%",
-      top: mobile ? "25%" : "50%",
+      top: mobile ? "20%" : "50%",
       xPercent: -50,
       yPercent: -50,
-      width: mobile ? "95%" : "100%",
+      width: mobile ? "calc(100% - 24px)" : "100%",
       height: mobile ? "auto" : "100%",
       maxHeight: "none",
     });
@@ -56,10 +56,10 @@
     gsap.set(title, {
       position: "absolute",
       left: "50%",
-      top: mobile ? "25%" : "50%",
+      top: mobile ? "20%" : "50%",
       xPercent: -50,
       yPercent: -50,
-      width: mobile ? "95%" : "100%",
+      width: mobile ? "calc(100% - 24px)" : "100%",
       height: mobile ? "auto" : "100%",
       maxHeight: "none",
       scale: 0.5,
@@ -74,11 +74,11 @@
     gsap.set(liver, {
       position: "absolute",
       left: "50%",
-      top: mobile ? "65%" : "50%",
+      top: mobile ? "62%" : "50%",
       xPercent: -50,
       yPercent: -50,
       width: "100%",
-      height: mobile ? "60%" : "100%",
+      height: mobile ? "58%" : "100%",
       scale: 0.8,
       filter: "blur(20px)",
     });
@@ -184,10 +184,11 @@
       );
     }
     if (titleEl) {
+      var titleEndScale = isTitleMobileLayout() ? 1.12 : 1;
       tl.to(
         titleEl,
         {
-          scale: 1,
+          scale: titleEndScale,
           opacity: 1,
           ease: "back.out(1.5)",
           duration: 0.8,

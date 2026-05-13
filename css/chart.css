@@ -43,12 +43,12 @@
 
 .chart-swiper-shell {
   position: relative;
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
   box-sizing: border-box;
   overflow: visible;
-  /* 左右預留給導覽鈕，避免與卡片重疊 */
-  padding: 0 clamp(36px, 5vw, 52px);
+  /* 箭頭改為絕對定位懸浮，僅留少量邊距避免貼邊裁切 */
+  padding: 0 10px;
 }
 
 .chart-swiper.swiper {
@@ -77,21 +77,20 @@
   min-height: 100%;
 }
 
-/* 等高卡片：內容上下分佈，圖例在 stretch 區底部 */
+/* 等高卡片：統一最小高度，圖表區 flex-grow 撐滿、圖例置底 */
 .chart-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   height: 100%;
-  min-height: 100%;
+  min-height: 550px;
   background: #ffffff;
   border-radius: 24px;
-  /* 低對比、大擴散，避免底部出現生硬邊線 */
   box-shadow:
     0 1px 2px rgba(0, 0, 0, 0.03),
     0 6px 24px rgba(0, 0, 0, 0.055);
-  padding: 28px clamp(18px, 3vw, 32px) 32px;
+  padding: 40px 50px;
   text-align: center;
   box-sizing: border-box;
 }
@@ -115,7 +114,7 @@
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   min-height: 0;
   width: 100%;
@@ -127,7 +126,8 @@
   width: 100%;
 }
 
-.chart-card__stretch > .chart-bar-list--baronly {
+.chart-card__stretch > .chart-bar-list--baronly.bar-list-wrap,
+.chart-card__stretch > .bar-list-wrap {
   flex: 1 1 auto;
   min-height: 0;
   width: 100%;
@@ -136,16 +136,23 @@
 .chart-doughnut-block {
   flex: 1 1 auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: min(52vw, 280px);
+  min-height: 0;
+  width: 100%;
 }
 
 .chart-doughnut-wrap {
   position: relative;
   width: 100%;
-  max-width: 340px;
+  max-width: 420px;
   margin: 0 auto;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
   aspect-ratio: 1;
   overflow: visible;
 }
@@ -153,8 +160,8 @@
 .chart-doughnut-wrap canvas#liverChart {
   display: block;
   width: 100% !important;
-  height: 100% !important;
-  max-height: 340px;
+  height: auto !important;
+  max-height: none;
 }
 
 .chart-center-text {
@@ -170,15 +177,17 @@
 
 .chart-center-text .pct {
   font-size: clamp(1.85rem, 4.5vw, 2.75rem);
-  font-weight: 900;
+  font-weight: 900 !important;
   line-height: 1;
-  letter-spacing: -0.02em;
-  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  letter-spacing: -1px;
+  font-family: "Montserrat", Arial, sans-serif !important;
 }
 
 .chart-center-text .pct span {
   font-size: 0.55em;
-  font-weight: 900;
+  font-weight: 900 !important;
+  font-family: "Montserrat", Arial, sans-serif !important;
+  letter-spacing: -1px;
 }
 
 .chart-center-text .label {
@@ -188,46 +197,57 @@
   line-height: 1.3;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .chart-card {
-    padding-bottom: 28px;
+    padding: 30px 20px;
+    min-height: min(72vh, 480px);
+  }
+
+  .chart-doughnut-wrap {
+    max-width: min(100%, 380px);
   }
 
   .chart-legend-row {
-    column-gap: 10px;
-    row-gap: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .chart-legend-row .legend-item {
+    flex: 1 1 100%;
+    width: 100%;
   }
 }
 
-/* 圖例：每列 3 項、置中區塊、欄間距拉開（對齊附圖） */
+/* 圖例：桌機約三欄橫排；≤768 改直向一列一項 */
 .chart-legend-row {
   flex-shrink: 0;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  column-gap: clamp(14px, 3.5vw, 28px);
-  row-gap: 10px;
-  margin-top: 16px;
-  padding-top: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 24px;
   width: 100%;
-  max-width: min(100%, 560px);
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 600px;
+  margin: 30px auto 0;
+  padding-top: 4px;
   box-sizing: border-box;
-  justify-items: center;
 }
 
 .chart-legend-row .legend-item {
-  display: inline-flex;
+  flex: 0 0 calc(33.333% - 24px);
+  display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 6px;
   font-size: 0.8125rem;
   font-weight: 600;
   color: #333;
   min-width: 0;
-  width: 100%;
   max-width: 100%;
-  justify-content: center;
   text-align: left;
+  box-sizing: border-box;
 }
 
 .chart-legend-row .legend-item--max {
@@ -242,14 +262,16 @@
   flex-shrink: 0;
 }
 
-/* 長條：僅軌道 + 加粗 */
-.chart-bar-list--baronly {
+/* 長條外層：與圓餅區等高撐滿，垂直間距平均分配 */
+.chart-bar-list--baronly.bar-list-wrap,
+.bar-list-wrap.chart-bar-list--baronly {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  justify-content: space-evenly;
+  gap: 16px;
   flex: 1 1 auto;
   min-height: 0;
-  max-width: min(100%, 520px);
+  max-width: 100%;
   margin: 0 auto;
   width: 100%;
   align-items: stretch;
@@ -281,8 +303,8 @@
 
 .bar-track {
   height: 40px;
-  border-radius: 999px;
-  background: transparent;
+  border-radius: 8px;
+  background-color: #f1f5f9;
   overflow: hidden;
   box-sizing: border-box;
   width: 100%;
@@ -295,8 +317,8 @@
   width: 0%;
   height: 100%;
   min-width: 0;
-  border-radius: 999px;
-  padding: 0 12px;
+  border-radius: 8px;
+  padding: 0 15px;
   box-sizing: border-box;
   transition: width 1s ease-out;
   cursor: pointer;
@@ -323,55 +345,73 @@
   color: #1a1a1a;
 }
 
-/* Swiper 導覽箭頭（置於 shell 兩側，與卡片分離；recipe 全域曾隱藏 ::after，已改為僅限食譜） */
+/* Swiper 導覽：極簡箭頭（無圓框／無背景） */
 .chart-swiper-shell .chart-nav-prev,
 .chart-swiper-shell .chart-nav-next {
   position: absolute;
-  z-index: 25;
   top: 50% !important;
   margin-top: 0 !important;
-  width: 44px !important;
-  height: 44px !important;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.96) !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
-  color: #475569 !important;
-  transform: translateY(-50%);
-  transition: background 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  z-index: 20;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #a0aec0 !important;
+  transform: translateY(-50%) scale(0.85);
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 .chart-swiper-shell .chart-nav-prev:hover,
 .chart-swiper-shell .chart-nav-next:hover {
-  background: #fff !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1) !important;
-  color: #334155 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #718096 !important;
+  transform: translateY(-50%) scale(0.85);
+}
+
+.chart-swiper-shell .chart-nav-prev:focus,
+.chart-swiper-shell .chart-nav-next:focus,
+.chart-swiper-shell .chart-nav-prev:focus-visible,
+.chart-swiper-shell .chart-nav-next:focus-visible,
+.chart-swiper-shell .chart-nav-prev:active,
+.chart-swiper-shell .chart-nav-next:active {
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: translateY(-50%) scale(0.85);
 }
 
 .chart-swiper-shell .chart-nav-prev::after,
 .chart-swiper-shell .chart-nav-next::after {
-  font-size: 1.1rem !important;
+  font-size: 40px !important;
   font-weight: 700 !important;
 }
 
 .chart-swiper-shell .chart-nav-prev {
-  left: 0 !important;
+  left: -5px !important;
   right: auto !important;
 }
 
 .chart-swiper-shell .chart-nav-next {
-  right: 0 !important;
+  right: -5px !important;
   left: auto !important;
 }
 
 @media (max-width: 480px) {
   .chart-swiper-shell {
-    padding: 0 clamp(28px, 8vw, 40px);
+    padding: 0 6px;
   }
 
   .chart-swiper-shell .chart-nav-prev,
   .chart-swiper-shell .chart-nav-next {
-    width: 38px !important;
-    height: 38px !important;
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .chart-swiper-shell .chart-nav-prev::after,
+  .chart-swiper-shell .chart-nav-next::after {
+    font-size: 36px !important;
   }
 }
 

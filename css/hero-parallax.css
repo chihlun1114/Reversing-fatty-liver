@@ -39,14 +39,16 @@ body {
   transform-origin: center center;
 }
 
-.layer-title {
+/* 底圖肝臟 → 脂肪球 → 標題（標題必須在最上層，避免被遮住） */
+.layer-liver {
   z-index: 1;
-  object-fit: contain !important;
+  object-fit: cover;
 }
 
-.layer-liver {
-  z-index: 2;
-  object-fit: cover;
+.layer-title {
+  z-index: 10;
+  object-fit: contain !important;
+  pointer-events: none;
 }
 
 /* 滿版脂肪牆容器（由 JS 動態塞入 .bubble） */
@@ -78,21 +80,25 @@ body {
   opacity: 1;
 }
 
-/* 手機版：標題與肝臟上下錯開，避免橫式標題過小與重疊（不影響 >768px） */
+/* 手機版：標題與肝臟上下錯開；標題加寬並預留左右安全距，避免過小 */
 @media (max-width: 768px) {
   #hero .layer-title {
-    top: 25% !important;
-    width: 95% !important;
+    top: 20% !important;
+    width: calc(100% - 24px) !important;
+    max-width: 100vw !important;
     height: auto !important;
-    max-height: none !important;
+    min-height: clamp(120px, 32vw, 220px) !important;
+    max-height: min(42vh, 280px) !important;
     left: 50%;
+    padding: 0 12px;
+    box-sizing: border-box;
     object-fit: contain !important;
   }
 
   #hero .layer-liver {
-    top: 65% !important;
+    top: 62% !important;
     width: 100% !important;
-    height: 60% !important;
+    height: 58% !important;
     object-position: bottom center;
   }
 }
