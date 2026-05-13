@@ -7,7 +7,6 @@
 .section-nutrition {
   padding-top: clamp(28px, 4vw, 56px);
   padding-bottom: clamp(28px, 4vw, 56px);
-  background: linear-gradient(180deg, #fafaf7 0%, #f4f4f0 100%);
 }
 
 .section-nutrition .container {
@@ -142,6 +141,7 @@
 /* 正面給予內在高度（供 grid 列高計算），避免僅有絕對定位圖片時高度為 0 */
 .nutrition-flip__face--front {
   background: #e0f2fe;
+  background-color: #e0f2fe;
   aspect-ratio: 3 / 4;
   min-height: 320px;
   /* 與背面微幅 Z 軸分開，修正 iOS Safari 翻面後正面圖層仍疊在背面的問題 */
@@ -195,6 +195,7 @@
   transform: rotateY(180deg) translateZ(1px);
   -webkit-transform: rotateY(180deg) translateZ(1px);
   background: #fff;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   padding: 25px;

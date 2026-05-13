@@ -164,27 +164,10 @@ body {
   margin-bottom: 0 !important;
 }
 
-/* 主內容區塊底色：全部統一 #fafaf7（圖表區 chart.css 另行覆寫為同色） */
-#section-3,
-#section-5.recipe-block,
-#section-7.section-exercise,
-#section-9.checkup {
-  background: #fafaf7 !important;
-  background-color: #fafaf7 !important;
-}
-
-/* 肝臟演進模組內層改透明，透出 section-3 的白底 */
+/* 肝臟演進模組內層透明，透出 section-3 外層底色（.global-section-bg） */
 #section-3 #liver-evolution.liver-evolution {
   background: transparent !important;
   background-color: transparent !important;
-}
-
-#section-2,
-#section-4,
-#section-6,
-#section-8 {
-  background: #fafaf7 !important;
-  background-color: #fafaf7 !important;
 }
 
 @media (max-width: 768px) {
@@ -1074,7 +1057,6 @@ main.main-content {
    Block 7 — Exercise Pop Art Cards
    ========================================== */
 .section-exercise {
-  background: #ffffff;
   padding: clamp(42px, 6vw, 72px) 0;
 }
 

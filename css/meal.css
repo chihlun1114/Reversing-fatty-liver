@@ -1,5 +1,4 @@
 .section-outside-eating {
-  background: #fafaf7;
   padding: clamp(40px, 6vw, 72px) 0;
 }
 
@@ -72,6 +71,7 @@
   align-items: stretch;
   animation: mealFadeIn 0.4s ease-in-out;
   background: #fff;
+  background-color: #ffffff;
   border-radius: 0 16px 16px 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   overflow: hidden;

@@ -6,7 +6,6 @@
 .section-qa {
   padding-top: clamp(28px, 4vw, 56px);
   padding-bottom: clamp(28px, 4vw, 56px);
-  background: #fafaf7;
 }
 
 .section-qa .container {
@@ -48,6 +47,7 @@
   border: 2px solid #42a3e8;
   border-radius: 7px;
   background: #fff;
+  background-color: #ffffff;
   box-shadow: 0 2px 12px rgba(66, 163, 232, 0.08);
   overflow: hidden;
 }
@@ -60,6 +60,7 @@
   padding: 0;
   border: none;
   background: #fff;
+  background-color: #ffffff;
   cursor: pointer;
   text-align: left;
   font: inherit;
@@ -110,6 +111,7 @@
   align-items: center;
   padding: 14px 12px 14px 16px;
   background: #fff;
+  background-color: #ffffff;
   color: #0f172a;
   font-family: "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
   font-weight: 700;
@@ -125,6 +127,7 @@
   width: 2.75rem;
   min-width: 2.75rem;
   background: #fff;
+  background-color: #ffffff;
   color: #42a3e8;
   transform-origin: 50% 50%;
   border-left: 1px solid rgba(66, 163, 232, 0.25);
@@ -144,6 +147,7 @@
   overflow: hidden;
   height: 0;
   background: #fff;
+  background-color: #ffffff;
 }
 
 /* 藍色分隔線（銜接 Q / A） */

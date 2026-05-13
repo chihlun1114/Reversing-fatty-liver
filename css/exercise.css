@@ -2,7 +2,6 @@
    Block 7 — Exercise Cards (Image Title Layer)
    ========================================== */
 #section-7.section-exercise {
-  background-color: #fafaf7;
   padding: clamp(42px, 6vw, 72px) 0;
 }
 

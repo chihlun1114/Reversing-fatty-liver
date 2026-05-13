@@ -4,7 +4,7 @@
 (function () {
   "use strict";
 
-  var SECTION_SEL = "#section-chart";
+  var SECTION_SEL = "#section-1";
   var SWIPER_SEL = ".chart-swiper";
   var SWIPER_PAGINATION_SEL = ".chart-swiper__pagination";
   var CANVAS_ID = "liverChart";
