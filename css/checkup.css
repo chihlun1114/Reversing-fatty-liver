@@ -227,6 +227,20 @@
       font-size: clamp(0.92rem, 3.8vw, 1rem);
     }
 
+    .checkup-swiper .swiper-slide,
+    #section-9 .checkup-swiper .swiper-slide {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+
+    .checkup-swiper .checkup-card,
+    #section-9 .checkup-swiper .checkup-card {
+      margin: 0 auto !important;
+      width: 100% !important;
+      max-width: 340px !important;
+    }
+
     /* 手機版非作用中卡片：稍微拉高透明度，減輕往下沉幅度 */
   }
 
@@ -281,6 +295,20 @@
 
   .checkup-swiper .swiper-button-next {
     right: 10px !important;
+  }
+
+  .checkup-swiper .swiper-slide,
+  #section-9 .checkup-swiper .swiper-slide {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .checkup-swiper .checkup-card,
+  #section-9 .checkup-swiper .checkup-card {
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 340px !important;
   }
 }
 
