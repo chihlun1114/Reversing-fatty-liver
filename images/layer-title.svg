@@ -1,103 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 730 300">
   <!-- Generator: Adobe Illustrator 29.8.3, SVG Export Plug-In . SVG Version: 2.1.1 Build 3)  -->
   <defs>
     <style>
       .st0 {
-        letter-spacing: 0em;
+        letter-spacing: -.2em;
       }
 
       .st0, .st1 {
-        font-size: 39.2px;
+        font-size: 120.2px;
       }
 
-      .st2 {
-        font-size: 31.3px;
-        letter-spacing: 0em;
-      }
-
-      .st3, .st4 {
+      .st2, .st3 {
         fill: #fd0;
       }
 
-      .st4 {
+      .st3 {
         font-family: NotoSansCJKtc-Bold-B5pc-H, 'Noto Sans CJK TC';
         font-weight: 700;
       }
 
-      .st5 {
-        letter-spacing: 0em;
-      }
-
-      .st6, .st7 {
-        font-size: 120.9px;
-      }
-
-      .st8 {
-        mask: url(#mask);
-      }
-
-      .st9 {
-        fill: none;
-      }
-
-      .st10 {
-        font-size: 83.7px;
-      }
-
-      .st10, .st11 {
-        fill: #f7f8f8;
+      .st4, .st5 {
+        fill: #f9fafa;
         font-family: NotoSansCJKtc-Black-B5pc-H, 'Noto Sans CJK TC';
         font-weight: 800;
       }
 
-      .st7 {
-        letter-spacing: -.2em;
+      .st6 {
+        mask: url(#mask);
       }
 
-      .st12 {
+      .st7 {
+        font-size: 96.7px;
+      }
+
+      .st8 {
+        fill: none;
+      }
+
+      .st9 {
         clip-path: url(#clippath-1);
       }
 
-      .st13 {
+      .st10 {
         isolation: isolate;
       }
 
-      .st14 {
-        font-size: 97.4px;
-      }
-
-      .st15 {
+      .st11 {
         mix-blend-mode: multiply;
       }
 
-      .st1 {
+      .st12 {
+        font-size: 31.1px;
         letter-spacing: 0em;
       }
 
-      .st16 {
+      .st5 {
+        font-size: 83.2px;
+      }
+
+      .st13 {
+        font-size: 38.9px;
+        letter-spacing: 0em;
+      }
+
+      .st14 {
+        letter-spacing: 0em;
+      }
+
+      .st15 {
         clip-path: url(#clippath-2);
       }
 
-      .st17 {
+      .st16 {
         mix-blend-mode: hard-light;
         opacity: .6;
       }
 
-      .st18 {
+      .st17 {
         clip-path: url(#clippath);
       }
 
-      .st19 {
+      .st18 {
         fill: #ecede5;
       }
 
-      .st20 {
+      .st19 {
         opacity: .5;
       }
     </style>
     <clipPath id="clippath">
-      <rect class="st9" x="-1340.6" y="392.4" width="695.1" height="695.1"/>
+      <rect class="st8" x="-1340.6" y="392.4" width="695.1" height="695.1"/>
     </clipPath>
     <mask id="mask" x="-1340.6" y="392.4" width="695.1" height="695.1" maskUnits="userSpaceOnUse">
       <g id="_背景_拷貝不透明度遮色片" data-name="背景_拷貝不透明度遮色片">
@@ -105,50 +98,48 @@
       </g>
     </mask>
     <clipPath id="clippath-1">
-      <rect class="st9" x="-1340.6" y="392.4" width="695.1" height="695.1"/>
+      <rect class="st8" x="-1340.6" y="392.4" width="695.1" height="695.1"/>
     </clipPath>
     <clipPath id="clippath-2">
-      <rect class="st9" x="-2280.4" y="1415.6" width="1336.8" height="1336.8"/>
+      <rect class="st8" x="-2280.4" y="1415.6" width="1336.8" height="1336.8"/>
     </clipPath>
   </defs>
-  <g class="st13">
+  <g class="st10">
     <g id="_圖層_2" data-name="圖層_2">
-      <rect class="st9" y="1184.1" width="1920" height="1080"/>
-      <rect class="st19" x="207.5" y="2240.7" width="1920" height="1080"/>
+      <rect class="st8" y="1184.1" width="1920" height="1080"/>
+      <rect class="st18" x="207.5" y="2240.7" width="1920" height="1080"/>
     </g>
     <g id="_圖層_1" data-name="圖層_1">
       <g>
-        <g id="_肝臟公仔全正面衝出螢幕.psd" data-name="肝臟公仔全正面衝出螢幕.psd" class="st15">
-          <g class="st18">
-            <g class="st8">
+        <g id="_肝臟公仔全正面衝出螢幕.psd" data-name="肝臟公仔全正面衝出螢幕.psd" class="st11">
+          <g class="st17">
+            <g class="st6">
               <image id="_背景_拷貝" data-name="背景_拷貝" width="2048" height="2048" transform="translate(-1340.6 392.4) scale(.3)" xlink:href="layer-title-2.png"/>
             </g>
             <image id="_生成式填色_2" data-name="生成式填色_2" width="1572" height="1915" transform="translate(-1274.4 427.4) scale(.3)" xlink:href="layer-title-3.png"/>
           </g>
         </g>
         <g id="_肝臟公仔全正面衝出螢幕2.psd" data-name="肝臟公仔全正面衝出螢幕2.psd">
-          <g class="st12">
-            <image id="_圖層_4" data-name="圖層_4" class="st20" width="384" height="122" transform="translate(-997.1 1025.1) scale(.3)" xlink:href="layer-title-4.png"/>
+          <g class="st9">
+            <image id="_圖層_4" data-name="圖層_4" class="st19" width="384" height="122" transform="translate(-997.1 1025.1) scale(.3)" xlink:href="layer-title-4.png"/>
             <image id="_圖層_3" data-name="圖層_3" width="1572" height="1835" transform="translate(-1274.4 427.4) scale(.3)" xlink:href="layer-title-5.png"/>
           </g>
         </g>
       </g>
+      <text class="st4" transform="translate(42.4 168.1)"><tspan class="st7" x="0" y="0" xml:space="preserve">  </tspan><tspan class="st1" x="44.3" y="8.9">逆轉肝包</tspan><tspan class="st0" x="525" y="8.9">油</tspan></text>
+      <text class="st5" transform="translate(152.7 280.6)"><tspan class="st14" x="0" y="0">養護全攻</tspan><tspan x="341.3" y="0">略</tspan></text>
       <g>
-        <text class="st11" transform="translate(660.3 358.4)"><tspan class="st14" x="0" y="0" xml:space="preserve">  </tspan><tspan class="st6" x="44.6" y="9">逆轉肝包</tspan><tspan class="st7" x="528.3" y="9">油</tspan></text>
-        <text class="st10" transform="translate(771.3 471.6)"><tspan class="st5" x="0" y="0">養護全攻</tspan><tspan x="343.5" y="0">略</tspan></text>
-        <g>
-          <text class="st4" transform="translate(761 221.7)"><tspan class="st1" x="0" y="0">健康大賞</tspan><tspan class="st2" x="160.6" y="-3" xml:space="preserve">      </tspan><tspan class="st0" x="207.9" y="0">抗脂肪肝金選</tspan></text>
-          <path class="st3" d="M927.9,206.3c12.6-2.3,14.5-4.2,16.9-16.9,2.3,12.6,4.2,14.5,16.9,16.9-12.6,2.3-14.5,4.2-16.9,16.9-2.3-12.6-4.2-14.5-16.9-16.9Z"/>
-        </g>
+        <text class="st3" transform="translate(142.5 45.2)"><tspan class="st13" x="0" y="0">健康大賞</tspan><tspan class="st12" x="159.5" y="-3" xml:space="preserve">      </tspan><tspan class="st13" x="206.6" y="0">抗脂肪肝金選</tspan></text>
+        <path class="st2" d="M308.3,29.9c12.6-2.3,14.4-4.2,16.7-16.7,2.3,12.6,4.2,14.4,16.7,16.7-12.6,2.3-14.4,4.2-16.7,16.7-2.3-12.6-4.2-14.4-16.7-16.7Z"/>
       </g>
     </g>
     <g id="_圖層_31" data-name="圖層_3">
       <image width="394" height="400" transform="translate(-1668 -174)" xlink:href="layer-title-6.png"/>
       <image width="581" height="580" transform="translate(-602 1596)" xlink:href="layer-title-7.png"/>
       <g id="_逆轉脂肪肝開心肝臟公仔.psd" data-name="逆轉脂肪肝開心肝臟公仔.psd">
-        <g class="st16">
+        <g class="st15">
           <image id="_圖層_2_拷貝" data-name="圖層_2_拷貝" width="1299" height="486" transform="translate(-1897.3 2367.9) scale(.7)" xlink:href="layer-title-8.png"/>
-          <image id="_圖層_32" data-name="圖層_3" class="st17" width="1299" height="486" transform="translate(-1897.3 2367.9) scale(.7)" xlink:href="layer-title-9.png"/>
+          <image id="_圖層_32" data-name="圖層_3" class="st16" width="1299" height="486" transform="translate(-1897.3 2367.9) scale(.7)" xlink:href="layer-title-9.png"/>
           <image id="_圖層_11" data-name="圖層_1" width="1624" height="1827" transform="translate(-2166.2 1484.2) scale(.7)" xlink:href="layer-title-10.png"/>
         </g>
       </g>
