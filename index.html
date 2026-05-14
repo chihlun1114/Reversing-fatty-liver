@@ -133,8 +133,14 @@
         <!-- Block 1: 數據調查（5 卡 Swiper，單卡／等高／圖例置底） -->
         <div class="chart-block" id="chart-block">
             <div id="custom-tooltip" class="chart-tooltip" role="tooltip" aria-hidden="true"></div>
-            <section id="section-1" class="chart-section global-section-bg" aria-label="肝臟健康數據調查">
+            <section id="section-1" class="chart-section global-section-bg" aria-labelledby="chart-section-title">
                 <div class="chart-section__inner relative-container">
+                    <header class="chart-section__header global-section-header">
+                        <h2 id="chart-section-title" class="chart-section__title global-section-title">大調查結果發表！1/4不知自己有無脂肪肝</h2>
+                        <div class="global-section-intro">
+                            <p class="chart-section__lead section-intro">脂肪肝發生率約30％，是高血壓、糖尿病的3倍，更是全身健康的「紅色警報」。從睡眠呼吸中止、骨鬆到多種癌症，竟然都跟脂肪肝有關！還好，脂肪肝是可逆的，從數據解密到實戰清單，這份全方位養肝指南，帶你奪回健康主導權。</p>
+                        </div>
+                    </header>
                     <div class="chart-swiper-shell">
                         <div class="swiper chart-swiper">
                             <div class="swiper-wrapper">
@@ -384,7 +390,7 @@
                             <h2 id="liver-evolution-heading" class="liver-evolution__title global-section-title">肝臟怎麼變粉肝？一次看懂脂肪肝變化</h2>
                             <div class="global-section-intro">
                                 <p class="liver-evolution__subtitle section-intro">
-                                    脂肪肝並不如想像般「肝臟表面被脂肪包住」，而是肝細胞中有過多脂肪，因此俗稱「肝包油」，台灣小吃中常見的「粉肝」就是有脂肪肝的豬肝。肝臟裡本來就有少量脂肪，一旦超過5%，就是脂肪肝。為什麼健康肝會變粉肝，甚至纖維化、硬化，進而有肝癌風險？在滑桿上移動游標，一次看懂。
+                                    脂肪肝並不如想像般「肝臟表面被脂肪包住」，而是肝細胞中有過多脂肪，因此俗稱「肝包油」，台灣小吃中常見的「粉肝」就是有脂肪肝的豬肝。肝臟裡本來就有少量脂肪，一旦超過5%，就是脂肪肝。為什麼健康肝會變粉肝，甚至纖維化、硬化，進而有肝癌風險？
                                 </p>
                             </div>
                         </header>
@@ -420,6 +426,7 @@
 
                             <div class="liver-evolution__slider-block">
                                 <div class="liver-evolution__slider-wrap">
+                                    <p class="evolution-slider__hint" aria-hidden="true">滑桿上移動游標，一次看懂</p>
                                     <label class="sr-only" for="liver-stage-slider">肝臟演進階段（0 健康 至 5 硬化）</label>
                                     <input
                                         id="liver-stage-slider"
@@ -619,7 +626,7 @@
                             <p class="recipe-slide__desc">
                                 <span class="recipe-slide__nutrient-label">營養訴求：</span>這份早餐以優質蛋白、膳食纖維、植化素與好油脂為核心，幫助穩定血糖、降低多餘脂肪堆積風險。綠花椰苗的蘿蔔硫素、抹茶的兒茶素、以及亞麻籽的木酚素，可支持肝臟解毒與代謝功能。連皮地瓜、蔬菜與黃豆可提升飽足感、促進腸道健康。
                                 <button type="button" class="recipe-slide__cta" data-recipe-open-modal>
-                                    <span class="recipe-slide__cta-inner">看食譜作法 →</span>
+                                    <span class="recipe-slide__cta-inner">看食譜作法 👆</span>
                                 </button>
                             </p>
                         </div>
@@ -633,7 +640,7 @@
                             <p class="recipe-slide__desc">
                                 <span class="recipe-slide__nutrient-label">營養訴求：</span>鱸魚提供的優質蛋白質，搭配富含Omega9的冷壓初榨橄欖油、薑黃與薑，可作為日常抗發炎飲食的一部分。搭配十字花科青花菜，可提供支持肝臟代謝與解毒相關酵素作用的植化素。搭配低GI雜糧飯或多加一道高纖蔬菜，有助穩定血糖與腸道健康，是改善脂肪肝的核心餐型。
                                 <button type="button" class="recipe-slide__cta" data-recipe-open-modal>
-                                    <span class="recipe-slide__cta-inner">看食譜作法 →</span>
+                                    <span class="recipe-slide__cta-inner">看食譜作法 👆</span>
                                 </button>
                             </p>
                         </div>
@@ -647,7 +654,7 @@
                             <p class="recipe-slide__desc">
                                 <span class="recipe-slide__nutrient-label">營養訴求：</span>結合魚貝海鮮的優質蛋白、豆腐與豆漿的植物蛋白，提供溫和易吸收的營養來源。十字花科青江菜、洋蔥與菇類可提供膳食纖維與多種植化素，穩定血糖血脂、支持腸道菌相平衡，以減少多餘脂肪堆積風險。
                                 <button type="button" class="recipe-slide__cta" data-recipe-open-modal>
-                                    <span class="recipe-slide__cta-inner">看食譜作法 →</span>
+                                    <span class="recipe-slide__cta-inner">看食譜作法 👆</span>
                                 </button>
                             </p>
                         </div>

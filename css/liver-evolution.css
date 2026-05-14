@@ -111,6 +111,24 @@
   margin-right: auto;
 }
 
+.evolution-slider__hint {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 12px;
+  padding: 4px 14px !important;
+  background-color: transparent !important;
+  color: #111 !important;
+  border: 1px solid #111 !important;
+  border-radius: 999px !important;
+  font-size: 11px !important;
+  font-weight: 600;
+  text-align: center;
+}
+
+#liver-evolution .liver-evolution__stage-meta {
+  display: none !important;
+}
+
 .liver-evolution__liver-wrap {
   position: relative;
   width: 100%;
@@ -403,5 +421,11 @@
     height: 100%;
     margin: 0 !important;
     padding: 0 !important;
+  }
+
+  .evolution-slider__hint {
+    font-size: 9px !important;
+    padding: 3px 11px !important;
+    margin-bottom: 10px;
   }
 }

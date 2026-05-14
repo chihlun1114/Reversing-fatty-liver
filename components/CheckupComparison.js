@@ -14,9 +14,12 @@
     if (!prev || !next || !pag) return;
 
     new window.Swiper(swiperEl, {
-      loop: false,
+      slidesPerView: "auto",
       centeredSlides: true,
-      centeredSlidesBounds: true,
+      initialSlide: 0,
+      slideToClickedSlide: true,
+      loop: false,
+      spaceBetween: 16,
       speed: 600,
       watchSlidesProgress: true,
       navigation: {
@@ -28,12 +31,7 @@
         clickable: true,
       },
       breakpoints: {
-        320: {
-          slidesPerView: 1.2,
-          spaceBetween: 16,
-        },
         1024: {
-          slidesPerView: 3,
           spaceBetween: 0,
         },
       },

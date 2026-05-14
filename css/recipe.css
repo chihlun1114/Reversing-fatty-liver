@@ -3,6 +3,7 @@
  */
 
 #section-5.recipe-block {
+  position: relative;
   overflow-x: clip;
 }
 
@@ -285,19 +286,19 @@
 .recipe-swiper .swiper-button-next {
   position: absolute;
   top: 50%;
-  z-index: 3;
-  width: 44px;
-  height: 44px;
+  z-index: 50;
+  width: 40px;
+  height: 40px;
   margin: 0;
   padding: 0;
   transform: translateY(-50%);
   display: flex !important;
   align-items: center;
   justify-content: center;
-  color: #111;
+  color: #8ba2b4;
   cursor: pointer;
-  opacity: 0.65;
-  transition: opacity 0.25s ease;
+  opacity: 1;
+  transition: color 0.2s ease, opacity 0.2s ease;
   -webkit-tap-highlight-color: transparent;
   appearance: none;
 }
@@ -328,12 +329,12 @@
 
 .recipe-swiper__arrow {
   display: block;
-  width: 10px;
-  height: 10px;
+  width: 14px;
+  height: 14px;
   box-sizing: border-box;
   border-style: solid;
   border-color: currentColor;
-  border-width: 0 2px 2px 0;
+  border-width: 0 3px 3px 0;
   margin: 0;
   padding: 0;
 }
@@ -346,14 +347,6 @@
 .recipe-swiper__arrow--next {
   transform: rotate(-45deg);
   margin-right: 4px;
-}
-
-.recipe-swiper .swiper-button-prev {
-  left: max(8px, calc(50% - 500px));
-}
-
-.recipe-swiper .swiper-button-next {
-  right: max(8px, calc(50% - 500px));
 }
 
 /* 桌機：加高輪播、圖片底部對齊避免裁切盤緣、文字略上移保留綠意間距 */
@@ -419,20 +412,6 @@
     transform: none !important;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
     filter: none !important;
-  }
-
-  .recipe-swiper .swiper-button-prev,
-  .recipe-swiper .swiper-button-next {
-    width: 40px;
-    height: 40px;
-  }
-
-  .recipe-swiper .swiper-button-prev {
-    left: max(4px, calc(50% - min(50vw, 500px)));
-  }
-
-  .recipe-swiper .swiper-button-next {
-    right: max(4px, calc(50% - min(50vw, 500px)));
   }
 }
 
@@ -596,4 +575,62 @@
   justify-content: center;
   /* 與第一行文字垂直置中；勿用 1lh 於 ::before（部分瀏覽器會誤算成負 margin 導致圓點飄到文字上方） */
   margin-top: calc((0.9375rem * 1.65 - (1.65rem / 2)) / 2);
+}
+
+/* Block 5 — Swiper 箭頭：原生圖標與向內收攏定位 */
+.recipe-swiper {
+  overflow: visible !important;
+}
+
+.recipe-swiper__arrow {
+  display: none !important;
+}
+
+.recipe-swiper .swiper-button-prev::after {
+  display: block !important;
+  content: "prev" !important;
+  font-family: swiper-icons !important;
+  font-size: 44px !important;
+  font-weight: 400 !important;
+}
+
+.recipe-swiper .swiper-button-next::after {
+  display: block !important;
+  content: "next" !important;
+  font-family: swiper-icons !important;
+  font-size: 44px !important;
+  font-weight: 400 !important;
+}
+
+.recipe-swiper .swiper-button-next,
+.recipe-swiper .swiper-button-prev {
+  color: #8ba2b4 !important;
+  background: transparent !important;
+  width: 44px !important;
+  height: 44px !important;
+  margin-top: 0 !important;
+  z-index: 50 !important;
+  opacity: 1 !important;
+}
+
+.recipe-swiper .swiper-button-prev {
+  left: calc(50% - 400px) !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+.recipe-swiper .swiper-button-next {
+  right: calc(50% - 400px) !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+@media (max-width: 1024px) {
+  .recipe-swiper .swiper-button-prev {
+    left: 20px !important;
+  }
+
+  .recipe-swiper .swiper-button-next {
+    right: 20px !important;
+  }
 }

@@ -35,6 +35,7 @@
   
   /* Slide 設定：寬度交給 JS (slidesPerView) */
   #section-9 .checkup-swiper .swiper-slide {
+    width: min(92vw, 420px);
     text-align: center;
     opacity: 0.35 !important;
     transform: scale(0.8) !important;
@@ -167,49 +168,7 @@
     color: #222;
   }
   
-  /* --- 5. Swiper 導覽按鈕 --- */
-  #section-9 .checkup-swiper .swiper-button-prev,
-  #section-9 .checkup-swiper .swiper-button-next {
-    width: 44px;
-    height: 44px;
-    margin-top: 0;
-    top: 48%;
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-    background: transparent !important;
-    color: #111;
-  }
-  
-  #section-9 .checkup-swiper .swiper-button-prev::after,
-  #section-9 .checkup-swiper .swiper-button-next::after {
-    content: "" !important;
-  }
-  
-  #section-9 .checkup-swiper__chev {
-    width: 12px;
-    height: 12px;
-    border-style: solid;
-    border-color: currentColor;
-    border-width: 0 2.5px 2.5px 0;
-    display: block;
-  }
-  
-  #section-9 .checkup-swiper__chev--prev {
-    transform: rotate(135deg);
-  }
-  
-  #section-9 .checkup-swiper__chev--next {
-    transform: rotate(-45deg);
-  }
-  
-  #section-9 .checkup-swiper .swiper-button-prev {
-    left: max(6px, calc(50% - 540px));
-  }
-  
-  #section-9 .checkup-swiper .swiper-button-next {
-    right: max(6px, calc(50% - 540px));
-  }
+  /* --- 5. Swiper 導覽按鈕（箭頭樣式見檔案末尾 .checkup-swiper） --- */
   
   #section-9 .checkup-swiper__pagination.swiper-pagination {
     width: 100%;
@@ -267,12 +226,61 @@
     #section-9 .checkup-card__text {
       font-size: clamp(0.92rem, 3.8vw, 1rem);
     }
-  
-    #section-9 .checkup-swiper .swiper-button-prev,
-    #section-9 .checkup-swiper .swiper-button-next {
-      display: none !important;
-    }
 
     /* 手機版非作用中卡片：稍微拉高透明度，減輕往下沉幅度 */
   }
+
+/* Block 9 — Swiper 箭頭：原生圖標與置中卡片定位 */
+.checkup-swiper__chev {
+  display: none !important;
+}
+
+.checkup-swiper .swiper-button-prev::after {
+  display: block !important;
+  content: "prev" !important;
+  font-family: swiper-icons !important;
+  font-size: 44px !important;
+  font-weight: 400 !important;
+}
+
+.checkup-swiper .swiper-button-next::after {
+  display: block !important;
+  content: "next" !important;
+  font-family: swiper-icons !important;
+  font-size: 44px !important;
+  font-weight: 400 !important;
+}
+
+.checkup-swiper .swiper-button-prev,
+.checkup-swiper .swiper-button-next {
+  color: #8ba2b4 !important;
+  background: transparent !important;
+  width: 44px !important;
+  height: 44px !important;
+  margin-top: 0 !important;
+  z-index: 50 !important;
+  opacity: 1 !important;
+}
+
+.checkup-swiper .swiper-button-prev {
+  left: calc(50% - 240px) !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+.checkup-swiper .swiper-button-next {
+  right: calc(50% - 240px) !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+@media (max-width: 768px) {
+  .checkup-swiper .swiper-button-prev {
+    left: 10px !important;
+  }
+
+  .checkup-swiper .swiper-button-next {
+    right: 10px !important;
+  }
+}
 
