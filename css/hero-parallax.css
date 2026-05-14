@@ -25,29 +25,31 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: #42a3e8;
+  background-color: #e54524 !important;
 }
 
 #hero .layer-liver {
   position: absolute;
-  top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0;
   z-index: 1;
-  object-fit: cover;
-  object-position: center;
+  width: 100vw !important;
+  height: 100vh !important;
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
 #hero .layer-title {
   position: absolute;
-  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  width: 100%;
-  pointer-events: none;
+  top: 25%;
+  transform: translateX(-50%);
+  width: 45vw;
+  max-width: 650px;
   object-fit: contain;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
 }
 
 #hero .bubbles-container {
@@ -79,24 +81,11 @@ body {
 
 @media (max-width: 768px) {
   #hero .layer-title {
-    top: 30% !important;
-    width: 90vw !important;
-    transform: translate(-50%, -50%) !important;
-    z-index: 10 !important;
-  }
-
-  #hero .layer-title h2 {
-    font-size: 10vw !important;
-    line-height: 1.2 !important;
-    color: #fff !important;
-    text-align: center !important;
-    font-weight: bold !important;
+    top: 15%;
+    width: 85vw;
   }
 
   #hero .layer-liver {
-    top: 65% !important;
-    height: 50% !important;
-    object-fit: contain !important;
-    object-position: bottom center !important;
+    object-position: center bottom !important;
   }
 }

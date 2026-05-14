@@ -29,56 +29,16 @@
   var activeTimeline = null;
   var resizeTimer;
 
-  function isTitleMobileLayout() {
-    return window.matchMedia("(max-width: 768px)").matches;
-  }
-
-  function syncTitleBoxLayout() {
-    var title = hero.querySelector(".layer-title");
-    if (!title) return;
-    var mobile = isTitleMobileLayout();
-    gsap.set(title, {
-      position: "absolute",
-      left: "50%",
-      top: mobile ? "30%" : "50%",
-      xPercent: -50,
-      yPercent: -50,
-      width: mobile ? "90vw" : "100%",
-      height: mobile ? "auto" : "100%",
-      maxHeight: "none",
-    });
-  }
-
   function initTitleState() {
     var title = hero.querySelector(".layer-title");
     if (!title) return;
-    var mobile = isTitleMobileLayout();
-    gsap.set(title, {
-      position: "absolute",
-      left: "50%",
-      top: mobile ? "30%" : "50%",
-      xPercent: -50,
-      yPercent: -50,
-      width: mobile ? "90vw" : "100%",
-      height: mobile ? "auto" : "100%",
-      maxHeight: "none",
-      scale: 0.5,
-      opacity: 0,
-    });
+    gsap.set(title, { xPercent: -50, y: -100, opacity: 0 });
   }
 
   function initLiverState() {
     var liver = hero.querySelector(".layer-liver");
     if (!liver) return;
-    var mobile = isTitleMobileLayout();
     gsap.set(liver, {
-      position: "absolute",
-      left: 0,
-      top: mobile ? "65%" : 0,
-      xPercent: 0,
-      yPercent: 0,
-      width: "100%",
-      height: mobile ? "50%" : "100%",
       scale: 0.8,
       filter: "blur(20px)",
     });
@@ -184,16 +144,16 @@
       );
     }
     if (titleEl) {
-      var titleEndScale = isTitleMobileLayout() ? 1.12 : 1;
+      gsap.set(titleEl, { xPercent: -50, y: -100, opacity: 0 });
       tl.to(
         titleEl,
         {
-          scale: titleEndScale,
+          y: 0,
           opacity: 1,
-          ease: "back.out(1.5)",
-          duration: 0.8,
+          duration: 1,
+          ease: "bounce.out",
         },
-        0.5
+        "-=0.5"
       );
     }
 
@@ -205,7 +165,6 @@
   window.addEventListener("resize", function () {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function () {
-      syncTitleBoxLayout();
       setupHeroAnimation();
       ScrollTrigger.refresh();
     }, 200);
