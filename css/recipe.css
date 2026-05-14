@@ -634,3 +634,31 @@
     right: 20px !important;
   }
 }
+
+/* 統一食譜區塊 Intro 的間距與對齊 */
+.recipe-block__intro {
+  padding: 0 24px !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+}
+
+.recipe-block__intro .recipe-block__heading {
+  text-align: center !important;
+  margin-bottom: 16px !important;
+}
+
+.recipe-block__intro .global-section-intro p {
+  text-align: justify !important;
+  line-height: 1.8 !important;
+  letter-spacing: 0.05em !important;
+}
+
+@media (max-width: 768px) {
+  .recipe-block__intro {
+    padding: 0 24px !important;
+  }
+
+  .recipe-block__intro .global-section-intro p {
+    text-align: left !important;
+  }
+}

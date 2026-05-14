@@ -37,7 +37,7 @@
       title: "你平時的壓力大嗎？",
       options: [
         { label: "不覺得壓力大，身心輕鬆平衡", score: 0 },
-        { label: "偶爾覺得壓力沈重", score: 1 },
+        { label: "偶爾覺得壓力沉重", score: 1 },
         { label: "壓力超大！甚至影響到睡眠了", score: 2 },
       ],
     },
@@ -96,7 +96,6 @@
   var rRange = quizApp.querySelector("#quiz-r-range");
   var rTitle = quizApp.querySelector("#quiz-r-title");
   var rDesc = quizApp.querySelector("#quiz-r-desc");
-  var rLink = quizApp.querySelector("#quiz-r-link");
   var shareFb = quizApp.querySelector('[data-share="fb"]');
   var shareLine = quizApp.querySelector('[data-share="line"]');
 
@@ -170,7 +169,6 @@
     if (rRange) rRange.textContent = result.rangeLabel;
     rTitle.textContent = result.title;
     rDesc.textContent = result.desc;
-    rLink.setAttribute("href", result.link);
 
     var shareUrl = encodeURIComponent(window.location.href);
     var shareText = encodeURIComponent(result.title);
