@@ -187,9 +187,9 @@
   width: fit-content;
   max-width: 100%;
   margin: clamp(10px, 2vw, 14px) auto 0;
-  padding: 4px 12px;
+  padding: 6px 18px;
   font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-  font-size: 0.75rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: #fff;
   background: #111;
@@ -197,7 +197,7 @@
   border-radius: 999px;
   cursor: pointer;
   box-shadow: none;
-  transition: background 0.2s ease, transform 0.15s ease;
+  transition: all 0.3s ease;
   min-height: 0;
   line-height: 1.35;
   box-sizing: border-box;
@@ -399,10 +399,11 @@
   .recipe-slide__cta {
     display: block;
     width: fit-content;
+    max-width: calc(100% - 24px);
     margin: 10px auto 0;
     min-height: 0;
-    padding: 5px 12px;
-    font-size: 0.75rem;
+    padding: 8px 24px;
+    font-size: 20px;
   }
 
   .recipe-swiper .swiper-button-prev,
