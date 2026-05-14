@@ -34,17 +34,12 @@
     return [].slice.call((root || document).querySelectorAll(sel));
   }
 
-  function updateCenterText(index) {
-    centerTextIndex = typeof index === "number" ? index : 0;
-    if (centerTextIndex < 0 || centerTextIndex >= CENTER_META.length) {
-      centerTextIndex = 0;
-    }
-
+  function syncCenterTextDom(index) {
     var wrap = qs(document, ".chart-doughnut-wrap");
     if (!wrap) return;
     var el = wrap.querySelector(".chart-center-text");
     if (!el) return;
-    var meta = CENTER_META[centerTextIndex];
+    var meta = CENTER_META[index] || CENTER_META[0];
     var pctEl = el.querySelector(".pct");
     var labelEl = el.querySelector(".label");
     if (pctEl) {
@@ -55,36 +50,70 @@
       labelEl.style.color = meta.color;
       labelEl.textContent = meta.label;
     }
+  }
 
-    if (doughnutInstance) {
-      doughnutInstance.draw();
+  function updateCenterText(index) {
+    centerTextIndex = typeof index === "number" ? index : 0;
+    if (centerTextIndex < 0 || centerTextIndex >= CENTER_META.length) {
+      centerTextIndex = 0;
     }
+    syncCenterTextDom(centerTextIndex);
+  }
+
+  function drawCenterText(chart) {
+    var meta = CENTER_META[centerTextIndex] || CENTER_META[0];
+    var area = chart.chartArea;
+    if (!area) return;
+
+    var ctx = chart.ctx;
+    var cx = (area.left + area.right) / 2;
+    var cy = (area.top + area.bottom) / 2;
+    var pctSize = Math.max(24, Math.round((area.right - area.left) * 0.14));
+
+    ctx.save();
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = meta.color;
+    ctx.font = "900 " + pctSize + 'px "Montserrat", Arial, sans-serif';
+    ctx.fillText(meta.pct + "%", cx, cy - pctSize * 0.18);
+    ctx.font =
+      '700 ' +
+      Math.max(12, Math.round(pctSize * 0.34)) +
+      'px "Noto Sans TC", "Microsoft JhengHei", sans-serif';
+    ctx.fillText(meta.label, cx, cy + pctSize * 0.42);
+    ctx.restore();
   }
 
   var centerTextPlugin = {
     id: "centerText",
-    beforeDraw: function (chart) {
-      var meta = CENTER_META[centerTextIndex] || CENTER_META[0];
-      var area = chart.chartArea;
-      if (!area) return;
+    beforeDatasetsDraw: function (chart) {
+      drawCenterText(chart);
+    },
+    afterEvent: function (chart, args) {
+      var event = args.event;
+      if (!event || (event.type !== "mousemove" && event.type !== "mouseout")) {
+        return;
+      }
 
-      var ctx = chart.ctx;
-      var cx = (area.left + area.right) / 2;
-      var cy = (area.top + area.bottom) / 2;
-      var pctSize = Math.max(24, Math.round((area.right - area.left) * 0.14));
+      var nextIndex = 0;
+      if (event.type === "mousemove") {
+        var pts = chart.getElementsAtEventForMode(
+          event,
+          "nearest",
+          { intersect: true },
+          true
+        );
+        if (pts.length) {
+          nextIndex = pts[0].index;
+        }
+      }
 
-      ctx.save();
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillStyle = meta.color;
-      ctx.font = "900 " + pctSize + 'px "Montserrat", Arial, sans-serif';
-      ctx.fillText(meta.pct + "%", cx, cy - pctSize * 0.18);
-      ctx.font =
-        '700 ' +
-        Math.max(12, Math.round(pctSize * 0.34)) +
-        'px "Noto Sans TC", "Microsoft JhengHei", sans-serif';
-      ctx.fillText(meta.label, cx, cy + pctSize * 0.42);
-      ctx.restore();
+      if (nextIndex === centerTextIndex) {
+        return;
+      }
+
+      centerTextIndex = nextIndex;
+      syncCenterTextDom(centerTextIndex);
     },
   };
 
@@ -163,24 +192,6 @@
     });
 
     updateCenterText(0);
-
-    canvas.addEventListener("mousemove", function (e) {
-      if (!doughnutInstance) return;
-      var pts = doughnutInstance.getElementsAtEventForMode(
-        e,
-        "nearest",
-        { intersect: true },
-        true
-      );
-      if (pts.length) {
-        updateCenterText(pts[0].index);
-      } else {
-        updateCenterText(0);
-      }
-    });
-    canvas.addEventListener("mouseleave", function () {
-      updateCenterText(0);
-    });
   }
 
   function initSwiper() {

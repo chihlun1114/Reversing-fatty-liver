@@ -160,6 +160,8 @@
 }
 
 .chart-doughnut-wrap canvas#liverChart {
+  position: relative;
+  z-index: 1;
   display: block;
   width: 100% !important;
   height: auto !important;
@@ -173,8 +175,9 @@
   transform: translate(-50%, -50%);
   text-align: center;
   pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
   z-index: 0;
 }
 
@@ -506,19 +509,37 @@
     height: 28px !important;
   }
 
+  .jc-legend,
   .chart-legend-row {
     margin-top: 15px !important;
-    gap: 8px 12px !important;
-    flex-direction: column;
-    align-items: flex-start;
-    max-width: max-content;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
+  .jc-legend-item,
+  .legend-item,
   .chart-legend-row .legend-item {
-    flex: 1 1 100%;
-    width: 100%;
+    width: 100% !important;
+    flex: 1 1 100% !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    line-height: 1.4 !important;
+    align-items: flex-start !important;
+  }
+
+  .jc-legend-color,
+  .legend-color,
+  .chart-legend-row .dot {
+    margin-top: 3px !important;
+    flex-shrink: 0 !important;
   }
 }
 
