@@ -32,6 +32,7 @@
     var liver = hero.querySelector(".layer-liver");
     if (!liver) return;
     gsap.set(liver, {
+      opacity: 0,
       scale: 0.8,
       filter: "blur(20px)",
     });
@@ -69,6 +70,8 @@
       opacity: 1,
     });
   });
+
+  gsap.set(bubbleContainer, { autoAlpha: 1 });
 
   var tl = gsap.timeline({
     paused: true,
@@ -110,12 +113,13 @@
     tl.to(
       liverEl,
       {
+        opacity: 1,
         scale: 1,
         filter: "blur(0px)",
         ease: "back.out(1.2)",
-        duration: 1,
+        duration: 0.8,
       },
-      0.4
+      0.2
     );
   }
   if (titleEl) {
@@ -126,9 +130,10 @@
         xPercent: -50,
         y: 0,
         opacity: 1,
-        duration: 1.2,
+        duration: 0.7,
         ease: "bounce.out",
-      }
+      },
+      "-=0.4"
     );
   }
 
@@ -137,6 +142,8 @@
   if (window.scrollY === 0) {
     document.body.style.overflow = "hidden";
     document.documentElement.style.overflow = "hidden";
+
+    gsap.set(bubbleContainer, { autoAlpha: 1 });
 
     var triggerAnim = function () {
       window.removeEventListener("wheel", triggerAnim);

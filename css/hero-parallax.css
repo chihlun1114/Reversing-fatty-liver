@@ -34,15 +34,16 @@ body {
   height: 100vh !important;
   object-fit: cover !important;
   object-position: center !important;
+  opacity: 0;
 }
 
 #hero .layer-title {
   position: absolute;
   left: 50%;
-  top: 20%;
+  top: 15% !important;
   transform: translateX(-50%);
-  width: 35vw;
-  max-width: 550px;
+  width: 30vw !important;
+  max-width: 500px !important;
   min-width: 300px;
   z-index: 10;
   object-fit: contain;
@@ -59,6 +60,8 @@ body {
   z-index: 5;
   overflow: hidden;
   pointer-events: none;
+  opacity: 1;
+  visibility: visible;
 }
 
 #hero .bubbles-container .bubble {
@@ -79,8 +82,8 @@ body {
 
 @media (max-width: 768px) {
   #hero .layer-title {
-    top: 15% !important;
-    width: 85vw !important;
+    top: 10% !important;
+    width: 90vw !important;
     max-width: none !important;
     min-width: 0 !important;
   }
