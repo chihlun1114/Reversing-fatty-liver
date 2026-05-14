@@ -40,10 +40,10 @@
     gsap.set(title, {
       position: "absolute",
       left: "50%",
-      top: mobile ? "25%" : "50%",
+      top: mobile ? "30%" : "50%",
       xPercent: -50,
       yPercent: -50,
-      width: mobile ? "85vw" : "100%",
+      width: mobile ? "90vw" : "100%",
       height: mobile ? "auto" : "100%",
       maxHeight: "none",
     });
@@ -56,10 +56,10 @@
     gsap.set(title, {
       position: "absolute",
       left: "50%",
-      top: mobile ? "25%" : "50%",
+      top: mobile ? "30%" : "50%",
       xPercent: -50,
       yPercent: -50,
-      width: mobile ? "85vw" : "100%",
+      width: mobile ? "90vw" : "100%",
       height: mobile ? "auto" : "100%",
       maxHeight: "none",
       scale: 0.5,
@@ -73,12 +73,12 @@
     var mobile = isTitleMobileLayout();
     gsap.set(liver, {
       position: "absolute",
-      left: "50%",
-      top: mobile ? "65%" : "50%",
-      xPercent: -50,
-      yPercent: -50,
-      width: mobile ? "120vw" : "100%",
-      height: mobile ? "auto" : "100%",
+      left: 0,
+      top: mobile ? "65%" : 0,
+      xPercent: 0,
+      yPercent: 0,
+      width: "100%",
+      height: mobile ? "50%" : "100%",
       scale: 0.8,
       filter: "blur(20px)",
     });

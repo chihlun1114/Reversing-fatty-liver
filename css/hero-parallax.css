@@ -7,6 +7,7 @@ html {
 
 body {
   margin: 0;
+  padding: 0;
   overflow-x: hidden;
 }
 
@@ -17,53 +18,49 @@ body {
   transform: none !important;
 }
 
-/* Hero 區塊滿版設定 */
 #hero {
   position: relative;
   margin: 0;
   padding: 0;
   width: 100vw;
-  height: 100vh !important;
-  overflow: hidden !important;
-  background: transparent !important;
+  height: 100vh;
+  overflow: hidden;
+  background: #42a3e8;
 }
 
-/* 底層／標題：滿版；置中以 GSAP xPercent/yPercent */
-#hero .layer-liver,
+#hero .layer-liver {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  object-fit: cover;
+  object-position: center;
+}
+
 #hero .layer-title {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100%;
-  height: 100%;
-  transform-origin: center center;
-}
-
-/* 底圖肝臟 → 脂肪球 → 標題（標題必須在最上層，避免被遮住） */
-.layer-liver {
-  z-index: 1;
-  object-fit: cover;
-}
-
-.layer-title {
+  transform: translate(-50%, -50%);
   z-index: 10;
-  object-fit: contain !important;
+  width: 100%;
   pointer-events: none;
+  object-fit: contain;
 }
 
-/* 滿版脂肪牆容器（由 JS 動態塞入 .bubble） */
 #hero .bubbles-container {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
   top: 0;
   left: 0;
-  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+  overflow: hidden;
   pointer-events: none;
-  overflow: hidden !important;
 }
 
-/* 動態生成的脂肪球 */
 #hero .bubbles-container .bubble {
   position: absolute;
   left: 0;
@@ -80,26 +77,26 @@ body {
   opacity: 1;
 }
 
-/* 手機版：標題與肝臟上下錯開；標題加寬並預留左右安全距，避免過小 */
 @media (max-width: 768px) {
   #hero .layer-title {
-    top: 25% !important;
-    width: 85vw !important; /* 滿版但留安全邊距 */
-    height: auto !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important; /* 確保絕對置中 */
-    object-fit: contain !important;
-    min-height: unset !important;
-    max-height: unset !important;
-    padding: 0;
+    top: 30% !important;
+    width: 90vw !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 10 !important;
+  }
+
+  #hero .layer-title h2 {
+    font-size: 10vw !important;
+    line-height: 1.2 !important;
+    color: #fff !important;
+    text-align: center !important;
+    font-weight: bold !important;
   }
 
   #hero .layer-liver {
     top: 65% !important;
-    width: 120vw !important; /* 稍微放大確保滿版感 */
-    height: auto !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
+    height: 50% !important;
     object-fit: contain !important;
+    object-position: bottom center !important;
   }
 }

@@ -1,61 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="_圖層_1" data-name="圖層 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
   <defs>
     <style>
       .cls-1 {
-        letter-spacing: .05em;
-      }
-
-      .cls-1, .cls-2 {
-        font-size: 39.16px;
-      }
-
-      .cls-2 {
-        letter-spacing: .2em;
-      }
-
-      .cls-3, .cls-4 {
-        font-size: 120.94px;
-      }
-
-      .cls-5 {
-        font-size: 83.73px;
-      }
-
-      .cls-6 {
-        fill: none;
-      }
-
-      .cls-4 {
         letter-spacing: -.2em;
       }
 
+      .cls-1, .cls-2 {
+        font-size: 120.94px;
+      }
+
+      .cls-3 {
+        letter-spacing: .03em;
+      }
+
+      .cls-3, .cls-4 {
+        font-size: 39.16px;
+      }
+
+      .cls-5 {
+        font-size: 31.33px;
+        letter-spacing: .02em;
+      }
+
+      .cls-6, .cls-7 {
+        fill: #fd0;
+      }
+
       .cls-7 {
-        font-size: 97.36px;
+        font-family: NotoSansCJKtc-Bold-B5pc-H, 'Noto Sans CJK TC';
+        font-weight: 700;
       }
 
       .cls-8 {
-        font-size: 31.33px;
-        letter-spacing: .2em;
+        letter-spacing: .03em;
       }
 
       .cls-9 {
-        fill: #fff;
+        fill: none;
       }
 
-      .cls-9, .cls-10 {
+      .cls-10 {
+        font-size: 83.73px;
+      }
+
+      .cls-10, .cls-11 {
+        fill: #f7f8f8;
         font-family: NotoSansCJKtc-Black-B5pc-H, 'Noto Sans CJK TC';
         font-weight: 800;
       }
 
-      .cls-10 {
-        fill: #ff0;
+      .cls-12 {
+        font-size: 97.36px;
+      }
+
+      .cls-4 {
+        letter-spacing: .02em;
       }
     </style>
   </defs>
-  <g>
-    <text class="cls-9" transform="translate(616.09 292.76)"><tspan class="cls-7" x="0" y="0" xml:space="preserve">  </tspan><tspan class="cls-3" x="44.59" y="8.96">逆轉肝包</tspan><tspan class="cls-4" x="528.33" y="8.96">油</tspan><tspan class="cls-3" x="625.08" y="8.96">！</tspan><tspan class="cls-5"><tspan x="163.7" y="112.22">養護全攻略</tspan></tspan></text>
-    <text class="cls-10" transform="translate(762.58 173.02)"><tspan class="cls-1" x="0" y="0">健康大</tspan><tspan class="cls-2" x="123.37" y="0">賞</tspan><tspan class="cls-8" x="170.37" y="-2.98">★</tspan><tspan class="cls-1" x="207.96" y="0">抗脂肪肝金選</tspan></text>
+  <g id="_圖層_2" data-name="圖層 2">
+    <rect class="cls-9" width="1920" height="1080"/>
   </g>
-  <rect class="cls-6" width="1920" height="1080"/>
+  <g id="_圖層_1" data-name="圖層 1">
+    <g>
+      <text class="cls-11" transform="translate(619.39 358.41) scale(.98 1)"><tspan class="cls-12" x="0" y="0" xml:space="preserve">  </tspan><tspan class="cls-2" x="44.59" y="8.96">逆轉肝包</tspan><tspan class="cls-1" x="528.33" y="8.96">油</tspan><tspan class="cls-2" x="625.08" y="8.96">！</tspan></text>
+      <text class="cls-10" transform="translate(771.31 471.64)"><tspan class="cls-8" x="0" y="0">養護全攻</tspan><tspan x="343.53" y="0">略</tspan></text>
+      <g>
+        <text class="cls-7" transform="translate(761.02 221.68)"><tspan class="cls-4" x="0" y="0">健康大賞</tspan><tspan class="cls-5" x="160.57" y="-2.98" xml:space="preserve">      </tspan><tspan class="cls-3" x="207.95" y="0">抗脂肪肝金選</tspan></text>
+        <path class="cls-6" d="M927.87,206.29c12.64-2.33,14.53-4.21,16.85-16.85,2.33,12.64,4.21,14.53,16.85,16.85-12.64,2.33-14.53,4.21-16.85,16.85-2.33-12.64-4.21-14.53-16.85-16.85Z"/>
+      </g>
+    </g>
+  </g>
 </svg>
