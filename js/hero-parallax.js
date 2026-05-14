@@ -81,6 +81,8 @@
     },
   });
 
+  tl.set(hero, { backgroundColor: "#e54524" }, 0);
+
   bubbles.forEach(function (bubble, index) {
     var baseAngle = (index / bubbles.length) * Math.PI * 2;
     var angle = baseAngle + gsap.utils.random(-0.2, 0.2);

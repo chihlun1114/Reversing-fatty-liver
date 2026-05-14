@@ -22,7 +22,7 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-color: #e54524 !important;
+  background-color: #FFD54F !important;
 }
 
 #hero .layer-liver {
@@ -40,7 +40,7 @@ body {
 #hero .layer-title {
   position: absolute;
   left: 50%;
-  top: 15% !important;
+  top: 35% !important;
   transform: translateX(-50%);
   width: 30vw !important;
   max-width: 500px !important;
@@ -82,13 +82,13 @@ body {
 
 @media (max-width: 768px) {
   #hero .layer-title {
-    top: 10% !important;
+    top: 35% !important;
     width: 90vw !important;
     max-width: none !important;
     min-width: 0 !important;
   }
 
   #hero .layer-liver {
-    object-position: center bottom !important;
+    object-position: center !important;
   }
 }
