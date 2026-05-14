@@ -249,7 +249,7 @@ body {
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
   border-bottom: none !important;
-  z-index: 5;
+  z-index: 100 !important;
 }
 
 /* 若版型另有通用 navbar class，一併去除底線與陰影（與 Hero 無縫銜接） */

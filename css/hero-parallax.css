@@ -40,7 +40,7 @@ body {
 #hero .layer-title {
   position: absolute;
   left: 50%;
-  top: 35% !important;
+  top: 20% !important;
   transform: translateX(-50%);
   width: 30vw !important;
   max-width: 500px !important;
@@ -82,7 +82,7 @@ body {
 
 @media (max-width: 768px) {
   #hero .layer-title {
-    top: 35% !important;
+    top: 15% !important;
     width: 90vw !important;
     max-width: none !important;
     min-width: 0 !important;
