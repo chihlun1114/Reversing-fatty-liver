@@ -99,6 +99,28 @@
   var shareFb = quizApp.querySelector('[data-share="fb"]');
   var shareLine = quizApp.querySelector('[data-share="line"]');
 
+  var SHARE_PAGE_URL = "https://web.commonhealth.com.tw/fattyliver/index.html";
+  var SHARE_FB_URL =
+    "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(SHARE_PAGE_URL);
+  var SHARE_LINE_URL =
+    "https://social-plugins.line.me/lineit/share?url=" + encodeURIComponent(SHARE_PAGE_URL);
+
+  function syncShareLinks() {
+    if (shareFb) shareFb.href = SHARE_FB_URL;
+    if (shareLine) shareLine.href = SHARE_LINE_URL;
+  }
+
+  function bindShareLink(el) {
+    if (!el) return;
+    el.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+  }
+
+  syncShareLinks();
+  bindShareLink(shareFb);
+  bindShareLink(shareLine);
+
   var currentIndex = 0;
   var answers = new Array(questions.length).fill(null);
   var lockSelect = false;
@@ -170,15 +192,7 @@
     rTitle.textContent = result.title;
     rDesc.textContent = result.desc;
 
-    var sharePageUrl = "https://web.commonhealth.com.tw/fattyliver/index.html";
-    if (shareFb) {
-      shareFb.href =
-        "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(sharePageUrl);
-    }
-    if (shareLine) {
-      shareLine.href =
-        "https://social-plugins.line.me/lineit/share?url=" + encodeURIComponent(sharePageUrl);
-    }
+    syncShareLinks();
 
     showView(resultView);
   }

@@ -250,6 +250,8 @@
 
 .quiz-share-group {
   gap: 12px;
+  position: relative;
+  z-index: 2;
 }
 
 .quiz-share__btn,
@@ -264,6 +266,15 @@
   border-radius: 50%;
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.quiz-share__btn svg,
+.quiz-share__btn path,
+.quiz-share-btn svg,
+.quiz-share-btn path {
+  pointer-events: none;
 }
 
 .quiz-share__btn:hover,
