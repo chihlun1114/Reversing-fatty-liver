@@ -26,27 +26,12 @@ body {
   }
 
   50% {
-    scale: 1.1;
-    filter: brightness(112%);
-  }
-}
-
-@keyframes fadeInBubbles {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
+    scale: 1.08;
+    filter: brightness(110%);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #hero .bubbles-container {
-    animation: none !important;
-    opacity: 1;
-  }
-
   #hero .bubbles-container .fat-globule {
     animation: none !important;
     animation-fill-mode: none !important;
@@ -64,12 +49,6 @@ body {
   overflow: hidden;
   isolation: isolate;
   background-color: #ffd54f !important;
-  background-image: url("../images/fatty-liver.webp") !important;
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  transform: translateZ(0);
-  -webkit-transform: translate3d(0, 0, 0);
 }
 
 #hero .layer-liver {
@@ -107,11 +86,8 @@ body {
   z-index: 5;
   overflow: hidden;
   pointer-events: none;
-  opacity: 0;
+  opacity: 1;
   visibility: visible;
-  transform: translateZ(0);
-  -webkit-transform: translate3d(0, 0, 0);
-  animation: fadeInBubbles 1s ease-in-out 0.1s forwards !important;
 }
 
 #hero .bubbles-container .bubble-wrap {
@@ -126,6 +102,7 @@ body {
 }
 
 #hero .bubbles-container .fat-globule {
+  opacity: 1 !important;
   animation: activeFatSafe 2.8s infinite ease-in-out !important;
   animation-fill-mode: both !important;
   will-change: transform, filter;
