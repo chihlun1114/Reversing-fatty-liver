@@ -1,6 +1,6 @@
 /**
  * Hero — 400 顆脂肪牆 + 360° 噴散；進場鎖屏 → 滾輪觸發 → 播完解鎖。
- * 脂肪球外包 .bubble-wrap：wrap 僅做 CSS 呼吸動畫（transform），GSAP 用 left/top 移動避免衝突。
+ * .bubble-wrap.fat-globule：CSS 獨立 scale/filter 呼吸；GSAP 僅動 wrap 的 left/top、內層 .bubble 的 scale／rotation。
  */
 (function () {
   "use strict";
@@ -31,6 +31,9 @@
     typeof window.matchMedia === "function" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /** 初始版 random(0.6, 1.1)／結束 (0.5, 1.0)；窄螢幕整體 ×0.84（約縮小 16%），比例不變 */
+  var MOBILE_SIZE_FACTOR = 0.84;
+
   function initTitleState() {
     var title = hero.querySelector(".layer-title");
     if (!title) return;
@@ -49,29 +52,33 @@
 
   bubbleContainer.innerHTML = "";
 
-  var imgSize = mqNarrow ? 88 : 128;
-  var scaleMin = mqNarrow ? 0.38 : 0.6;
-  var scaleMax = mqNarrow ? 0.52 : 1.1;
-  var endScaleMin = mqNarrow ? 0.36 : 0.5;
-  var endScaleMax = mqNarrow ? 0.5 : 1.0;
+  var imgSize = 128;
+  var scaleMin = 0.6;
+  var scaleMax = 1.1;
+  var endScaleMin = 0.5;
+  var endScaleMax = 1.0;
+
+  if (mqNarrow) {
+    scaleMin *= MOBILE_SIZE_FACTOR;
+    scaleMax *= MOBILE_SIZE_FACTOR;
+    endScaleMin *= MOBILE_SIZE_FACTOR;
+    endScaleMax *= MOBILE_SIZE_FACTOR;
+  }
 
   var i;
   for (i = 0; i < 400; i++) {
     var shell = document.createElement("span");
-    shell.className = "bubble-wrap";
+    shell.className = "bubble-wrap fat-globule";
     shell.setAttribute("aria-hidden", "true");
 
     var img = document.createElement("img");
     img.src = bubbleSources[i % bubbleSources.length];
-    img.className = "bubble";
+    img.className = "bubble fat-globule__img";
     img.alt = "";
     img.decoding = "async";
     img.width = imgSize;
     img.height = imgSize;
 
-    var breatheDur = 6 + (i % 3);
-    shell.style.animationDuration = breatheDur + "s";
-    shell.style.animationDelay = ((i % 12) * 0.28).toFixed(2) + "s";
     if (mqReduceMotion) {
       shell.style.animation = "none";
     }
