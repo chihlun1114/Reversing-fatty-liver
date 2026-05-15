@@ -170,10 +170,15 @@
     rTitle.textContent = result.title;
     rDesc.textContent = result.desc;
 
-    var shareUrl = encodeURIComponent(window.location.href);
-    var shareText = encodeURIComponent(result.title);
-    shareFb.href = "https://www.facebook.com/sharer/sharer.php?u=" + shareUrl;
-    shareLine.href = "https://social-plugins.line.me/lineit/share?url=" + shareUrl + "&text=" + shareText;
+    var sharePageUrl = "https://web.commonhealth.com.tw/fattyliver/index.html";
+    if (shareFb) {
+      shareFb.href =
+        "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(sharePageUrl);
+    }
+    if (shareLine) {
+      shareLine.href =
+        "https://social-plugins.line.me/lineit/share?url=" + encodeURIComponent(sharePageUrl);
+    }
 
     showView(resultView);
   }

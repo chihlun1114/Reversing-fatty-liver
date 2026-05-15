@@ -28,7 +28,7 @@
 }
 
 .bg-coral {
-  background: #ff5a5f;
+  background: #ff4013;
 }
 
 .bg-beige {
@@ -100,7 +100,7 @@
 }
 
 .quiz-option.is-active {
-  color: #ff5a5f;
+  color: #ff4013;
   font-weight: 700;
 }
 
@@ -127,7 +127,7 @@
 }
 
 .quiz-btn--improve {
-  background: #ff5a5f;
+  background: #ff4013;
   color: #fff;
 }
 
@@ -138,7 +138,7 @@
 }
 
 .quiz-start-left.bg-coral {
-  background: #ff5a5f;
+  background: #ff4013;
   color: #fff;
   display: flex;
   flex-direction: column;

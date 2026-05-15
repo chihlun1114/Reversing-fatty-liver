@@ -10,10 +10,10 @@
   var CANVAS_ID = "liverChart";
   var TOOLTIP_ID = "custom-tooltip";
 
-  var COLORS = ["#ff5d5f", "#555555", "#888888", "#bbbbbb"];
+  var COLORS = ["#ff4013", "#555555", "#888888", "#bbbbbb"];
 
   var CENTER_META = [
-    { pct: "39.6", label: "有定期做健檢<br>並留意數據", color: "#ff5d5f" },
+    { pct: "39.6", label: "有定期做健檢<br>並留意數據", color: "#ff4013" },
     { pct: "24.1", label: "完全不會，也不確定自己有沒有脂肪肝", color: "#555555" },
     { pct: "19.5", label: "除了定期健檢，還會額外安排超音波或進階影像檢查", color: "#888888" },
     { pct: "16.8", label: "有脂肪肝，但沒有定期追蹤", color: "#bbbbbb" },
