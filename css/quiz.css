@@ -255,7 +255,9 @@
 }
 
 .quiz-share__btn,
-.quiz-share-btn {
+.quiz-share-btn,
+.custom-social-fb,
+.custom-social-line {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -273,12 +275,18 @@
 .quiz-share__btn svg,
 .quiz-share__btn path,
 .quiz-share-btn svg,
-.quiz-share-btn path {
+.quiz-share-btn path,
+.custom-social-fb svg,
+.custom-social-fb path,
+.custom-social-line svg,
+.custom-social-line path {
   pointer-events: none;
 }
 
 .quiz-share__btn:hover,
-.quiz-share-btn:hover {
+.quiz-share-btn:hover,
+.custom-social-fb:hover,
+.custom-social-line:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
@@ -286,7 +294,11 @@
 .quiz-share__btn img,
 .quiz-share__btn svg,
 .quiz-share-btn img,
-.quiz-share-btn svg {
+.quiz-share-btn svg,
+.custom-social-fb img,
+.custom-social-fb svg,
+.custom-social-line img,
+.custom-social-line svg {
   width: 24px;
   height: 24px;
   object-fit: contain;

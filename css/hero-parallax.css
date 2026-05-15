@@ -34,8 +34,11 @@ body {
 @media (prefers-reduced-motion: reduce) {
   #hero .bubbles-container .fat-globule {
     animation: none !important;
+    animation-fill-mode: none !important;
     scale: 1;
     filter: none;
+    transform: translateZ(0);
+    -webkit-transform: translate3d(0, 0, 0);
   }
 }
 
@@ -44,14 +47,33 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  isolation: isolate;
   background-color: #ffd54f !important;
+  background-image: url("../images/fatty-liver.webp") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* 靜態底圖層：JS 脂肪球生成前先繪製，避免純黃色 FOUC */
+#hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: #ffd54f;
+  background-image: url("../images/fatty-liver.webp");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 #hero .layer-liver {
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 1;
+  z-index: 6;
   width: 100vw !important;
   height: 100vh !important;
   object-fit: cover !important;
@@ -84,6 +106,8 @@ body {
   pointer-events: none;
   opacity: 1;
   visibility: visible;
+  transform: translateZ(0);
+  -webkit-transform: translate3d(0, 0, 0);
 }
 
 #hero .bubbles-container .bubble-wrap {
@@ -99,7 +123,12 @@ body {
 
 #hero .bubbles-container .fat-globule {
   animation: activeFatSafe 2.8s infinite ease-in-out !important;
-  will-change: scale, filter;
+  animation-fill-mode: both !important;
+  will-change: transform, filter;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translate3d(0, 0, 0);
 }
 
 #hero .bubbles-container > .fat-globule:nth-child(2n) {
@@ -136,6 +165,7 @@ body {
   -webkit-transform-origin: center center;
   will-change: transform;
   opacity: 1;
+  pointer-events: none;
 }
 
 @media (max-width: 768px) {
