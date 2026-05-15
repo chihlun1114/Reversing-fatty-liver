@@ -1,0 +1,159 @@
+/**
+ * Block 10 — 延伸閱讀（reading-container 包輪播；箭頭／分頁在輪播外）
+ */
+
+/* 與 chart.css `section.global-section-bg` 同色 #f5f5f0，與 #section-9 無縫；區塊上內距改由 .reading-block__inner */
+#section-10.reading-block {
+  background-color: #f5f5f0 !important;
+  margin: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 60px !important;
+  position: relative;
+  box-sizing: border-box;
+}
+
+#section-10 .reading-block__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 56px) clamp(16px, 3vw, 24px) 0;
+  box-sizing: border-box;
+}
+
+/* 標題：置中與下距（取代 inline style） */
+#section-10 .reading-block__title-centered {
+  text-align: center;
+  margin: 0 0 24px;
+}
+
+/* 2. 外層容器：左右留白給箭頭；分頁絕對定位參考 */
+.reading-container {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 60px 52px !important;
+  box-sizing: border-box;
+}
+
+/* 3. Swiper：零內距 + 裁切 slide，避免照片邊緣露出 */
+.reading-swiper {
+  position: relative;
+  width: 100%;
+  padding: 0 !important;
+  background: transparent !important;
+  overflow: hidden !important;
+  box-sizing: border-box;
+}
+
+.reading-swiper .swiper-slide {
+  height: auto;
+  box-sizing: border-box;
+}
+
+.reading-swiper .reading-card__link {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.reading-swiper .reading-card__img {
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: cover !important;
+  display: block;
+  border-radius: 4px;
+  margin-bottom: 12px !important;
+  background: #e8e8e4;
+}
+
+.reading-swiper .reading-card__title {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  white-space: normal !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  color: #111 !important;
+  margin: 0 !important;
+  text-align: left;
+  word-break: break-word;
+}
+
+/* 4. 箭頭（相對 .reading-container；保留 Swiper 內建字形，勿改 content） */
+.reading-container .reading-prev,
+.reading-container .reading-next {
+  position: absolute;
+  top: 40% !important;
+  transform: translateY(-50%) !important;
+  z-index: 10;
+  color: #8ba2b4 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: 44px !important;
+  height: 44px !important;
+  margin-top: 0 !important;
+}
+
+.reading-container .reading-prev {
+  left: 5px !important;
+}
+
+.reading-container .reading-next {
+  right: 5px !important;
+}
+
+.reading-container .reading-prev::after,
+.reading-container .reading-next::after {
+  font-size: 44px !important;
+  font-weight: 700 !important;
+}
+
+.reading-container .reading-prev:hover,
+.reading-container .reading-next:hover {
+  color: #718096 !important;
+}
+
+.reading-container .swiper-button-disabled {
+  opacity: 0.35;
+}
+
+/* 5. 分頁（相對 .reading-container） */
+.reading-container .reading-pagination {
+  position: absolute;
+  bottom: -40px !important;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.reading-container .reading-pagination .swiper-pagination-bullet {
+  width: 9px !important;
+  height: 9px !important;
+  margin: 0 5px !important;
+  border: 1px solid #111 !important;
+  background: transparent !important;
+  opacity: 1 !important;
+}
+
+.reading-container .reading-pagination .swiper-pagination-bullet-active {
+  background: #111 !important;
+}
+
+@media (max-width: 768px) {
+  .reading-container {
+    padding-left: 48px !important;
+    padding-right: 48px !important;
+  }
+
+  .reading-container .reading-prev::after,
+  .reading-container .reading-next::after {
+    font-size: 36px !important;
+  }
+}

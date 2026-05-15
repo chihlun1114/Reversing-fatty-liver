@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="./css/recipe.css">
     <link rel="stylesheet" href="./css/exercise.css">
     <link rel="stylesheet" href="./css/checkup.css">
+    <link rel="stylesheet" href="./css/reading.css">
     <link rel="stylesheet" href="./css/quiz.css">
     <link rel="stylesheet" href="./css/chart.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -304,6 +305,10 @@
                         <div class="swiper-button-prev chart-nav-prev" aria-label="上一張"></div>
                         <div class="swiper-button-next chart-nav-next" aria-label="下一張"></div>
                     </div>
+                    <aside class="chart-section__further" aria-labelledby="chart-section-further-title">
+                        <p id="chart-section-further-title" class="chart-section__further-label">延伸閱讀</p>
+                        <a class="chart-section__further-link" href="https://www.commonhealth.com.tw/article/93717" target="_blank" rel="noopener noreferrer">全台700萬人「肝包油」！醫警告：脂肪肝真正致命的不是肝癌，而是心血管<span class="chart-section__further-chev" aria-hidden="true">＞</span></a>
+                    </aside>
                 </div>
             </section>
         </div>
@@ -665,6 +670,10 @@
             <div class="swiper-pagination recipe-swiper__pagination" aria-label="食譜分頁"></div>
         </div>
     </div>
+    <aside class="chart-section__further" aria-labelledby="recipe-section-further-title">
+        <p id="recipe-section-further-title" class="chart-section__further-label">延伸閱讀</p>
+        <a class="chart-section__further-link" href="https://www.commonhealth.com.tw/article/93735" target="_blank" rel="noopener noreferrer">為什麼相撲選手沒脂肪肝，瘦子卻滿肚油？醫揭2種地雷食物：手搖飲比肥肉更傷肝<span class="chart-section__further-chev" aria-hidden="true"></span></a>
+    </aside>
 </section>
 <!-- Block 5: 健康食譜 End -->
 
@@ -1003,13 +1012,66 @@
     </div>
 </section>
 <!-- Block 9: 肝臟檢查檢測比較 End -->
+
+<!-- Block 10: 延伸閱讀 Start -->
+<section id="section-10" class="reading-block global-section-bg" aria-labelledby="reading-block-title">
+    <div class="reading-block__inner">
+        <h2 id="reading-block-title" class="global-section-title reading-block__title-centered">延伸閱讀</h2>
+        <div class="reading-container">
+            <div class="swiper reading-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a class="reading-card__link" href="https://www.commonhealth.com.tw/blog/6141" target="_blank" rel="noopener noreferrer">
+                            <img class="reading-card__img" src="./images/ext-1.webp" width="640" height="360" alt="體檢看到脂肪肝別再當沒事" loading="eager" decoding="async">
+                            <h3 class="reading-card__title">體檢看到「脂肪肝」別再當沒事！現在做3件事，有助逆轉肝健康</h3>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="reading-card__link" href="https://www.commonhealth.com.tw/blog/6267" target="_blank" rel="noopener noreferrer">
+                            <img class="reading-card__img" src="./images/ext-2.webp" width="640" height="360" alt="一半台灣人中鏢最新研究" loading="lazy" decoding="async">
+                            <h3 class="reading-card__title">一半台灣人中鏢！最新研究：脂肪肝指數超過30，心血管風險高4成</h3>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="reading-card__link" href="https://www.commonhealth.com.tw/article/93848" target="_blank" rel="noopener noreferrer">
+                            <img class="reading-card__img" src="./images/ext-3.webp" width="640" height="360" alt="還沒長大肝先出問題" loading="lazy" decoding="async">
+                            <h3 class="reading-card__title">還沒長大，肝先出問題！5個孩子就有1人脂肪肝，醫師示警：8歲小學生也被盯上</h3>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="reading-card__link" href="https://www.commonhealth.com.tw/blog/6374" target="_blank" rel="noopener noreferrer">
+                            <img class="reading-card__img" src="./images/ext-4.webp" width="640" height="360" alt="瘦子也可能脂肪肝" loading="lazy" decoding="async">
+                            <h3 class="reading-card__title">瘦子也可能脂肪肝！醫師解析6大高風險族群：手搖飲、久坐族都上榜，4招逆轉方法一次看</h3>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="reading-card__link" href="https://www.commonhealth.com.tw/article/90928" target="_blank" rel="noopener noreferrer">
+                            <img class="reading-card__img" src="./images/ext-5.webp" width="640" height="360" alt="走路有益肝臟健康的祕密" loading="lazy" decoding="async">
+                            <h3 class="reading-card__title">走路有益肝臟健康的祕密！「步行」如何幫助改善脂肪肝？</h3>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="reading-card__link" href="https://www.commonhealth.com.tw/article/93922" target="_blank" rel="noopener noreferrer">
+                            <img class="reading-card__img" src="./images/ext-6.webp" width="640" height="360" alt="沉默的代謝風暴" loading="lazy" decoding="async">
+                            <h3 class="reading-card__title">沉默的代謝風暴！脂肪肝，全身慢性病病的破口，比糖尿病、高血壓更隱形更致命</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-prev reading-prev" aria-label="上一則"></div>
+            <div class="swiper-button-next reading-next" aria-label="下一則"></div>
+            <div class="swiper-pagination reading-pagination" aria-label="延伸閱讀分頁"></div>
+        </div>
+    </div>
+</section>
+<!-- Block 10: 延伸閱讀 End -->
     </main>
 
     <footer class="fatty-footer" id="fatty-footer">
         <div class="fatty-footer__inner">
             <div class="fatty-footer__credits">
-                <p class="fatty-footer__credit-line">製作：張雨亭、盧亞屏、謝惠靜、吳盈蓁、連珮妤</p>
-                <p class="fatty-footer__credit-line">發布日期：2025.07.25</p>
+                <p class="fatty-footer__credit-line">製作：張雨亭、謝惠靜、陳德信、廖苾君、蕭智綸</p>
+                <p class="fatty-footer__credit-line">發布日期：2026.05.18</p>
             </div>
 
             <h2 class="fatty-footer__social-title">追蹤我們，最新資訊不漏接</h2>
@@ -1118,6 +1180,7 @@
     <script src="./js/recipe.js"></script>
     <script src="./js/quiz.js"></script>
     <script src="./components/CheckupComparison.js"></script>
+    <script src="./js/reading-block.js"></script>
 </body>
 
 </html>

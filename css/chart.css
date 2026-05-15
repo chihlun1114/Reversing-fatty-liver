@@ -50,6 +50,40 @@
   padding: 0 10px;
 }
 
+.chart-section__further {
+  max-width: 700px;
+  margin: clamp(28px, 4vw, 40px) auto 0;
+  text-align: center;
+}
+
+.chart-section__further-label {
+  margin: 0 0 10px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #0d9488;
+}
+
+.chart-section__further-link {
+  display: inline;
+  font-size: clamp(0.9375rem, 1.6vw, 1.0625rem);
+  line-height: 1.75;
+  color: #0f172a;
+  text-decoration: underline;
+  text-decoration-color: rgba(15, 23, 42, 0.35);
+  text-underline-offset: 0.2em;
+}
+
+.chart-section__further-link:hover,
+.chart-section__further-link:focus-visible {
+  color: #0d9488;
+  text-decoration-color: currentColor;
+}
+
+.chart-section__further-chev {
+  margin-left: 0.1em;
+}
+
 .chart-swiper.swiper {
   width: 100%;
   overflow: hidden;
@@ -544,7 +578,7 @@
 }
 
 /*
- * Block 1–9 最外層 <section> 共用底（index.html 加上 .global-section-bg；勿用於卡片／浮層）
+ * Block 1–10 最外層 <section> 共用底（index.html 加上 .global-section-bg；勿用於卡片／浮層）
  * 置於本檔末尾，載入順序在其它 block CSS 之後，並以 !important 蓋過區塊內既有的 section 底色／漸層
  */
 section.global-section-bg {

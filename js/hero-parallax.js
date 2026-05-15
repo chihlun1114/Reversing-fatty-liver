@@ -1,5 +1,6 @@
 /**
  * Hero — 400 顆脂肪牆 + 360° 噴散；進場鎖屏 → 滾輪觸發 → 播完解鎖。
+ * 脂肪球外包 .bubble-wrap：wrap 僅做 CSS 呼吸動畫（transform），GSAP 用 left/top 移動避免衝突。
  */
 (function () {
   "use strict";
@@ -22,6 +23,14 @@
 
   var activeTimeline = null;
 
+  var mqNarrow =
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(max-width: 768px)").matches;
+
+  var mqReduceMotion =
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   function initTitleState() {
     var title = hero.querySelector(".layer-title");
     if (!title) return;
@@ -40,16 +49,35 @@
 
   bubbleContainer.innerHTML = "";
 
+  var imgSize = mqNarrow ? 88 : 128;
+  var scaleMin = mqNarrow ? 0.38 : 0.6;
+  var scaleMax = mqNarrow ? 0.52 : 1.1;
+  var endScaleMin = mqNarrow ? 0.36 : 0.5;
+  var endScaleMax = mqNarrow ? 0.5 : 1.0;
+
   var i;
   for (i = 0; i < 400; i++) {
+    var shell = document.createElement("span");
+    shell.className = "bubble-wrap";
+    shell.setAttribute("aria-hidden", "true");
+
     var img = document.createElement("img");
     img.src = bubbleSources[i % bubbleSources.length];
     img.className = "bubble";
     img.alt = "";
     img.decoding = "async";
-    img.width = 128;
-    img.height = 128;
-    bubbleContainer.appendChild(img);
+    img.width = imgSize;
+    img.height = imgSize;
+
+    var breatheDur = 6 + (i % 3);
+    shell.style.animationDuration = breatheDur + "s";
+    shell.style.animationDelay = ((i % 12) * 0.28).toFixed(2) + "s";
+    if (mqReduceMotion) {
+      shell.style.animation = "none";
+    }
+
+    shell.appendChild(img);
+    bubbleContainer.appendChild(shell);
   }
 
   initLiverState();
@@ -58,14 +86,17 @@
   var w = window.innerWidth;
   var h = window.innerHeight;
 
-  var bubbles = gsap.utils.toArray(bubbleContainer.querySelectorAll(".bubble"));
+  var wraps = gsap.utils.toArray(bubbleContainer.querySelectorAll(".bubble-wrap"));
 
-  bubbles.forEach(function (bubble) {
+  wraps.forEach(function (shell) {
+    var bubble = shell.querySelector(".bubble");
+    if (!bubble) return;
+    var rx = gsap.utils.random(-100, w + 100);
+    var ry = gsap.utils.random(-100, h + 100);
+    gsap.set(shell, { left: rx, top: ry, x: 0, y: 0 });
     gsap.set(bubble, {
       transformOrigin: "50% 50%",
-      x: gsap.utils.random(-100, w + 100),
-      y: gsap.utils.random(-100, h + 100),
-      scale: gsap.utils.random(0.6, 1.1),
+      scale: gsap.utils.random(scaleMin, scaleMax),
       rotation: gsap.utils.random(0, 360),
       opacity: 1,
     });
@@ -83,24 +114,36 @@
 
   tl.set(hero, { backgroundColor: "#e54524" }, 0);
 
-  bubbles.forEach(function (bubble, index) {
-    var baseAngle = (index / bubbles.length) * Math.PI * 2;
+  wraps.forEach(function (shell, index) {
+    var bubble = shell.querySelector(".bubble");
+    if (!bubble) return;
+
+    var baseAngle = (index / wraps.length) * Math.PI * 2;
     var angle = baseAngle + gsap.utils.random(-0.2, 0.2);
     var distance = gsap.utils.random(2000, 3500);
 
-    var endX = "+=" + Math.cos(angle) * distance;
-    var endY = "+=" + Math.sin(angle) * distance;
+    var dx = Math.cos(angle) * distance;
+    var dy = Math.sin(angle) * distance;
 
     var randomStartTime = gsap.utils.random(0, 0.3);
     var randomDuration = gsap.utils.random(0.8, 1.2);
 
     tl.to(
+      shell,
+      {
+        left: "+=" + dx,
+        top: "+=" + dy,
+        ease: "power2.inOut",
+        duration: randomDuration,
+      },
+      randomStartTime
+    );
+
+    tl.to(
       bubble,
       {
-        x: endX,
-        y: endY,
         rotation: "+=" + gsap.utils.random(-720, 720),
-        scale: gsap.utils.random(0.5, 1.0),
+        scale: gsap.utils.random(endScaleMin, endScaleMax),
         opacity: 1,
         ease: "power2.inOut",
         duration: randomDuration,

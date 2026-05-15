@@ -17,12 +17,30 @@ body {
   transform: none !important;
 }
 
+/* Hero 脂肪球：極緩呼吸（僅作用在 .bubble-wrap，與 GSAP 的 left/top 分離） */
+@keyframes breatheFat {
+  0%,
+  100% {
+    transform: scale(1) translateY(0);
+  }
+
+  50% {
+    transform: scale(1.02) translateY(-1px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #hero .bubbles-container .bubble-wrap {
+    animation: none !important;
+  }
+}
+
 #hero {
   position: relative;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-color: #FFD54F !important;
+  background-color: #ffd54f !important;
 }
 
 #hero .layer-liver {
@@ -64,10 +82,23 @@ body {
   visibility: visible;
 }
 
-#hero .bubbles-container .bubble {
+#hero .bubbles-container .bubble-wrap {
   position: absolute;
   left: 0;
   top: 0;
+  display: inline-block;
+  line-height: 0;
+  transform-origin: center center;
+  -webkit-transform-origin: center center;
+  pointer-events: none;
+  animation: breatheFat 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+#hero .bubbles-container .bubble-wrap .bubble {
+  position: relative;
+  left: auto;
+  top: auto;
   display: block;
   width: auto;
   height: auto;
@@ -90,5 +121,17 @@ body {
 
   #hero .layer-liver {
     object-position: center !important;
+  }
+
+  /* 手機：整體球體更小、呼吸幅度略收斂，避免干擾堆疊 */
+  #hero .bubbles-container .bubble-wrap {
+    animation-duration: 7.5s !important;
+  }
+
+  #hero .bubbles-container .bubble-wrap .bubble {
+    max-width: 72px !important;
+    max-height: 72px !important;
+    width: auto !important;
+    height: auto !important;
   }
 }

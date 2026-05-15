@@ -15,6 +15,13 @@
   box-sizing: border-box;
 }
 
+/* 延伸閱讀與區塊一共用 chart.css 類別；此處補齊與 intro 一致的水平內距 */
+#section-5 .chart-section__further {
+  padding-left: clamp(16px, 4vw, 28px);
+  padding-right: clamp(16px, 4vw, 28px);
+  box-sizing: border-box;
+}
+
 .recipe-block__intro {
   max-width: 960px;
   margin: 0 auto;
