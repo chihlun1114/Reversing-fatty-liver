@@ -109,8 +109,6 @@
     });
   });
 
-  gsap.set(bubbleContainer, { autoAlpha: 1 });
-
   var tl = gsap.timeline({
     paused: true,
     onComplete: function () {
@@ -194,8 +192,6 @@
   if (window.scrollY === 0) {
     document.body.style.overflow = "hidden";
     document.documentElement.style.overflow = "hidden";
-
-    gsap.set(bubbleContainer, { autoAlpha: 1 });
 
     var triggerAnim = function () {
       window.removeEventListener("wheel", triggerAnim);
