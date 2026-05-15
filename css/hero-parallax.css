@@ -53,20 +53,8 @@ body {
   background-size: cover !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
-}
-
-/* 靜態底圖層：JS 脂肪球生成前先繪製，避免純黃色 FOUC */
-#hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-color: #ffd54f;
-  background-image: url("../images/fatty-liver.webp");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+  transform: translateZ(0);
+  -webkit-transform: translate3d(0, 0, 0);
 }
 
 #hero .layer-liver {
