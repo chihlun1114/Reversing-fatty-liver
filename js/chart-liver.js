@@ -4,7 +4,7 @@
 (function () {
   "use strict";
 
-  var SECTION_SEL = "#section-1";
+  var SECTION_SEL = "#section-2";
   var SWIPER_SEL = ".chart-swiper";
   var SWIPER_PAGINATION_SEL = ".chart-swiper__pagination";
   var CANVAS_ID = "liverChart";
@@ -13,10 +13,10 @@
   var COLORS = ["#ff5d5f", "#555555", "#888888", "#bbbbbb"];
 
   var CENTER_META = [
-    { pct: "39.6", label: "有定期健檢", color: "#ff5d5f" },
-    { pct: "24.1", label: "完全不會", color: "#555555" },
-    { pct: "19.5", label: "進階檢查", color: "#888888" },
-    { pct: "16.8", label: "有脂肪肝沒追蹤", color: "#bbbbbb" },
+    { pct: "39.6", label: "有定期做健檢<br>並留意數據", color: "#ff5d5f" },
+    { pct: "24.1", label: "完全不會，也不確定自己有沒有脂肪肝", color: "#555555" },
+    { pct: "19.5", label: "除了定期健檢，還會額外安排超音波或進階影像檢查", color: "#888888" },
+    { pct: "16.8", label: "有脂肪肝，但沒有定期追蹤", color: "#bbbbbb" },
   ];
 
   var doughnutInstance = null;
@@ -48,7 +48,7 @@
     }
     if (labelEl) {
       labelEl.style.color = meta.color;
-      labelEl.textContent = meta.label;
+      labelEl.innerHTML = meta.label;
     }
   }
 
@@ -80,10 +80,10 @@
       type: "doughnut",
       data: {
         labels: [
-          "有定期健檢",
-          "完全不會",
-          "進階檢查",
-          "有脂肪肝沒追蹤",
+          "有定期做健檢（一般員工／成人健檢）並留意數據",
+          "完全不會，也不確定自己有沒有脂肪肝",
+          "除了定期健檢，還會額外安排超音波或進階影像檢查",
+          "有脂肪肝，但沒有定期追蹤",
         ],
         datasets: [
           {

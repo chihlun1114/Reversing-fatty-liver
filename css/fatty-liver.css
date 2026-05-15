@@ -2,6 +2,7 @@
 @import "https://fonts.googleapis.com/css?family=Noto+Serif+TC:300,400,600,700,800";
 
 html {
+  scroll-behavior: smooth !important;
   background-color: #fafaf7;
 }
 
@@ -162,6 +163,21 @@ body {
 
 .global-section-intro p:last-child {
   margin-bottom: 0 !important;
+}
+
+/* 調查日期、註解、資料來源等小字（全站前言區塊共用） */
+.global-section-intro .section-intro-meta,
+.global-section-intro .chart-section__survey-meta {
+  margin: 0.75rem 0 0;
+  font-size: clamp(0.8125rem, 1.35vw, 0.875rem) !important;
+  line-height: 1.6;
+  color: #777 !important;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+.global-section-intro .section-intro-meta + .section-intro-meta {
+  margin-top: 0.35rem;
 }
 
 /* 肝臟演進模組內層透明，透出 section-3 外層底色（.global-section-bg） */

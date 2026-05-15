@@ -17,8 +17,8 @@ body {
   transform: none !important;
 }
 
-/* Hero 脂肪球：呼吸動畫僅使用獨立 scale / filter（不寫 transform，避免覆寫 GSAP） */
-@keyframes breatheFatSafe {
+/* Hero 脂肪球：僅 scale / filter 呼吸（不寫 transform，避免覆寫 GSAP 的 left/top） */
+@keyframes activeFatSafe {
   0%,
   100% {
     scale: 1;
@@ -26,13 +26,13 @@ body {
   }
 
   50% {
-    scale: 1.04;
-    filter: brightness(105%);
+    scale: 1.1;
+    filter: brightness(112%);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #hero .bubbles-container .bubble-wrap {
+  #hero .bubbles-container .fat-globule {
     animation: none !important;
     scale: 1;
     filter: none;
@@ -95,24 +95,31 @@ body {
   transform-origin: center center;
   -webkit-transform-origin: center center;
   pointer-events: none;
-  animation: breatheFatSafe 6s ease-in-out infinite;
-  animation-delay: 0s;
+}
+
+#hero .bubbles-container .fat-globule {
+  animation: activeFatSafe 2.8s infinite ease-in-out !important;
   will-change: scale, filter;
 }
 
-#hero .bubbles-container > .bubble-wrap:nth-child(2n) {
-  animation-duration: 8s;
-  animation-delay: 1s;
+#hero .bubbles-container > .fat-globule:nth-child(2n) {
+  animation-duration: 2.4s !important;
+  animation-delay: -1.2s !important;
 }
 
-#hero .bubbles-container > .bubble-wrap:nth-child(3n) {
-  animation-duration: 7s;
-  animation-delay: 2.5s;
+#hero .bubbles-container > .fat-globule:nth-child(3n) {
+  animation-duration: 3.2s !important;
+  animation-delay: -0.8s !important;
 }
 
-#hero .bubbles-container > .bubble-wrap:nth-child(5n) {
-  animation-duration: 9s;
-  animation-delay: 0.5s;
+#hero .bubbles-container > .fat-globule:nth-child(5n) {
+  animation-duration: 2.1s !important;
+  animation-delay: -2.5s !important;
+}
+
+#hero .bubbles-container > .fat-globule:nth-child(7n) {
+  animation-duration: 3.5s !important;
+  animation-delay: -0.3s !important;
 }
 
 #hero .bubbles-container .bubble-wrap .bubble {
